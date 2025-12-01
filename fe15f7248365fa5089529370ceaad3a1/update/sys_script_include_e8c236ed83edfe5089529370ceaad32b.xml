@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1865669_retrospe.RetroTeamHelper</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>RetroTeamHelper</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var RetroTeamHelper = Class.create();
+RetroTeamHelper.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+    
+    // Get user's team
+    getUserTeam: function() {
+        var userId = this.getParameter('sysparm_user_id');
+        
+        if (!userId) {
+            return '';
+        }
+        
+        var teamMember = new GlideRecord('x_1865669_retrospe_team_member');
+        teamMember.addQuery('user', userId);
+        teamMember.addQuery('active', true);
+        teamMember.query();
+        
+        if (teamMember.next()) {
+            return teamMember.team.toString();
+        }
+        
+        return '';
+    },
+    
+    // Get team's current sprint (ready for submission)
+    getCurrentSprint: function() {
+        var userId = this.getParameter('sysparm_user_id');
+        
+        if (!userId) {
+            return '';
+        }
+        
+        // First, get user's team
+        var teamMember = new GlideRecord('x_1865669_retrospe_team_member');
+        teamMember.addQuery('user', userId);
+        teamMember.addQuery('active', true);
+        teamMember.query();
+        
+        if (!teamMember.next()) {
+            return '';
+        }
+        
+        var teamId = teamMember.team.toString();
+        
+        // Then, get team's current sprint that's ready for submission
+        var sprint = new GlideRecord('x_1865669_retrospe_sprint');
+        sprint.addQuery('team', teamId);
+        sprint.addQuery('state', 'ready_for_submission');
+        sprint.orderByDesc('start_date'); // Get most recent
+        sprint.setLimit(1);
+        sprint.query();
+        
+        if (sprint.next()) {
+            return sprint.sys_id.toString();
+        }
+        
+        return '';
+    },
+    
+    type: 'RetroTeamHelper'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-01 11:31:41</sys_created_on>
+        <sys_id>e8c236ed83edfe5089529370ceaad32b</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>RetroTeamHelper</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_script_include_e8c236ed83edfe5089529370ceaad32b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-01 13:56:09</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>e8c236ed83edfe5089529370ceaad32b</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-01 11:31:41</sys_created_on>
+        <sys_id>4ac3b2ed83edfe5089529370ceaad3e4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-01 11:31:41</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

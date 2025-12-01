@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="0319d8308329fa5089529370ceaad3ff" label="Sprint Metrics" max_length="40" name="x_1865669_retrospe_sprint_metrics" type="collection">
+        <element label="Sprint" mandatory="true" max_length="32" name="sprint" reference="x_1865669_retrospe_sprint" type="reference"/>
+        <element default="JavaScript: gs.nowDateTime()" label="Calculated Date" mandatory="true" max_length="40" name="calculated_date" type="glide_date_time"/>
+        <element default="0" label="Total Retros" max_length="40" name="total_retros" type="integer"/>
+        <element default="0" label="Valid Retros" max_length="40" name="valid_retros" type="integer"/>
+        <element default="0.0" label="Completion Score" max_length="20" name="completion_score" type="decimal"/>
+        <element default="0" label="Tasks Completed" max_length="40" name="tasks_completed" type="integer"/>
+        <element default="0" label="Tasks In Progress" max_length="40" name="tasks_in_progress" type="integer"/>
+        <element default="0" label="Tasks Cancelled" max_length="40" name="tasks_cancelled" type="integer"/>
+        <element default="0" label="Total Tasks" max_length="40" name="total_tasks" type="integer"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <index name="index">
+            <element name="sprint"/>
+        </index>
+        <index name="index2" unique="true">
+            <element name="sprint"/>
+        </index>
+    </element>
+</database>

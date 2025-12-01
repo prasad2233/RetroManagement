@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="23eab36c8365fa5089529370ceaad318" label="Team Member" max_length="40" name="x_1865669_retrospe_team_member" type="collection">
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Team" mandatory="true" max_length="32" name="team" reference="x_1865669_retrospe_team" type="reference"/>
+        <element display="true" label="User" mandatory="true" max_length="32" name="user" reference="sys_user" type="reference"/>
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element default="JavaScript: gs.nowNoTZ()" label="Joined Date" max_length="40" name="joined_date" type="glide_date"/>
+        <index name="index" unique="true">
+            <element name="team"/>
+            <element name="user"/>
+        </index>
+        <index name="index2" unique="true">
+            <element name="user"/>
+            <element name="team"/>
+        </index>
+    </element>
+</database>

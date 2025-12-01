@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="7cdb90388329fa5089529370ceaad32a" label="Notification Log" max_length="40" name="x_1865669_retrospe_notification_log" type="collection">
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="User" mandatory="true" max_length="32" name="user" reference="sys_user" type="reference"/>
+        <element label="Sprint" max_length="32" name="sprint" reference="x_1865669_retrospe_sprint" type="reference"/>
+        <element label="Retro Submission" max_length="32" name="retro_submission" reference="x_1865669_retrospe_retrospective_submission" type="reference"/>
+        <element choice="1" label="Notification Type" mandatory="true" max_length="40" name="notification_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Task Assigned" sequence="200" value="task_assigned"/>
+                <element inactive_on_update="false" label="Task Updated" sequence="400" value="task_updated"/>
+                <element inactive_on_update="false" label="Sprint State Changed" sequence="300" value="sprint_state_changed"/>
+                <element inactive_on_update="false" label="Retro Submitted" sequence="100" value="retro_submitted"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="retro_submission"/>
+        </index>
+        <index name="index2">
+            <element name="sprint"/>
+        </index>
+        <index name="index3">
+            <element name="user"/>
+        </index>
+    </element>
+</database>

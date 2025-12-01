@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="DELETE">
+        <active>true</active>
+        <application display_value="Retrospective Task">b962907c83e5fa5089529370ceaad313</application>
+        <assessment/>
+        <device_type/>
+        <filter/>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>LIST</link_type>
+        <map_page/>
+        <mobile_title>Retrospective Tasks</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name>x_1865669_retrospe_retrospective_task</name>
+        <order/>
+        <override_menu_roles>false</override_menu_roles>
+        <query/>
+        <report/>
+        <require_confirmation>true</require_confirmation>
+        <roles>x_1865669_retrospe.admin</roles>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-28 15:51:10</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>3962907c83e5fa5089529370ceaad318</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Retrospective Tasks</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_app_module_3962907c83e5fa5089529370ceaad318</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-28 15:51:10</sys_updated_on>
+        <timeline_page/>
+        <title>Retrospective Tasks</title>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sys_app_module_3962907c83e5fa5089529370ceaad318</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module"><sys_app_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="Retrospective Task">b962907c83e5fa5089529370ceaad313</application><assessment/><device_type/><filter/><hint/><homepage/><image/><link_type>LIST</link_type><map_page/><mobile_title>Retrospective Tasks</mobile_title><mobile_view_name>Mobile</mobile_view_name><name>x_1865669_retrospe_retrospective_task</name><order/><override_menu_roles>false</override_menu_roles><query/><report/><require_confirmation>true</require_confirmation><roles>x_1865669_retrospe.admin</roles><sys_class_name>sys_app_module</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-11-28 15:51:10</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>3962907c83e5fa5089529370ceaad318</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Retrospective Tasks</sys_name><sys_overrides/><sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package><sys_policy/><sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope><sys_update_name>sys_app_module_3962907c83e5fa5089529370ceaad318</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-11-28 15:51:10</sys_updated_on><timeline_page/><title>Retrospective Tasks</title><uncancelable>false</uncancelable><view_name/><window_name/></sys_app_module></record_update>]]></payload>
+        <payload_hash>1354849854</payload_hash>
+        <record_name>Retrospective Tasks</record_name>
+        <reverted_from/>
+        <source>b215f7248365fa5089529370ceaad3a6</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-28 15:51:10</sys_created_on>
+        <sys_id>f162907c83e5fa5089529370ceaad31c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19acb29440e0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-28 15:51:10</sys_updated_on>
+        <type>Module</type>
+        <update_guid>b562907c72e5fa50adeedde36937411b</update_guid>
+        <update_guid_history>b562907c72e5fa50adeedde36937411b:1354849854</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Retrospective Tasks">df959c308329fa5089529370ceaad389</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-28 16:05:11</sys_created_on>
+        <sys_db_object display_value="" name="sys_app_module">sys_app_module</sys_db_object>
+        <sys_id>398450e489614be69e46a5443b3e51d9</sys_id>
+        <sys_metadata>3962907c83e5fa5089529370ceaad318</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Retrospective Tasks</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sys_app_module_3962907c83e5fa5089529370ceaad318</sys_update_name>
+        <sys_update_version display_value="sys_app_module_3962907c83e5fa5089529370ceaad318">f162907c83e5fa5089529370ceaad31c</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-28 16:05:11</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

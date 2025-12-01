@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="0494cc3883a5fa5089529370ceaad3a1" label="Retrospective Submission" max_length="40" name="x_1865669_retrospe_retrospective_submission" type="collection">
+        <element label="Reviewed Date" max_length="40" name="reviewed_date" type="glide_date_time"/>
+        <element choice="3" default="submitted" label="Status" mandatory="true" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Not Needed" sequence="300" value="not_needed"/>
+                <element inactive_on_update="false" label="Submitted" sequence="100" value="submitted"/>
+                <element inactive_on_update="false" label="Valid" sequence="200" value="valid"/>
+                <element inactive_on_update="false" label="Reviewed" value="reviewed"/>
+            </choice>
+        </element>
+        <element label="Continue Items" max_length="4000" name="continue_items" type="html"/>
+        <element label="Team" mandatory="true" max_length="32" name="team" reference="x_1865669_retrospe_team" type="reference"/>
+        <element label="Reviewed By" max_length="32" name="reviewed_by" reference="sys_user" type="reference"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="Submitted By" mandatory="true" max_length="32" name="submitted_by" reference="sys_user" type="reference"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Start Items" max_length="4000" name="start_items" type="html"/>
+        <element label="Sprint" mandatory="true" max_length="32" name="sprint" reference="x_1865669_retrospe_sprint" type="reference"/>
+        <element default="javascript:gs.nowDateTime()" dynamic_default_value="79cb83a85f220100a9ad2572f2b4773c" label="Submitted Date" max_length="40" name="submitted_date" type="glide_date_time" use_dynamic_default="true"/>
+        <element label="Stop Items" max_length="4000" name="stop_items" type="html"/>
+        <index name="index">
+            <element name="reviewed_by"/>
+        </index>
+        <index name="index2" unique="true">
+            <element name="sprint"/>
+            <element name="submitted_by"/>
+        </index>
+        <index name="index3">
+            <element name="submitted_by"/>
+        </index>
+        <index name="index4">
+            <element name="team"/>
+        </index>
+    </element>
+</database>

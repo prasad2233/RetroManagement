@@ -6,23 +6,21 @@
         <applies_to/>
         <condition/>
         <decision_type>allow</decision_type>
-        <description>Allow write for records in x_1865669_retrospe_retrospective_submission, for users with role x_1865669_retrospe.employee, and if the ACL script returns true.</description>
+        <description>Default access control on x_1865669_retrospe_retrospective_task</description>
         <local_or_existing>Local</local_or_existing>
-        <name>x_1865669_retrospe_retrospective_submission</name>
+        <name>x_1865669_retrospe_retrospective_task</name>
         <operation display_value="write">write</operation>
         <script><![CDATA[answer = (function executeRule(current, previous) {
     
+	// if (current.status != 'subimtted') {
+    //     return false;
+    // }
 	
     // Must be the submitter
     if (current.submitted_by == gs.getUserID()) {
-           return false; // OK to edit
+          return true;
     }
-	
-	if (current.status == 'submitted') {
-           return true; // OK to edit
-       }
-    
-    
+
     // Cannot edit after manager reviewed
     return false;
     
@@ -31,26 +29,26 @@
         <security_attribute/>
         <sys_class_name>sys_security_acl</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-12-01 12:53:38</sys_created_on>
-        <sys_id>5f954ba58361329089529370ceaad3b2</sys_id>
-        <sys_mod_count>6</sys_mod_count>
-        <sys_name>x_1865669_retrospe_retrospective_submission</sys_name>
+        <sys_created_on>2025-12-04 08:28:52</sys_created_on>
+        <sys_id>e4762da28369369089529370ceaad353</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>x_1865669_retrospe_retrospective_task</sys_name>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
         <sys_policy/>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
-        <sys_update_name>sys_security_acl_5f954ba58361329089529370ceaad3b2</sys_update_name>
+        <sys_update_name>sys_security_acl_e4762da28369369089529370ceaad353</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-01 13:46:15</sys_updated_on>
+        <sys_updated_on>2025-12-04 10:25:37</sys_updated_on>
         <type display_value="record">record</type>
     </sys_security_acl>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
-        <id>5f954ba58361329089529370ceaad3b2</id>
+        <id>e4762da28369369089529370ceaad353</id>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-12-01 12:53:11</sys_created_on>
-        <sys_id>736643a18321329089529370ceaad3ab</sys_id>
+        <sys_created_on>2025-12-04 08:28:48</sys_created_on>
+        <sys_id>98b6e1e28369369089529370ceaad3e3</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-01 12:53:11</sys_updated_on>
+        <sys_updated_on>2025-12-04 08:28:48</sys_updated_on>
         <table>sys_security_acl</table>
         <use_es_latest>true</use_es_latest>
     </sys_es_latest_script>

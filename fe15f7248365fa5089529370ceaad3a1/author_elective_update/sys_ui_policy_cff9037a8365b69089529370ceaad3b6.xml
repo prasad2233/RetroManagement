@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_policy">
+    <sys_ui_policy action="DELETE">
+        <active>true</active>
+        <conditions/>
+        <description/>
+        <global>true</global>
+        <inherit>false</inherit>
+        <isolate_script>true</isolate_script>
+        <model_id/>
+        <model_table/>
+        <on_load>true</on_load>
+        <order>100</order>
+        <reverse_if_false>true</reverse_if_false>
+        <run_scripts>true</run_scripts>
+        <script_false><![CDATA[function onCondition() {
+
+}]]></script_false>
+        <script_true><![CDATA[function onCondition() {
+    if (g_form.isNewRecord()) {
+        var sprintId = g_form.getValue('sprint');
+        var userId = g_form.getValue('submitted_by');
+
+        if (sprintId && userId) {
+            // Check for duplicate
+            var ga = new GlideAjax('RetroManagementAjax');
+            ga.addParam('sysparm_name', 'checkDuplicateSubmission');
+            ga.addParam('sysparm_sprint_id', sprintId);
+
+            ga.getXMLAnswer(function(answer) {
+                if (answer === 'true') {
+                    g_form.addErrorMessage('You have already submitted for this sprint');
+                    g_form.removeSubmitButton();
+                }
+            });
+        }
+    }
+
+}]]></script_true>
+        <set_values/>
+        <short_description>Disable Form for Duplicate Submissions</short_description>
+        <sys_class_name>sys_ui_policy</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 10:22:05</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>cff9037a8365b69089529370ceaad3b6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Disable Form for Duplicate Submissions</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_ui_policy_cff9037a8365b69089529370ceaad3b6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 10:22:05</sys_updated_on>
+        <table>x_1865669_retrospe_retrospective_submission</table>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_ui_policy>
+    <sys_es_latest_script action="DELETE">
+        <id>cff9037a8365b69089529370ceaad3b6</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 10:22:04</sys_created_on>
+        <sys_id>d53a8f3a8365b69089529370ceaad31f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 10:22:04</sys_updated_on>
+        <table>sys_ui_policy</table>
+        <use_es_latest>false</use_es_latest>
+    </sys_es_latest_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sys_ui_policy_cff9037a8365b69089529370ceaad3b6</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_ui_policy"&gt;&lt;sys_ui_policy action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;conditions/&gt;&lt;description/&gt;&lt;global&gt;true&lt;/global&gt;&lt;inherit&gt;false&lt;/inherit&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;model_id/&gt;&lt;model_table/&gt;&lt;on_load&gt;true&lt;/on_load&gt;&lt;order&gt;100&lt;/order&gt;&lt;reverse_if_false&gt;true&lt;/reverse_if_false&gt;&lt;run_scripts&gt;true&lt;/run_scripts&gt;&lt;script_false&gt;&lt;![CDATA[function onCondition() {
+
+}]]&gt;&lt;/script_false&gt;&lt;script_true&gt;&lt;![CDATA[function onCondition() {
+    if (g_form.isNewRecord()) {
+        var sprintId = g_form.getValue('sprint');
+        var userId = g_form.getValue('submitted_by');
+
+        if (sprintId &amp;&amp; userId) {
+            // Check for duplicate
+            var ga = new GlideAjax('RetroManagementAjax');
+            ga.addParam('sysparm_name', 'checkDuplicateSubmission');
+            ga.addParam('sysparm_sprint_id', sprintId);
+
+            ga.getXMLAnswer(function(answer) {
+                if (answer === 'true') {
+                    g_form.addErrorMessage('You have already submitted for this sprint');
+                    g_form.removeSubmitButton();
+                }
+            });
+        }
+    }
+
+}]]&gt;&lt;/script_true&gt;&lt;set_values/&gt;&lt;short_description&gt;Disable Form for Duplicate Submissions&lt;/short_description&gt;&lt;sys_class_name&gt;sys_ui_policy&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-12-05 10:22:05&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;cff9037a8365b69089529370ceaad3b6&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Disable Form for Duplicate Submissions&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Retrospective Management" source="x_1865669_retrospe"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Retrospective Management"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_policy_cff9037a8365b69089529370ceaad3b6&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-12-05 10:22:05&lt;/sys_updated_on&gt;&lt;table&gt;x_1865669_retrospe_retrospective_submission&lt;/table&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_ui_policy&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;cff9037a8365b69089529370ceaad3b6&lt;/id&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-12-05 10:22:04&lt;/sys_created_on&gt;&lt;sys_id&gt;d53a8f3a8365b69089529370ceaad31f&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-12-05 10:22:04&lt;/sys_updated_on&gt;&lt;table&gt;sys_ui_policy&lt;/table&gt;&lt;use_es_latest&gt;false&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1542689463</payload_hash>
+        <record_name>Disable Form for Duplicate Submissions</record_name>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 10:22:05</sys_created_on>
+        <sys_id>613a477a8365b69089529370ceaad345</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19aee0880470000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 10:22:05</sys_updated_on>
+        <type>UI Policy</type>
+        <update_guid>6d3a4f3aaf65b690025db68bbc0103e1</update_guid>
+        <update_guid_history>6d3a4f3aaf65b690025db68bbc0103e1:-1542689463</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 10:47:39</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_policy">sys_ui_policy</sys_db_object>
+        <sys_id>15d5779ea1dd4c5c84017a6e3024f1e9</sys_id>
+        <sys_metadata>cff9037a8365b69089529370ceaad3b6</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Disable Form for Duplicate Submissions</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent display_value="Retrospective Submission">0494cc3883a5fa5089529370ceaad3a1</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sys_ui_policy_cff9037a8365b69089529370ceaad3b6</sys_update_name>
+        <sys_update_version display_value="sys_ui_policy_cff9037a8365b69089529370ceaad3b6">613a477a8365b69089529370ceaad345</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 10:47:39</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

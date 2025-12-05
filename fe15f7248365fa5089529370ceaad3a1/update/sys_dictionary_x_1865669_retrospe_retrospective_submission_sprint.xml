@@ -6,11 +6,37 @@
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
-	// Add your code here
-	return '';  // return the calculated value
+    // 1) Find teams for current user
+    var userTeams = [];
+    var m2m = new GlideRecord('x_1865669_retrospe_team_member'); // your membership table
+    m2m.addQuery('user', gs.getUserID());
+    m2m.addActiveQuery(); // remove if no 'active' field
+    m2m.query();
 
+    while (m2m.next()) {
+        userTeams.push(m2m.team.toString());
+    }
+
+    if (userTeams.length === 0)
+        return ''; // user not in any team
+
+    // 2) Find a sprint for those teams that is ready for retro
+    var sprint = new GlideRecord('x_1865669_retrospe_sprint');
+    sprint.addQuery('team', 'IN', userTeams.join(','));
+    sprint.addQuery('state', 'ready_for_submission');
+    sprint.setLimit(1);
+    sprint.query();
+	
+
+    if (sprint.next()) {
+		gs.info("sprint is "+sprint.getUniqueValue());
+        return sprint.getUniqueValue(); // sys_id of sprint
+    }
+
+    return '';
+    
 })(current);]]></calculation>
-        <choice/>
+        <choice>1</choice>
         <choice_field/>
         <choice_table/>
         <column_label>Sprint</column_label>
@@ -44,8 +70,10 @@
         <reference_cascade_rule/>
         <reference_floats>false</reference_floats>
         <reference_key/>
-        <reference_qual/>
-        <reference_qual_condition/>
+        <reference_qual>stateINready_for_submission,ready_for_review^EQ</reference_qual>
+        <reference_qual_condition table="x_1865669_retrospe_sprint">stateINready_for_submission,ready_for_review^EQ<item display_value="ready_for_submission,ready_for_review" endquery="false" field="state" goto="false" newquery="false" operator="IN" or="false" value="ready_for_submission,ready_for_review"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </reference_qual_condition>
         <reference_type/>
         <spell_check>false</spell_check>
         <staged>false</staged>
@@ -58,7 +86,7 @@
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name>sys_dictionary_x_1865669_retrospe_retrospective_submission_sprint</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-11-28 14:55:09</sys_updated_on>
+        <sys_updated_on>2025-12-05 13:17:31</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

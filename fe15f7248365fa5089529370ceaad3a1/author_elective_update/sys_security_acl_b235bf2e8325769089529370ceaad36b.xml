@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl">
+    <sys_security_acl action="DELETE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>false</advanced>
+        <applies_to/>
+        <condition/>
+        <decision_type>allow</decision_type>
+        <description/>
+        <local_or_existing>Local</local_or_existing>
+        <name>x.1865669.sample-app.*</name>
+        <operation display_value="read">read</operation>
+        <script/>
+        <security_attribute/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2025-12-04 18:51:33</sys_created_on>
+        <sys_id>b235bf2e8325769089529370ceaad36b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x.1865669.sample-app.*</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_security_acl_b235bf2e8325769089529370ceaad36b</sys_update_name>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2025-12-04 18:51:33</sys_updated_on>
+        <type display_value="ux_route">b9eb8a1b873303002941b53046cb1234</type>
+    </sys_security_acl>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sys_security_acl_b235bf2e8325769089529370ceaad36b</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl"><sys_security_acl action="INSERT_OR_UPDATE"><active>true</active><admin_overrides>true</admin_overrides><advanced>false</advanced><applies_to/><condition/><decision_type>allow</decision_type><description/><local_or_existing>Local</local_or_existing><name>x.1865669.sample-app.*</name><operation display_value="read">read</operation><script/><security_attribute/><sys_class_name>sys_security_acl</sys_class_name><sys_created_by>system</sys_created_by><sys_created_on>2025-12-04 18:51:33</sys_created_on><sys_id>b235bf2e8325769089529370ceaad36b</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x.1865669.sample-app.*</sys_name><sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package><sys_policy/><sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope><sys_update_name>sys_security_acl_b235bf2e8325769089529370ceaad36b</sys_update_name><sys_updated_by>system</sys_updated_by><sys_updated_on>2025-12-04 18:51:33</sys_updated_on><type display_value="ux_route">b9eb8a1b873303002941b53046cb1234</type></sys_security_acl></record_update>]]></payload>
+        <payload_hash>631934496</payload_hash>
+        <record_name>x.1865669.sample-app.*</record_name>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2025-12-04 18:51:33</sys_created_on>
+        <sys_id>b235bf2e8325769089529370ceaad36e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19aeab492140000001</sys_recorded_at>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2025-12-04 18:51:33</sys_updated_on>
+        <type>Access Control</type>
+        <update_guid>b635bf2eb725769066d71c9e50fd416d</update_guid>
+        <update_guid_history>b635bf2eb725769066d71c9e50fd416d:631934496</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2025-12-05 06:43:44</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl">sys_security_acl</sys_db_object>
+        <sys_id>30c083a77ef14afba93eb7a3104c33b1</sys_id>
+        <sys_metadata>b235bf2e8325769089529370ceaad36b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x.1865669.sample-app.*</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sys_security_acl_b235bf2e8325769089529370ceaad36b</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_b235bf2e8325769089529370ceaad36b">b235bf2e8325769089529370ceaad36e</sys_update_version>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2025-12-05 06:43:44</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

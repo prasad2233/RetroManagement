@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Prevent Duplicate Retro on Submit</name>
+        <order/>
+        <script><![CDATA[function onSubmit() {
+   //Type appropriate comment here, and begin script 
+       if (!g_form.isNewRecord()) {
+        return true; // Allow updates
+    }
+    
+    var sprintId = g_form.getValue('sprint');
+    
+    if (!sprintId) {
+        return true; // Let other validation handle empty sprint
+    }
+    
+    // Synchronous check using GlideRecord (client-side limitation workaround)
+    // Note: This makes a synchronous call which may slow form submission
+    var ga = new GlideAjax('RetroManagementAjax');
+    ga.addParam('sysparm_name', 'checkDuplicateSubmission');
+    ga.addParam('sysparm_sprint_id', sprintId);
+    
+    // Use synchronous call for onSubmit
+    var answer = ga.getXMLWait();
+    
+    if (answer === 'true') {
+        g_form.addErrorMessage('You have already submitted a retrospective for this sprint. Submission blocked.');
+        return false; // Block submission
+    }
+    
+    return true; // Allow submission   
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 09:39:47</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>62508bfa8325b69089529370ceaad3c0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Prevent Duplicate Retro on Submit</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_script_client_62508bfa8325b69089529370ceaad3c0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 09:39:47</sys_updated_on>
+        <table>x_1865669_retrospe_retrospective_submission</table>
+        <type>onSubmit</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sys_script_client_62508bfa8325b69089529370ceaad3c0</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Prevent Duplicate Retro on Submit&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onSubmit() {
+   //Type appropriate comment here, and begin script 
+       if (!g_form.isNewRecord()) {
+        return true; // Allow updates
+    }
+    
+    var sprintId = g_form.getValue('sprint');
+    
+    if (!sprintId) {
+        return true; // Let other validation handle empty sprint
+    }
+    
+    // Synchronous check using GlideRecord (client-side limitation workaround)
+    // Note: This makes a synchronous call which may slow form submission
+    var ga = new GlideAjax('RetroManagementAjax');
+    ga.addParam('sysparm_name', 'checkDuplicateSubmission');
+    ga.addParam('sysparm_sprint_id', sprintId);
+    
+    // Use synchronous call for onSubmit
+    var answer = ga.getXMLWait();
+    
+    if (answer === 'true') {
+        g_form.addErrorMessage('You have already submitted a retrospective for this sprint. Submission blocked.');
+        return false; // Block submission
+    }
+    
+    return true; // Allow submission   
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-12-05 09:39:47&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;62508bfa8325b69089529370ceaad3c0&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Prevent Duplicate Retro on Submit&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Retrospective Management" source="x_1865669_retrospe"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Retrospective Management"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_62508bfa8325b69089529370ceaad3c0&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-12-05 09:39:47&lt;/sys_updated_on&gt;&lt;table&gt;x_1865669_retrospe_retrospective_submission&lt;/table&gt;&lt;type&gt;onSubmit&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1726136897</payload_hash>
+        <record_name>Prevent Duplicate Retro on Submit</record_name>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 09:39:47</sys_created_on>
+        <sys_id>71800bfa8325b69089529370ceaad347</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19aede1c4240000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 09:39:47</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>75800bfa1325b690ba206c00db5b5a46</update_guid>
+        <update_guid_history>75800bfa1325b690ba206c00db5b5a46:1726136897</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 09:44:44</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>481085206a0c4c1aa1419a8d925b6904</sys_id>
+        <sys_metadata>62508bfa8325b69089529370ceaad3c0</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Prevent Duplicate Retro on Submit</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent display_value="Retrospective Submission">0494cc3883a5fa5089529370ceaad3a1</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sys_script_client_62508bfa8325b69089529370ceaad3c0</sys_update_name>
+        <sys_update_version display_value="sys_script_client_62508bfa8325b69089529370ceaad3c0">71800bfa8325b69089529370ceaad347</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 09:44:44</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

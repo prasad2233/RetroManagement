@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="DELETE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2025-12-04 18:51:33</sys_created_on>
+        <sys_id>fa35bf2e8325769089529370ceaad36e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x.1865669.sample-app.*.canvas_user</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_security_acl display_value="x.1865669.sample-app.*">b235bf2e8325769089529370ceaad36b</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_fa35bf2e8325769089529370ceaad36e</sys_update_name>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2025-12-04 18:51:33</sys_updated_on>
+        <sys_user_role display_value="canvas_user" name="canvas_user">8536f54bc713330072b211d4d8c26080</sys_user_role>
+    </sys_security_acl_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sys_security_acl_role_fa35bf2e8325769089529370ceaad36e</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>system</sys_created_by><sys_created_on>2025-12-04 18:51:33</sys_created_on><sys_id>fa35bf2e8325769089529370ceaad36e</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x.1865669.sample-app.*.canvas_user</sys_name><sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package><sys_policy/><sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope><sys_security_acl display_value="x.1865669.sample-app.*">b235bf2e8325769089529370ceaad36b</sys_security_acl><sys_update_name>sys_security_acl_role_fa35bf2e8325769089529370ceaad36e</sys_update_name><sys_updated_by>system</sys_updated_by><sys_updated_on>2025-12-04 18:51:33</sys_updated_on><sys_user_role display_value="canvas_user" name="canvas_user">8536f54bc713330072b211d4d8c26080</sys_user_role></sys_security_acl_role></record_update>]]></payload>
+        <payload_hash>98491265</payload_hash>
+        <record_name>x.1865669.sample-app.*.canvas_user</record_name>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2025-12-04 18:51:33</sys_created_on>
+        <sys_id>fa35bf2e8325769089529370ceaad371</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19aeab4923a0000001</sys_recorded_at>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2025-12-04 18:51:33</sys_updated_on>
+        <type>Access Roles</type>
+        <update_guid>fe35bf2ef72576900c86962d55738b70</update_guid>
+        <update_guid_history>fe35bf2ef72576900c86962d55738b70:98491265</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="x.1865669.sample-app.*.canvas_user">47389e768361b69089529370ceaad3b2</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2025-12-05 06:43:44</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl_role">sys_security_acl_role</sys_db_object>
+        <sys_id>25f9a77f5ee8444ea44f814dba34aa64</sys_id>
+        <sys_metadata>fa35bf2e8325769089529370ceaad36e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x.1865669.sample-app.*.canvas_user</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sys_security_acl_role_fa35bf2e8325769089529370ceaad36e</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_role_fa35bf2e8325769089529370ceaad36e">fa35bf2e8325769089529370ceaad371</sys_update_version>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2025-12-05 06:43:44</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

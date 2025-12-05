@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="DELETE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_1865669_retrospe_retrospective_submission</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Validate retro submission </name>
+        <order>10</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+    // 0. Make sure we have key fields
+    if (!current.sprint || !current.submitted_by)
+        return;
+
+    // 1. Check that sprint is valid and in a state where retro is allowed
+    var sprintGr = current.sprint.getRefRecord();
+    if (!sprintGr.isValidRecord()) {
+        gs.addErrorMessage('Selected sprint is not valid.');
+        current.setAbortAction(true);
+        return;
+    }
+
+    // Adjust the allowed state(s) as per your process
+    // e.g. only allow when sprint.state = 'ready_for_submission'
+    if (sprintGr.state != 'ready_for_submission') {
+        gs.addErrorMessage('Retrospectives can only be submitted when the sprint is Ready for Retro Submission.');
+        current.setAbortAction(true);
+        return;
+    }
+
+    // 2. Check for duplicate retro: one per sprint per employee
+    var dup = new GlideRecord('x_1865669_retrospe_retrospective_submission');
+    dup.addQuery('sprint', current.sprint);
+    dup.addQuery('submitted_by', current.submitted_by);
+
+    // If you later also run this rule on update, ignore the current record
+    if (!current.isNewRecord())
+        dup.addQuery('sys_id', '!=', current.sys_id);
+
+    dup.setLimit(1);
+    dup.query();
+
+    if (dup.hasNext()) {
+        gs.addErrorMessage('You can submit only one retrospective per sprint.');
+        current.setAbortAction(true);
+        return;
+    }
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 12:38:31</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>2629a3728329b69089529370ceaad3a6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Validate retro submission </sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_script_2629a3728329b69089529370ceaad3a6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 12:38:31</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="DELETE" query="documentkey=2629a3728329b69089529370ceaad3a6"/>
+    <sys_es_latest_script action="DELETE">
+        <id>2629a3728329b69089529370ceaad3a6</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 12:38:30</sys_created_on>
+        <sys_id>b369a3728329b69089529370ceaad3aa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 12:38:30</sys_updated_on>
+        <table>sys_script</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sys_script_2629a3728329b69089529370ceaad3a6</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;false&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;x_1865669_retrospe_retrospective_submission&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;Validate retro submission &lt;/name&gt;&lt;order&gt;10&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+    // 0. Make sure we have key fields
+    if (!current.sprint || !current.submitted_by)
+        return;
+
+    // 1. Check that sprint is valid and in a state where retro is allowed
+    var sprintGr = current.sprint.getRefRecord();
+    if (!sprintGr.isValidRecord()) {
+        gs.addErrorMessage('Selected sprint is not valid.');
+        current.setAbortAction(true);
+        return;
+    }
+
+    // Adjust the allowed state(s) as per your process
+    // e.g. only allow when sprint.state = 'ready_for_submission'
+    if (sprintGr.state != 'ready_for_submission') {
+        gs.addErrorMessage('Retrospectives can only be submitted when the sprint is Ready for Retro Submission.');
+        current.setAbortAction(true);
+        return;
+    }
+
+    // 2. Check for duplicate retro: one per sprint per employee
+    var dup = new GlideRecord('x_1865669_retrospe_retrospective_submission');
+    dup.addQuery('sprint', current.sprint);
+    dup.addQuery('submitted_by', current.submitted_by);
+
+    // If you later also run this rule on update, ignore the current record
+    if (!current.isNewRecord())
+        dup.addQuery('sys_id', '!=', current.sys_id);
+
+    dup.setLimit(1);
+    dup.query();
+
+    if (dup.hasNext()) {
+        gs.addErrorMessage('You can submit only one retrospective per sprint.');
+        current.setAbortAction(true);
+        return;
+    }
+
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-12-05 12:38:31&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;2629a3728329b69089529370ceaad3a6&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Validate retro submission &lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Retrospective Management" source="x_1865669_retrospe"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Retrospective Management"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_2629a3728329b69089529370ceaad3a6&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-12-05 12:38:31&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;before&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=2629a3728329b69089529370ceaad3a6"/&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;2629a3728329b69089529370ceaad3a6&lt;/id&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-12-05 12:38:30&lt;/sys_created_on&gt;&lt;sys_id&gt;b369a3728329b69089529370ceaad3aa&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-12-05 12:38:30&lt;/sys_updated_on&gt;&lt;table&gt;sys_script&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1103373622</payload_hash>
+        <record_name>Validate retro submission </record_name>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 12:38:31</sys_created_on>
+        <sys_id>c879e3b28329b69089529370ceaad3db</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19aee85667d0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 12:38:31</sys_updated_on>
+        <type>Business Rule</type>
+        <update_guid>8c79e3b29b29b690c90c5bc59a42a9da</update_guid>
+        <update_guid_history>8c79e3b29b29b690c90c5bc59a42a9da:-1103373622</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 13:21:11</sys_created_on>
+        <sys_db_object display_value="" name="sys_script">sys_script</sys_db_object>
+        <sys_id>94c4e3259f834c13aa540761b98d36b1</sys_id>
+        <sys_metadata>2629a3728329b69089529370ceaad3a6</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Validate retro submission </sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent display_value="Retrospective Submission">0494cc3883a5fa5089529370ceaad3a1</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sys_script_2629a3728329b69089529370ceaad3a6</sys_update_name>
+        <sys_update_version display_value="sys_script_2629a3728329b69089529370ceaad3a6">c879e3b28329b69089529370ceaad3db</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 13:21:11</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

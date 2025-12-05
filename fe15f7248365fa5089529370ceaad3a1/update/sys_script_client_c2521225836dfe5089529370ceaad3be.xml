@@ -13,50 +13,94 @@
         <script><![CDATA[function onLoad() {
 
     // Only run on NEW records
-    if (g_form.isNewRecord()) {
+    if (!g_form.isNewRecord())
+        return;
 
-        // 1. Set Submitted By to current user
-        if (!g_form.getValue('submitted_by')) {
-            var currentUserId = g_user.userID;
-            g_form.setValue('submitted_by', currentUserId);
-            g_form.setReadOnly('submitted_by', true);
+    // helper: fully lock the form
+    function lockFormWithMessage(msg) {
+        g_form.addErrorMessage(msg);
+
+        // Make all fields read-only
+        var fields = g_form.getEditableFields();
+        for (var i = 0; i < fields.length; i++) {
+            g_form.setReadOnly(fields[i], true);
         }
+		g_form.clearOptions('sprint');
 
-        // 4. Auto-populate Team
-        if (!g_form.getValue('team')) {
-            var ga1 = new GlideAjax('RetroTeamHelper');
-            ga1.addParam('sysparm_name', 'getUserTeam');
-            ga1.addParam('sysparm_user_id', g_user.userID);
-            
-            ga1.getXMLAnswer(function(teamSysId) {
-                if (teamSysId && teamSysId != '' && teamSysId != 'null') {
-                    g_form.setValue('team', teamSysId);
-					g_form.setReadOnly('team',true);
-                }
-            });
-        }
 
-        // 5. Auto-populate Sprint (current sprint for user's team)
-        if (!g_form.getValue('sprint')) {
-            var ga2 = new GlideAjax('RetroTeamHelper');
-            ga2.addParam('sysparm_name', 'getCurrentSprint');
-            ga2.addParam('sysparm_user_id', g_user.userID);
-            
-            ga2.getXMLAnswer(function(sprintSysId) {
-                if (sprintSysId && sprintSysId != '' && sprintSysId != 'null') {
-                    g_form.setValue('sprint', sprintSysId);
-                    g_form.setReadOnly('sprint', true); // Make read-only
-                } else {
-                    // No current sprint ready for submission
-                    g_form.addErrorMessage('No sprint is currently ready for retrospective submission. Please contact your manager.');
-                }
-            });
-        }
-
-        // 6. Show welcome message
-        var userName = g_user.firstName + ' ' + g_user.lastName;
-        g_form.addInfoMessage('Submitting retrospective as: ' + userName);
+        // Optionally hide buttons in classic UI
+        if (g_form.removeSubmitButton)
+            g_form.removeSubmitButton();
+        if (g_form.removeSaveButton)
+            g_form.removeSaveButton();
     }
+
+    // 1. Set Submitted By to current user
+    if (!g_form.getValue('submitted_by')) {
+        var currentUserId = g_user.userID;
+        g_form.setValue('submitted_by', currentUserId);
+        g_form.setReadOnly('submitted_by', true);
+    }
+
+    // 2. Auto-populate Team
+    if (!g_form.getValue('team')) {
+        var ga1 = new GlideAjax('RetroTeamHelper');
+        ga1.addParam('sysparm_name', 'getUserTeam');
+        ga1.addParam('sysparm_user_id', g_user.userID);
+
+        ga1.getXMLAnswer(function(teamSysId) {
+            if (teamSysId && teamSysId !== 'null') {
+                g_form.setValue('team', teamSysId);
+                g_form.setReadOnly('team', true);
+            }
+        });
+    }
+
+    // 3. Auto-populate Sprint (current sprint for user's team)
+    if (!g_form.getValue('sprint')) {
+        var ga2 = new GlideAjax('RetroTeamHelper');
+        ga2.addParam('sysparm_name', 'getCurrentSprint');
+        ga2.addParam('sysparm_user_id', g_user.userID);
+
+        ga2.getXMLAnswer(function(sprintSysId) {
+            if (sprintSysId && sprintSysId !== 'null') {
+                // Check duplicate before setting
+                checkForDuplicateRetro(sprintSysId, lockFormWithMessage);
+            } else {
+                // No sprint ready for submission → lock form
+                lockFormWithMessage('No sprint is currently ready for retrospective submission. Please contact your manager.');
+            }
+        });
+    }
+
+    // 4. Welcome message
+    var userName = g_user.firstName + ' ' + g_user.lastName;
+    g_form.addInfoMessage('Submitting retrospective as: ' + userName);
+}
+
+
+// Check for duplicate and either lock form or set sprint
+function checkForDuplicateRetro(sprintSysId, lockFormFn) {
+    var ga = new GlideAjax('RetroManagementAjax');
+    ga.addParam('sysparm_name', 'checkDuplicateSubmission');
+    ga.addParam('sysparm_sprint_id', sprintSysId);
+
+    ga.getXMLAnswer(function(answer) {
+        if (answer === 'true') {
+            // Duplicate found → lock form (no submit)
+            lockFormFn('You have already submitted a retrospective for the current sprint. Only one submission per sprint is allowed.');
+        } else {
+            // No duplicate – safe to proceed
+            g_form.setValue('sprint', sprintSysId);
+            g_form.setReadOnly('sprint', true);
+
+            g_form.getReference('sprint', function(ref) {
+                if (ref) {
+                    g_form.addInfoMessage('Submitting for: ' + ref.sprint_name);
+                }
+            });
+        }
+    });
 }]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
         <sys_created_by>admin</sys_created_by>
@@ -64,7 +108,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>c2521225836dfe5089529370ceaad3be</sys_id>
-        <sys_mod_count>13</sys_mod_count>
+        <sys_mod_count>40</sys_mod_count>
         <sys_name>Auto-populate Submitted By on Load</sys_name>
         <sys_overrides/>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
@@ -72,7 +116,7 @@
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name>sys_script_client_c2521225836dfe5089529370ceaad3be</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-01 14:15:18</sys_updated_on>
+        <sys_updated_on>2025-12-05 13:24:41</sys_updated_on>
         <table>x_1865669_retrospe_retrospective_submission</table>
         <type>onLoad</type>
         <ui_type>0</ui_type>

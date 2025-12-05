@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1865669_retrospe.RetroManagementAjax</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>RetroManagementAjax</name>
+        <sandbox_callable>true</sandbox_callable>
+        <script><![CDATA[var RetroManagementAjax = Class.create();
+RetroManagementAjax.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+    
+    checkDuplicateSubmission: function() {
+        var sprintId = this.getParameter('sysparm_sprint_id');
+        var userId = gs.getUserID();
+        
+        // Query for existing submission
+        var retroGR = new GlideRecord('x_retro_mgmt_retro_submission');
+        retroGR.addQuery('sprint', sprintId);
+        retroGR.addQuery('submitted_by', userId);
+        retroGR.query();
+        
+        // Return 'true' if duplicate exists, 'false' otherwise
+        return retroGR.hasNext().toString();
+    },
+    
+    type: 'RetroManagementAjax'
+});
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 09:38:27</sys_created_on>
+        <sys_id>3bfff2fa8325b69089529370ceaad35a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>RetroManagementAjax</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_script_include_3bfff2fa8325b69089529370ceaad35a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 09:38:27</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="DELETE">
+        <id>3bfff2fa8325b69089529370ceaad35a</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 09:38:26</sys_created_on>
+        <sys_id>d63083ba8325b69089529370ceaad36f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 09:38:26</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sys_script_include_3bfff2fa8325b69089529370ceaad35a</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_1865669_retrospe.RetroManagementAjax&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;true&lt;/client_callable&gt;&lt;description/&gt;&lt;mobile_callable&gt;false&lt;/mobile_callable&gt;&lt;name&gt;RetroManagementAjax&lt;/name&gt;&lt;sandbox_callable&gt;true&lt;/sandbox_callable&gt;&lt;script&gt;&lt;![CDATA[var RetroManagementAjax = Class.create();
+RetroManagementAjax.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+    
+    checkDuplicateSubmission: function() {
+        var sprintId = this.getParameter('sysparm_sprint_id');
+        var userId = gs.getUserID();
+        
+        // Query for existing submission
+        var retroGR = new GlideRecord('x_retro_mgmt_retro_submission');
+        retroGR.addQuery('sprint', sprintId);
+        retroGR.addQuery('submitted_by', userId);
+        retroGR.query();
+        
+        // Return 'true' if duplicate exists, 'false' otherwise
+        return retroGR.hasNext().toString();
+    },
+    
+    type: 'RetroManagementAjax'
+});
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-12-05 09:38:27&lt;/sys_created_on&gt;&lt;sys_id&gt;3bfff2fa8325b69089529370ceaad35a&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;RetroManagementAjax&lt;/sys_name&gt;&lt;sys_package display_value="Retrospective Management" source="x_1865669_retrospe"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="Retrospective Management"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_3bfff2fa8325b69089529370ceaad35a&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-12-05 09:38:27&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;3bfff2fa8325b69089529370ceaad35a&lt;/id&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-12-05 09:38:26&lt;/sys_created_on&gt;&lt;sys_id&gt;d63083ba8325b69089529370ceaad36f&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-12-05 09:38:26&lt;/sys_updated_on&gt;&lt;table&gt;sys_script_include&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-2102684590</payload_hash>
+        <record_name>RetroManagementAjax</record_name>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 09:38:28</sys_created_on>
+        <sys_id>6e30c7fa8325b69089529370ceaad3c5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19aede08ea50000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 09:38:28</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>6230c7fab825b690a3588db56d323ac5</update_guid>
+        <update_guid_history>6230c7fab825b690a3588db56d323ac5:-2102684590</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 09:44:51</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>8df7fa50420343088bc0e584f998c040</sys_id>
+        <sys_metadata>3bfff2fa8325b69089529370ceaad35a</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>RetroManagementAjax</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sys_script_include_3bfff2fa8325b69089529370ceaad35a</sys_update_name>
+        <sys_update_version display_value="sys_script_include_3bfff2fa8325b69089529370ceaad35a">6e30c7fa8325b69089529370ceaad3c5</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 09:44:51</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

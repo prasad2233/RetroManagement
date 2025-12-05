@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1865669_retrospe.RetroManagerStatsAPI</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>RetroManagerStatsAPI</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var RetroManagerStatsAPI = Class.create();
+RetroManagerStatsAPI.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+    
+    getManagerStats: function() {
+        var userId = this.getParameter('sysparm_user_id') || gs.getUserID();
+        
+        var stats = {
+            activeSprintsCount: 0,
+            pendingReviewsCount: 0,
+            openTasksCount: 0,
+            avgCompletionScore: 0
+        };
+        
+        // Count active sprints
+        var sprintGR = new GlideAggregate('x_retro_mgmt_sprint');
+        sprintGR.addQuery('team.manager', userId);
+        sprintGR.addQuery('state', 'IN', 'in_progress,ready_for_submission,ready_for_review');
+        sprintGR.addAggregate('COUNT');
+        sprintGR.query();
+        if (sprintGR.next()) {
+            stats.activeSprintsCount = parseInt(sprintGR.getAggregate('COUNT')) || 0;
+        }
+        
+        // Count pending reviews
+        var retroGR = new GlideAggregate('x_retro_mgmt_retro_submission');
+        retroGR.addQuery('team.manager', userId);
+        retroGR.addQuery('status', 'submitted');
+        retroGR.addAggregate('COUNT');
+        retroGR.query();
+        if (retroGR.next()) {
+            stats.pendingReviewsCount = parseInt(retroGR.getAggregate('COUNT')) || 0;
+        }
+        
+        // Count open tasks
+        var taskGR = new GlideAggregate('x_retro_mgmt_retro_task');
+        taskGR.addQuery('sprint.team.manager', userId);
+        taskGR.addQuery('state', 'IN', 'pending,in_progress');
+        taskGR.addAggregate('COUNT');
+        taskGR.query();
+        if (taskGR.next()) {
+            stats.openTasksCount = parseInt(taskGR.getAggregate('COUNT')) || 0;
+        }
+        
+        // Calculate average completion score
+        var metricsGR = new GlideAggregate('x_retro_mgmt_sprint_metrics');
+        metricsGR.addQuery('sprint.team.manager', userId);
+        metricsGR.addAggregate('AVG', 'completion_score');
+        metricsGR.query();
+        if (metricsGR.next()) {
+            var avg = metricsGR.getAggregate('AVG', 'completion_score');
+            stats.avgCompletionScore = avg ? Math.round(parseFloat(avg)) : 0;
+        }
+        
+        return JSON.stringify(stats);
+    },
+    
+    type: 'RetroManagerStatsAPI'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-04 18:43:48</sys_created_on>
+        <sys_id>f13377aa8325769089529370ceaad34a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>RetroManagerStatsAPI</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_script_include_f13377aa8325769089529370ceaad34a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-04 18:43:48</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>f13377aa8325769089529370ceaad34a</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-04 18:43:47</sys_created_on>
+        <sys_id>f073f76a8325769089529370ceaad3a3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-04 18:43:47</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

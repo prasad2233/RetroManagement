@@ -5,6 +5,7 @@
             <choice>
                 <element inactive_on_update="false" label="Not Needed" sequence="300" value="not_needed"/>
                 <element inactive_on_update="false" label="Submitted" sequence="100" value="submitted"/>
+                <element inactive_on_update="false" label="Completed" sequence="400" value="completed"/>
                 <element inactive_on_update="false" label="Valid" sequence="200" value="valid"/>
                 <element inactive_on_update="false" label="Reviewed" value="reviewed"/>
             </choice>

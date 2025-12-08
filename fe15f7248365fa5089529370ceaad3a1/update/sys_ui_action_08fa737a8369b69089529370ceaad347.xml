@@ -7,7 +7,7 @@
 
 }]]></client_script_v2>
         <comments/>
-        <condition>current.state == 'ready_for_review'</condition>
+        <condition>current.state == 'ready_for_review'     &amp;&amp; (gs.hasRole('x_1865669_retrospe.manager') ||     gs.hasRole('x_1865669_retrospe.admin'))</condition>
         <form_action>true</form_action>
         <form_button>true</form_button>
         <form_button_v2>false</form_button_v2>
@@ -30,8 +30,7 @@
         <name>Generate Retro Tasks</name>
         <onclick/>
         <order>100</order>
-        <script><![CDATA[// Server-side script
-(function() {
+        <script><![CDATA[(function() {
     action.setRedirectURL(current);
 
     // Check if there are valid retros
@@ -43,75 +42,79 @@
 
     var validCount = 0;
     if (retroCount.next()) {
-        validCount = parseInt(retroCount.getAggregate('COUNT'));
+        validCount = parseInt(retroCount.getAggregate('COUNT'), 10);
     }
 
     if (validCount === 0) {
         gs.addErrorMessage('No valid retrospective submissions found. Please review submissions first.');
+        return;
+    }
+
+    // Generate tasks from valid retros
+    var retroGR = new GlideRecord('x_1865669_retrospe_retrospective_submission');
+    retroGR.addQuery('sprint', current.sys_id);
+    retroGR.addQuery('status', 'valid');
+    retroGR.query();
+
+    var tasksCreated = 0;
+    var retrosProcessed = 0;
+
+    while (retroGR.next()) {
+        var retroSysId   = retroGR.getValue('sys_id');
+        var submittedBy  = retroGR.getValue('submitted_by');
+        var tasksForThisRetro = 0;
+
+        // Create tasks for Start items
+        var startText = retroGR.getValue('start_items');
+        if (startText) {
+            tasksForThisRetro += createTasksFromText(
+                retroSysId,
+                current.sys_id,
+                startText,
+                submittedBy,
+                'start'
+            );
+        }
+
+        // Create tasks for Stop items
+        var stopText = retroGR.getValue('stop_items');
+        if (stopText) {
+            tasksForThisRetro += createTasksFromText(
+                retroSysId,
+                current.sys_id,
+                stopText,
+                submittedBy,
+                'stop'
+            );
+        }
+
+        // Create tasks for Continue items
+        var contText = retroGR.getValue('continue_items');
+        if (contText) {
+            tasksForThisRetro += createTasksFromText(
+                retroSysId,
+                current.sys_id,
+                contText,
+                submittedBy,
+                'continue'
+            );
+        }
+
+        tasksCreated += tasksForThisRetro;
+
+        // Mark retro as completed after creating tasks
+        if (tasksForThisRetro > 0) {
+            retroGR.status = 'completed';
+            retroGR.update();
+            retrosProcessed++;
+        }
+    }
+
+    if (tasksCreated > 0) {
+        gs.addInfoMessage(tasksCreated + ' tasks created successfully from ' + retrosProcessed + ' retrospectives');
+        gs.addInfoMessage(retrosProcessed + ' retrospective(s) marked as completed');
     } else {
-        // Generate tasks from valid retros
-        var retroGR = new GlideRecord('x_1865669_retrospe_retrospective_submission');
-        retroGR.addQuery('sprint', current.sys_id);
-        retroGR.addQuery('status', 'valid');
-        retroGR.query();
-
-        var tasksCreated = 0;
-        var retrosProcessed = 0;
-
-        while (retroGR.next()) {
-            var retroSysId = retroGR.getValue('sys_id');
-            var submittedBy = retroGR.getValue('submitted_by');
-            var tasksForThisRetro = 0;
-            
-            // Create tasks for Start items
-            if (retroGR.start_items) {
-                tasksForThisRetro += createTasksFromText(
-                    retroSysId,
-                    current.sys_id,
-                    retroGR.getValue('start_items'),
-                    submittedBy,
-                    'start'
-                );
-            }
-
-            // Create tasks for Stop items
-            if (retroGR.stop_items) {
-                tasksForThisRetro += createTasksFromText(
-                    retroSysId,
-                    current.sys_id,
-                    retroGR.getValue('stop_items'),
-                    submittedBy,
-                    'stop'
-                );
-            }
-
-            // Create tasks for Continue items
-            if (retroGR.continue_items) {
-                tasksForThisRetro += createTasksFromText(
-                    retroSysId,
-                    current.sys_id,
-                    retroGR.getValue('continue_items'),
-                    submittedBy,
-                    'continue'
-                );
-            }
-            
-            tasksCreated += tasksForThisRetro;
-            
-            // Mark retro as completed after creating tasks
-            if (tasksForThisRetro > 0) {
-                retroGR.status = 'completed';
-                retroGR.update();
-                retrosProcessed++;
-            }
-        }
-
-        if (tasksCreated > 0) {
-            gs.addInfoMessage(tasksCreated + ' tasks created successfully from ' + retrosProcessed + ' retrospectives');
-            gs.addInfoMessage(retrosProcessed + ' retrospective(s) marked as completed');
-        } else {
-            gs.addErrorMessage('No tasks were created. Please check retrospective content.');
-        }
+        gs.addErrorMessage('No tasks were created. Please check retrospective content.');
     }
 
     // Helper function
@@ -149,7 +152,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>08fa737a8369b69089529370ceaad347</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>Generate Retro Tasks</sys_name>
         <sys_overrides/>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
@@ -157,7 +160,7 @@
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name>sys_ui_action_08fa737a8369b69089529370ceaad347</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-05 14:36:53</sys_updated_on>
+        <sys_updated_on>2025-12-07 16:09:35</sys_updated_on>
         <table>x_1865669_retrospe_sprint</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>false</ui16_compatible>

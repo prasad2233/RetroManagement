@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="DELETE">
+        <cleared>false</cleared>
+        <disabled>true</disabled>
+        <field>stop_items</field>
+        <field_message/>
+        <field_message_type>none</field_message_type>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 05:23:50</sys_created_on>
+        <sys_id>83a2a9fb83a5b21089529370ceaad3d4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>stop_items</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_ui_policy_action_83a2a9fb83a5b21089529370ceaad3d4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 05:23:50</sys_updated_on>
+        <table>x_1865669_retrospe_retrospective_submission</table>
+        <ui_policy display_value="Lock retro after sprint review">af5e5d7783a5b21089529370ceaad395</ui_policy>
+        <value/>
+        <value_action>ignore</value_action>
+        <visible>ignore</visible>
+    </sys_ui_policy_action>
+    <sys_translated_text action="DELETE" query="documentkey=83a2a9fb83a5b21089529370ceaad3d4"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sys_ui_policy_action_83a2a9fb83a5b21089529370ceaad3d4</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action"><sys_ui_policy_action action="INSERT_OR_UPDATE"><cleared>false</cleared><disabled>true</disabled><field>stop_items</field><field_message/><field_message_type>none</field_message_type><mandatory>ignore</mandatory><sys_class_name>sys_ui_policy_action</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-08 05:23:50</sys_created_on><sys_id>83a2a9fb83a5b21089529370ceaad3d4</sys_id><sys_mod_count>0</sys_mod_count><sys_name>stop_items</sys_name><sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package><sys_policy/><sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope><sys_update_name>sys_ui_policy_action_83a2a9fb83a5b21089529370ceaad3d4</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-08 05:23:50</sys_updated_on><table>x_1865669_retrospe_retrospective_submission</table><ui_policy display_value="Lock retro after sprint review">af5e5d7783a5b21089529370ceaad395</ui_policy><value/><value_action>ignore</value_action><visible>ignore</visible></sys_ui_policy_action><sys_translated_text action="delete_multiple" query="documentkey=83a2a9fb83a5b21089529370ceaad3d4"/></record_update>]]></payload>
+        <payload_hash>-874621564</payload_hash>
+        <record_name>stop_items</record_name>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 05:23:50</sys_created_on>
+        <sys_id>b5b2a9fb83a5b21089529370ceaad3e3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19afc6a853f0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 05:23:50</sys_updated_on>
+        <type>UI Policy Action</type>
+        <update_guid>b9b2a9fbd7a5b21030030c8fc9b458e2</update_guid>
+        <update_guid_history>b9b2a9fbd7a5b21030030c8fc9b458e2:-874621564</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 09:19:24</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_policy_action">sys_ui_policy_action</sys_db_object>
+        <sys_id>1024b6fa6df349c8b9c75786aa4fba40</sys_id>
+        <sys_metadata>83a2a9fb83a5b21089529370ceaad3d4</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>stop_items</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent display_value="Lock retro after sprint review">af5e5d7783a5b21089529370ceaad395</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sys_ui_policy_action_83a2a9fb83a5b21089529370ceaad3d4</sys_update_name>
+        <sys_update_version display_value="sys_ui_policy_action_83a2a9fb83a5b21089529370ceaad3d4">b5b2a9fb83a5b21089529370ceaad3e3</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 09:19:24</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

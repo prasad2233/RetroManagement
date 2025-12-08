@@ -20,25 +20,6 @@
             <element>status</element>
             <hint/>
             <inactive>false</inactive>
-            <label>Reviewed</label>
-            <language>en</language>
-            <name>x_1865669_retrospe_retrospective_submission</name>
-            <sequence/>
-            <synonyms/>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2025-11-28 15:04:58</sys_created_on>
-            <sys_domain>global</sys_domain>
-            <sys_domain_path>/</sys_domain_path>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2025-11-28 15:04:58</sys_updated_on>
-            <value>reviewed</value>
-        </sys_choice>
-        <sys_choice action="INSERT_OR_UPDATE">
-            <dependent_value/>
-            <element>status</element>
-            <hint/>
-            <inactive>false</inactive>
             <label>Submitted</label>
             <language>en</language>
             <name>x_1865669_retrospe_retrospective_submission</name>
@@ -96,7 +77,7 @@
             <element>status</element>
             <hint/>
             <inactive>false</inactive>
-            <label>Completed</label>
+            <label>Reviewed</label>
             <language>en</language>
             <name>x_1865669_retrospe_retrospective_submission</name>
             <sequence>400</sequence>
@@ -105,10 +86,10 @@
             <sys_created_on>2025-12-05 14:14:00</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_mod_count>2</sys_mod_count>
+            <sys_mod_count>3</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2025-12-05 14:14:25</sys_updated_on>
-            <value>completed</value>
+            <sys_updated_on>2025-12-08 07:08:11</sys_updated_on>
+            <value>reviewed</value>
         </sys_choice>
     </sys_choice>
 </record_update>

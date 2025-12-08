@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_policy">
+    <sys_ui_policy action="DELETE">
+        <active>true</active>
+        <conditions/>
+        <description/>
+        <global>true</global>
+        <inherit>false</inherit>
+        <isolate_script>true</isolate_script>
+        <model_id/>
+        <model_table/>
+        <on_load>true</on_load>
+        <order>120</order>
+        <reverse_if_false>true</reverse_if_false>
+        <run_scripts>true</run_scripts>
+        <script_false><![CDATA[function onCondition() {
+
+}]]></script_false>
+        <script_true><![CDATA[function onCondition() {
+    var isManager = g_user.hasRole('x_1865669_retrospe.manager') ||
+                    g_user.hasRole('x_1865669_retrospe.admin');
+
+    // List of advanced fields that should be manager-only.
+    // Remove any that do not exist on your form; add any custom fields you create.
+    var advancedFields = [
+        'priority',          // standard task field
+        'due_date',          // or 'expected_end' if you use that
+        'sprint',            // custom: x_1865669_retrospe_sprint
+        'retro_submission',  // custom: x_1865669_retrospe_retrospective_submission
+        // 'impact',         // uncomment if you add an impact field
+        // 'risk',           // uncomment if you add a risk field
+        // 'target_sprint'   // example custom field
+    ];
+
+    for (var i = 0; i < advancedFields.length; i++) {
+        var field = advancedFields[i];
+
+        // Always show the field on the form
+        g_form.setDisplay(field, true);
+
+        if (isManager) {
+            // Managers/Admins: editable
+            g_form.setReadOnly(field, false);
+        } else {
+            // Employees: read-only (can also hide if you prefer)
+            g_form.setReadOnly(field, true);
+
+            // If you want to hide instead of just read-only, uncomment:
+            // g_form.setDisplay(field, false);
+        }
+    }
+}]]></script_true>
+        <set_values/>
+        <short_description>Manager-only advanced task fields</short_description>
+        <sys_class_name>sys_ui_policy</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 09:05:52</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>d87496fb83a9b21089529370ceaad3ac</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Manager-only advanced task fields</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_ui_policy_d87496fb83a9b21089529370ceaad3ac</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 09:05:52</sys_updated_on>
+        <table>x_1865669_retrospe_retrospective_task</table>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_ui_policy>
+    <sys_es_latest_script action="DELETE">
+        <id>d87496fb83a9b21089529370ceaad3ac</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 09:05:51</sys_created_on>
+        <sys_id>0e85923f83a9b21089529370ceaad3de</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 09:05:51</sys_updated_on>
+        <table>sys_ui_policy</table>
+        <use_es_latest>false</use_es_latest>
+    </sys_es_latest_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sys_ui_policy_d87496fb83a9b21089529370ceaad3ac</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_ui_policy"&gt;&lt;sys_ui_policy action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;conditions/&gt;&lt;description/&gt;&lt;global&gt;true&lt;/global&gt;&lt;inherit&gt;false&lt;/inherit&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;model_id/&gt;&lt;model_table/&gt;&lt;on_load&gt;true&lt;/on_load&gt;&lt;order&gt;120&lt;/order&gt;&lt;reverse_if_false&gt;true&lt;/reverse_if_false&gt;&lt;run_scripts&gt;true&lt;/run_scripts&gt;&lt;script_false&gt;&lt;![CDATA[function onCondition() {
+
+}]]&gt;&lt;/script_false&gt;&lt;script_true&gt;&lt;![CDATA[function onCondition() {
+    var isManager = g_user.hasRole('x_1865669_retrospe.manager') ||
+                    g_user.hasRole('x_1865669_retrospe.admin');
+
+    // List of advanced fields that should be manager-only.
+    // Remove any that do not exist on your form; add any custom fields you create.
+    var advancedFields = [
+        'priority',          // standard task field
+        'due_date',          // or 'expected_end' if you use that
+        'sprint',            // custom: x_1865669_retrospe_sprint
+        'retro_submission',  // custom: x_1865669_retrospe_retrospective_submission
+        // 'impact',         // uncomment if you add an impact field
+        // 'risk',           // uncomment if you add a risk field
+        // 'target_sprint'   // example custom field
+    ];
+
+    for (var i = 0; i &lt; advancedFields.length; i++) {
+        var field = advancedFields[i];
+
+        // Always show the field on the form
+        g_form.setDisplay(field, true);
+
+        if (isManager) {
+            // Managers/Admins: editable
+            g_form.setReadOnly(field, false);
+        } else {
+            // Employees: read-only (can also hide if you prefer)
+            g_form.setReadOnly(field, true);
+
+            // If you want to hide instead of just read-only, uncomment:
+            // g_form.setDisplay(field, false);
+        }
+    }
+}]]&gt;&lt;/script_true&gt;&lt;set_values/&gt;&lt;short_description&gt;Manager-only advanced task fields&lt;/short_description&gt;&lt;sys_class_name&gt;sys_ui_policy&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-12-08 09:05:52&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;d87496fb83a9b21089529370ceaad3ac&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Manager-only advanced task fields&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Retrospective Management" source="x_1865669_retrospe"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Retrospective Management"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_policy_d87496fb83a9b21089529370ceaad3ac&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-12-08 09:05:52&lt;/sys_updated_on&gt;&lt;table&gt;x_1865669_retrospe_retrospective_task&lt;/table&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_ui_policy&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;d87496fb83a9b21089529370ceaad3ac&lt;/id&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-12-08 09:05:51&lt;/sys_created_on&gt;&lt;sys_id&gt;0e85923f83a9b21089529370ceaad3de&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-12-08 09:05:51&lt;/sys_updated_on&gt;&lt;table&gt;sys_ui_policy&lt;/table&gt;&lt;use_es_latest&gt;false&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1854667994</payload_hash>
+        <record_name>Manager-only advanced task fields</record_name>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 09:05:52</sys_created_on>
+        <sys_id>da8512bf83a9b21089529370ceaad306</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19afd35cbe20000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 09:05:52</sys_updated_on>
+        <type>UI Policy</type>
+        <update_guid>de8512bff4a9b210b7f4ebc4d31c7705</update_guid>
+        <update_guid_history>de8512bff4a9b210b7f4ebc4d31c7705:1854667994</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 09:08:35</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_policy">sys_ui_policy</sys_db_object>
+        <sys_id>180c130b7f3e4b969b650d7cd3a4d7b9</sys_id>
+        <sys_metadata>d87496fb83a9b21089529370ceaad3ac</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Manager-only advanced task fields</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent display_value="Retrospective Task">c4c010f883e5fa5089529370ceaad3c7</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sys_ui_policy_d87496fb83a9b21089529370ceaad3ac</sys_update_name>
+        <sys_update_version display_value="sys_ui_policy_d87496fb83a9b21089529370ceaad3ac">da8512bf83a9b21089529370ceaad306</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 09:08:35</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

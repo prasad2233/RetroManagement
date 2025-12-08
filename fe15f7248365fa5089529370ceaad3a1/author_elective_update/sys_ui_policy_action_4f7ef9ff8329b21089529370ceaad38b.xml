@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="DELETE">
+        <cleared>false</cleared>
+        <disabled>true</disabled>
+        <field>reviewed_by</field>
+        <field_message/>
+        <field_message_type>none</field_message_type>
+        <mandatory>false</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 07:25:26</sys_created_on>
+        <sys_id>4f7ef9ff8329b21089529370ceaad38b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>reviewed_by</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_ui_policy_action_4f7ef9ff8329b21089529370ceaad38b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 07:25:26</sys_updated_on>
+        <table>x_1865669_retrospe_retrospective_submission</table>
+        <ui_policy display_value="Manager-only review controls">69bcb57f8329b21089529370ceaad36a</ui_policy>
+        <value/>
+        <value_action>ignore</value_action>
+        <visible>false</visible>
+    </sys_ui_policy_action>
+    <sys_translated_text action="DELETE" query="documentkey=4f7ef9ff8329b21089529370ceaad38b"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sys_ui_policy_action_4f7ef9ff8329b21089529370ceaad38b</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action"><sys_ui_policy_action action="INSERT_OR_UPDATE"><cleared>false</cleared><disabled>true</disabled><field>reviewed_by</field><field_message/><field_message_type>none</field_message_type><mandatory>false</mandatory><sys_class_name>sys_ui_policy_action</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-08 07:25:26</sys_created_on><sys_id>4f7ef9ff8329b21089529370ceaad38b</sys_id><sys_mod_count>0</sys_mod_count><sys_name>reviewed_by</sys_name><sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package><sys_policy/><sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope><sys_update_name>sys_ui_policy_action_4f7ef9ff8329b21089529370ceaad38b</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-08 07:25:26</sys_updated_on><table>x_1865669_retrospe_retrospective_submission</table><ui_policy display_value="Manager-only review controls">69bcb57f8329b21089529370ceaad36a</ui_policy><value/><value_action>ignore</value_action><visible>false</visible></sys_ui_policy_action><sys_translated_text action="delete_multiple" query="documentkey=4f7ef9ff8329b21089529370ceaad38b"/></record_update>]]></payload>
+        <payload_hash>1434496507</payload_hash>
+        <record_name>reviewed_by</record_name>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 07:25:26</sys_created_on>
+        <sys_id>cb8e39fb8329b21089529370ceaad39c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19afcd9d7490000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 07:25:26</sys_updated_on>
+        <type>UI Policy Action</type>
+        <update_guid>cf8e39fb8129b210b8c2591434d90a9b</update_guid>
+        <update_guid_history>cf8e39fb8129b210b8c2591434d90a9b:1434496507</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 07:31:50</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_policy_action">sys_ui_policy_action</sys_db_object>
+        <sys_id>55df8a3611ec48d4bbd11330c29c3501</sys_id>
+        <sys_metadata>4f7ef9ff8329b21089529370ceaad38b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>reviewed_by</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent display_value="Manager-only review controls">69bcb57f8329b21089529370ceaad36a</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sys_ui_policy_action_4f7ef9ff8329b21089529370ceaad38b</sys_update_name>
+        <sys_update_version display_value="sys_ui_policy_action_4f7ef9ff8329b21089529370ceaad38b">cb8e39fb8329b21089529370ceaad39c</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 07:31:50</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

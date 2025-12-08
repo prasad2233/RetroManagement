@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl">
+    <sys_security_acl action="DELETE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>true</advanced>
+        <applies_to/>
+        <condition/>
+        <decision_type>allow</decision_type>
+        <description/>
+        <local_or_existing>Local</local_or_existing>
+        <name>x_1865669_retrospe_retrospective_submission</name>
+        <operation display_value="write">write</operation>
+        <script><![CDATA[answer = (function executeRule(current, previous) {
+    
+	// if (current.status != 'subimtted') {
+    //     return false;
+    // }
+	
+    // Must be the submitter
+    if (current.submitted_by == gs.getUserID()) {
+          return true;
+    }
+
+    // Cannot edit after manager reviewed
+    return false;
+    
+})(current, previous);
+]]></script>
+        <security_attribute/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 08:29:34</sys_created_on>
+        <sys_id>f5ec06f383a9b21089529370ceaad37f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1865669_retrospe_retrospective_submission</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_security_acl_f5ec06f383a9b21089529370ceaad37f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 08:29:34</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+    <sys_es_latest_script action="DELETE">
+        <id>f5ec06f383a9b21089529370ceaad37f</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 08:29:29</sys_created_on>
+        <sys_id>d13d8af383a9b21089529370ceaad3dc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 08:29:29</sys_updated_on>
+        <table>sys_security_acl</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sys_security_acl_f5ec06f383a9b21089529370ceaad37f</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_security_acl"&gt;&lt;sys_security_acl action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;admin_overrides&gt;true&lt;/admin_overrides&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;applies_to/&gt;&lt;condition/&gt;&lt;decision_type&gt;allow&lt;/decision_type&gt;&lt;description/&gt;&lt;local_or_existing&gt;Local&lt;/local_or_existing&gt;&lt;name&gt;x_1865669_retrospe_retrospective_submission&lt;/name&gt;&lt;operation display_value="write"&gt;write&lt;/operation&gt;&lt;script&gt;&lt;![CDATA[answer = (function executeRule(current, previous) {
+    
+	// if (current.status != 'subimtted') {
+    //     return false;
+    // }
+	
+    // Must be the submitter
+    if (current.submitted_by == gs.getUserID()) {
+          return true;
+    }
+
+    // Cannot edit after manager reviewed
+    return false;
+    
+})(current, previous);
+]]&gt;&lt;/script&gt;&lt;security_attribute/&gt;&lt;sys_class_name&gt;sys_security_acl&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-12-08 08:29:34&lt;/sys_created_on&gt;&lt;sys_id&gt;f5ec06f383a9b21089529370ceaad37f&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;x_1865669_retrospe_retrospective_submission&lt;/sys_name&gt;&lt;sys_package display_value="Retrospective Management" source="x_1865669_retrospe"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Retrospective Management"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_security_acl_f5ec06f383a9b21089529370ceaad37f&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-12-08 08:29:34&lt;/sys_updated_on&gt;&lt;type display_value="record"&gt;record&lt;/type&gt;&lt;/sys_security_acl&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;f5ec06f383a9b21089529370ceaad37f&lt;/id&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-12-08 08:29:29&lt;/sys_created_on&gt;&lt;sys_id&gt;d13d8af383a9b21089529370ceaad3dc&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-12-08 08:29:29&lt;/sys_updated_on&gt;&lt;table&gt;sys_security_acl&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1336261087</payload_hash>
+        <record_name>x_1865669_retrospe_retrospective_submission</record_name>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 08:29:34</sys_created_on>
+        <sys_id>ae3dcaf383a9b21089529370ceaad372</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19afd148fa50000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 08:29:34</sys_updated_on>
+        <type>Access Control</type>
+        <update_guid>a23dcaf3dfa9b210218ce476fe733272</update_guid>
+        <update_guid_history>a23dcaf3dfa9b210218ce476fe733272:-1336261087</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 10:08:32</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl">sys_security_acl</sys_db_object>
+        <sys_id>245bd5e0feca40ae8ef43814dbda2cc4</sys_id>
+        <sys_metadata>f5ec06f383a9b21089529370ceaad37f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1865669_retrospe_retrospective_submission</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent display_value="x_1865669_retrospe_retrospective_submission">43b48cb883a5fa5089529370ceaad327</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sys_security_acl_f5ec06f383a9b21089529370ceaad37f</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_f5ec06f383a9b21089529370ceaad37f">ae3dcaf383a9b21089529370ceaad372</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 10:08:32</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

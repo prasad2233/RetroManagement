@@ -10,45 +10,45 @@
         <local_or_existing>Local</local_or_existing>
         <name>x_1865669_retrospe_retrospective_submission</name>
         <operation display_value="write">write</operation>
-        <script><![CDATA[answer = (function executeRule(current, previous) {
-    
-	// if (current.status != 'subimtted') {
-    //     return false;
-    // }
-	
-    // Must be the submitter
-    if (current.submitted_by == gs.getUserID()) {
-          return true;
+        <script><![CDATA[answer = (function (current, previous) {
+
+    // Allow write during creation (no submitted_by yet or new record)
+    if (current.isNewRecord() || current.submitted_by.nil()) {
+        return true;
     }
 
-    // Cannot edit after manager reviewed
+    // For existing records, only the submitter can edit
+    if (current.submitted_by == gs.getUserID()) {
+        return true;
+    }
+
+    // Everyone else is blocked
     return false;
-    
-})(current, previous);
-]]></script>
+
+})(current, previous);]]></script>
         <security_attribute/>
         <sys_class_name>sys_security_acl</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-12-08 08:29:34</sys_created_on>
-        <sys_id>f5ec06f383a9b21089529370ceaad37f</sys_id>
+        <sys_created_on>2025-12-08 10:16:26</sys_created_on>
+        <sys_id>d6756677832db21089529370ceaad37c</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>x_1865669_retrospe_retrospective_submission</sys_name>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
         <sys_policy/>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
-        <sys_update_name>sys_security_acl_f5ec06f383a9b21089529370ceaad37f</sys_update_name>
+        <sys_update_name>sys_security_acl_d6756677832db21089529370ceaad37c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-08 08:29:34</sys_updated_on>
+        <sys_updated_on>2025-12-08 10:16:26</sys_updated_on>
         <type display_value="record">record</type>
     </sys_security_acl>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
-        <id>f5ec06f383a9b21089529370ceaad37f</id>
+        <id>d6756677832db21089529370ceaad37c</id>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-12-08 08:29:29</sys_created_on>
-        <sys_id>d13d8af383a9b21089529370ceaad3dc</sys_id>
+        <sys_created_on>2025-12-08 10:16:22</sys_created_on>
+        <sys_id>0fa56a77832db21089529370ceaad380</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-08 08:29:29</sys_updated_on>
+        <sys_updated_on>2025-12-08 10:16:22</sys_updated_on>
         <table>sys_security_acl</table>
         <use_es_latest>true</use_es_latest>
     </sys_es_latest_script>

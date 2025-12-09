@@ -28,11 +28,7 @@
 		g_form.clearOptions('sprint');
 
 
-        // Optionally hide buttons in classic UI
-        if (g_form.removeSubmitButton)
-            g_form.removeSubmitButton();
-        if (g_form.removeSaveButton)
-            g_form.removeSaveButton();
+        // Optionally hide buttons in classic U
     }
 
     // 1. Set Submitted By to current user
@@ -108,7 +104,7 @@ function checkForDuplicateRetro(sprintSysId, lockFormFn) {
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>c2521225836dfe5089529370ceaad3be</sys_id>
-        <sys_mod_count>40</sys_mod_count>
+        <sys_mod_count>41</sys_mod_count>
         <sys_name>Auto-populate Submitted By on Load</sys_name>
         <sys_overrides/>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
@@ -116,7 +112,7 @@ function checkForDuplicateRetro(sprintSysId, lockFormFn) {
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name>sys_script_client_c2521225836dfe5089529370ceaad3be</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-05 13:24:41</sys_updated_on>
+        <sys_updated_on>2025-12-08 17:03:26</sys_updated_on>
         <table>x_1865669_retrospe_retrospective_submission</table>
         <type>onLoad</type>
         <ui_type>0</ui_type>

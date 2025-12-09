@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="INSERT_OR_UPDATE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>Retro task Details - Container 1</name>
+        <order>1</order>
+        <semantic_tag/>
+        <sp_page display_value="retro_task_details">59636f488375361089529370ceaad30c</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-09 09:24:32</sys_created_on>
+        <sys_id>59636f488375361089529370ceaad30f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Retro task Details - Container 1</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sp_container_59636f488375361089529370ceaad30f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-09 09:24:32</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+</record_update>

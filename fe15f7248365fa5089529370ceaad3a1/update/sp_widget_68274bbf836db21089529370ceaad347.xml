@@ -263,34 +263,33 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-12-08 12:42:34</sys_created_on>
         <sys_id>68274bbf836db21089529370ceaad347</sys_id>
-        <sys_mod_count>13</sys_mod_count>
+        <sys_mod_count>14</sys_mod_count>
         <sys_name>SUBMIT SECTION</sys_name>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
         <sys_policy/>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name>sp_widget_68274bbf836db21089529370ceaad347</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-08 15:46:44</sys_updated_on>
+        <sys_updated_on>2025-12-09 08:55:02</sys_updated_on>
         <template><![CDATA[<div class="submit-section">
   <div class="submit-header">
     <h2 class="submit-title">Share Your Feedback</h2>
   </div>
   
-  <div class="submit-content">
-    <!-- Show button if sprint ready -->
-    <div ng-if="data.sprintReady">
-      <button class="btn btn-primary btn-lg" ng-click="c.openSubmitForm()">
-        <span class="btn-icon">✏️</span>
-        <span class="btn-text">Submit Retrospective for {{data.currentSprint}}</span>
-      </button>
-      <p class="submit-hint">✅ Sprint is ready for your feedback</p>
-    </div>
-    
-    <!-- Show message if sprint not ready -->
-    <div ng-if="!data.sprintReady" class="sprint-not-ready">
-      <p class="info-message">⏳ Waiting for manager to open retrospective submission</p>
-      <p class="info-text">Current Sprint: {{data.currentSprint}}</p>
-    </div>
+<div class="submit-content">
+  <!-- Show button if sprint ready -->
+  <div ng-if="data.sprintReady">
+    <button class="btn btn-primary btn-lg" ng-click="c.openSubmitForm()">
+      <span class="btn-icon">✏️</span>
+      <span class="btn-text">Submit Retrospective for {{data.currentSprint}}</span>
+    </button>
+    <p class="submit-hint">✅ Sprint is ready for your feedback</p>
+  </div>
+  
+  <!-- Show message if sprint not ready -->
+  <div ng-if="!data.sprintReady" class="sprint-not-ready">
+    <p class="info-message">❌ No sprint is ready for submission</p>
+    <p class="info-text">Please check back later.</p>
   </div>
 </div>]]></template>
     </sp_widget>

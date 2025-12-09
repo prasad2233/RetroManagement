@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, $window, $timeout) {
+	var c = this;
+
+	// ----- Model -----
+	c.formData = {
+		sprint: '',
+		start: '',
+		stop: '',
+		continue_doing: ''
+	};
+	c.submitting = false;
+
+	// ----- Watchers -----
+	$scope.$watch('data.defaultSprint', function(newVal) {
+		if (newVal) {
+			c.formData.sprint = newVal;
+			console.log('Retro widget: sprint loaded:', newVal);
+		}
+	});
+
+	// ----- Actions -----
+c.submit = function() {
+    console.log('=== Retro widget: SUBMIT ===', c.formData);
+
+    if (!c.formData.sprint) {
+        alert('Sprint is not available. Please refresh and try again.');
+        return;
+    }
+    if (!c.formData.start || c.formData.start.trim() === '') {
+        alert('Please fill in the START field');
+        return;
+    }
+    if (!c.formData.stop || c.formData.stop.trim() === '') {
+        alert('Please fill in the STOP field');
+        return;
+    }
+    if (!c.formData.continue_doing || c.formData.continue_doing.trim() === '') {
+        alert('Please fill in the CONTINUE field');
+        return;
+    }
+
+    c.submitting = true;
+
+    // Put submission data onto $scope.data (this is what comes back as input)
+    $scope.data.action         = 'submit';
+    $scope.data.sprint         = c.formData.sprint;
+    $scope.data.start          = c.formData.start;
+    $scope.data.stop           = c.formData.stop;
+    $scope.data.continue_doing = c.formData.continue_doing;
+
+    console.log('Retro widget: sending $scope.data =', $scope.data);
+
+    c.server.update($scope.data).then(function(response) {
+        console.log('=== Retro widget: SERVER RESPONSE ===', response);
+        c.submitting = false;
+
+        var r = response.data || response;
+        var result = r.result || r;
+        var responseData = result.data || result;
+
+        console.log('Retro widget: unwrapped response data:', responseData);
+
+        if (responseData.success) {
+            $scope.data.success = responseData.success;
+            $scope.data.error = null;
+
+            c.formData = {
+                sprint: $scope.data.defaultSprint,
+                start: '',
+                stop: '',
+                continue_doing: ''
+            };
+
+            $timeout(function() {
+                $window.location.href = '/esc?id=my_retrospectives';
+            }, 2000);
+
+        } else if (responseData.error) {
+            $scope.data.error = responseData.error;
+            $scope.data.success = null;
+
+        } else {
+            console.warn('Retro widget: no success or error in response', responseData);
+            $scope.data.error = 'An unexpected error occurred.';
+            $scope.data.success = null;
+        }
+    }).catch(function(error) {
+        c.submitting = false;
+        console.error('✗ Retro widget: catch error:', error);
+        $scope.data.error = 'An error occurred. Please try again.';
+        $scope.data.success = null;
+    });
+};
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.retro-submission-form {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.retro-sprint-info {
+  margin-bottom: 2rem;
+}
+
+.retro-sprint-info h4 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+.retro-sprint-name {
+  font-size: 1.6rem;
+}
+
+.retro-actions .btn {
+  margin-right: 1rem;
+}
+
+@media (max-width: 768px) {
+  .retro-submission-form {
+    margin: 0 0.5rem;
+  }
+
+  .retro-actions .btn-lg {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>retro-submission-form</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>retro-submission-form</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	gs.info('=== Retro Submission Widget – Server Script ===');
+
+	// Initialize outbound data object
+	data.defaultSprint = '';
+	data.currentSprintName = '';
+	data.success = null;
+	data.error = null;
+
+	// Helper: get current user's teams (x_1865669_retrospe_team_member)
+	function getUserTeams() {
+		var teamIds = [];
+		var tm = new GlideRecord('x_1865669_retrospe_team_member');
+		tm.addQuery('user', gs.getUserID());
+		tm.addActiveQuery(); // requires 'active' on m2m, otherwise remove
+		tm.query();
+		while (tm.next()) {
+			teamIds.push(tm.getValue('team'));
+		}
+		return teamIds;
+	}
+
+	// 1) Find a sprint for this user that is ready for submission
+	var teams = getUserTeams();
+	if (teams.length > 0) {
+		var sprintGR = new GlideRecord('x_1865669_retrospe_sprint');
+		sprintGR.addQuery('team', 'IN', teams.join(','));
+		sprintGR.addQuery('state', 'ready_for_submission');
+		sprintGR.orderByDesc('start_date');
+		sprintGR.setLimit(1);
+		sprintGR.query();
+
+		if (sprintGR.next()) {
+			data.defaultSprint = sprintGR.getUniqueValue();
+			data.currentSprintName = sprintGR.getValue('sprint_name');
+			gs.info('Retro widget: using sprint ' + data.currentSprintName +
+							' (' + data.defaultSprint + ')');
+		} else {
+			gs.warn('Retro widget: no sprint in ready_for_submission for user teams ' +
+							teams.join(','));
+		}
+	} else {
+		gs.warn('Retro widget: user is not in any retrospe team');
+	}
+
+	// 2) Initial load vs submit
+	gs.info('Retro widget: server script start. Input = ' + JSON.stringify(input));
+
+	if (input && input.action === 'submit') {
+		gs.info('Retro widget: submit action detected. Proceeding with validation...');
+		// ...
+	} else {
+		gs.info('Retro widget: NOT submit path. input=' + JSON.stringify(input));
+	}
+	// Only run submission logic when action === 'submit'
+	if (input && input.action === 'submit') {
+		gs.info('Retro widget: submit action detected. Proceeding with validation...');
+
+		try {
+			var sprintId      = input.sprint;
+			var startText     = input.start;
+			var stopText      = input.stop;
+			var continueText  = input.continue_doing;
+
+			gs.info('Retro widget: input values -> sprint=' + sprintId +
+							', start="' + startText + '", stop="' + stopText +
+							'", continue="' + continueText + '"');
+
+			// Basic validation
+			if (!sprintId) {
+				data.error = 'Sprint is missing.';
+				return;
+			}
+			if (!startText || startText.trim() === '') {
+				data.error = 'START field is required.';
+				return;
+			}
+			if (!stopText || stopText.trim() === '') {
+				data.error = 'STOP field is required.';
+				return;
+			}
+			if (!continueText || continueText.trim() === '') {
+				data.error = 'CONTINUE field is required.';
+				return;
+			}
+
+			// Load sprint and derive team
+			var sprint = new GlideRecord('x_1865669_retrospe_sprint');
+			if (!sprint.get(sprintId)) {
+				data.error = 'Invalid sprint selected.';
+				return;
+			}
+
+			var teamId = sprint.getValue('team');
+			if (!teamId) {
+				data.error = 'Sprint is not linked to any team.';
+				return;
+			}
+
+			// Optional: prevent duplicate submission per user & sprint
+			var dup = new GlideRecord('x_1865669_retrospe_retrospective_submission');
+			dup.addQuery('sprint', sprintId);
+			dup.addQuery('submitted_by', gs.getUserID());
+			dup.query();
+			if (dup.next()) {
+				data.error = 'You have already submitted a retrospective for this sprint.';
+				return;
+			}
+
+			// Create the retrospective submission
+			var subGR = new GlideRecord('x_1865669_retrospe_retrospective_submission');
+			subGR.initialize();
+
+			subGR.setValue('team', teamId);
+			subGR.setValue('sprint', sprintId);
+			subGR.setValue('submitted_by', gs.getUserID());
+			subGR.setValue('submitted_date', new GlideDateTime().getValue());
+			subGR.setValue('status', 'submitted');
+
+			subGR.setValue('start_items', startText);
+			subGR.setValue('stop_items', stopText);
+			subGR.setValue('continue_items', continueText);
+
+			gs.info('Retro widget: inserting retrospective submission record...');
+			var sysId = subGR.insert();
+
+			if (sysId) {
+				data.success = 'Thank you! Your retrospective feedback has been submitted successfully.';
+				data.error = null;
+				gs.info('Retro widget: submission created ' + sysId);
+			} else {
+				var err = subGR.getLastErrorMessage();
+				data.error = 'Failed to create record. ' + (err || '');
+				data.success = null;
+				gs.error('Retro widget: insert failed: ' + err);
+			}
+
+		} catch (e) {
+			data.error = 'System error: ' + e.message;
+			data.success = null;
+			gs.error('Retro widget: exception ' + e.message);
+			gs.error('Stack: ' + e.stack);
+		}
+
+	} else {
+		// Initial page load or other non-submit call
+		gs.info('Retro widget: initial page load or non-submit action.');
+		// no return needed; we just leave data.defaultSprint / data.currentSprintName set
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 17:23:55</sys_created_on>
+        <sys_id>f18784848335f21089529370ceaad327</sys_id>
+        <sys_mod_count>48</sys_mod_count>
+        <sys_name>retro-submission-form</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sp_widget_f18784848335f21089529370ceaad327</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 19:22:08</sys_updated_on>
+        <template><![CDATA[<div class="retro-submission-form panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Submit Retrospective</h3>
+  </div>
+
+  <div class="panel-body">
+    <!-- Error message -->
+    <div ng-if="data.error" class="alert alert-danger">
+      <i class="fa fa-exclamation-circle"></i> {{data.error}}
+    </div>
+
+    <!-- Success message -->
+    <div ng-if="data.success" class="alert alert-success">
+      <i class="fa fa-check-circle"></i> {{data.success}}
+      <p>Redirecting to My Retrospectives...</p>
+    </div>
+
+    <!-- Main form content -->
+    <div ng-if="!data.success && data.defaultSprint">
+      <!-- Sprint Info Box -->
+      <div class="alert alert-info retro-sprint-info">
+        <h4><i class="fa fa-calendar"></i> Sprint Information</h4>
+        <div class="retro-sprint-name">
+          <strong>Sprint:</strong> {{data.currentSprintName}}
+        </div>
+      </div>
+
+      <!-- Hidden sprint field bound to model -->
+      <input type="hidden"
+             ng-model="c.formData.sprint"
+             value="{{data.defaultSprint}}" />
+
+      <!-- Start Field -->
+      <div class="form-group">
+        <label for="retro-start">
+          <i class="fa fa-play text-success"></i>
+          What should we START doing?
+          <span class="text-danger">*</span>
+        </label>
+        <textarea id="retro-start"
+                  class="form-control"
+                  ng-model="c.formData.start"
+                  rows="4"
+                  placeholder="What new practices should we adopt?"></textarea>
+      </div>
+
+      <!-- Stop Field -->
+      <div class="form-group">
+        <label for="retro-stop">
+          <i class="fa fa-stop text-danger"></i>
+          What should we STOP doing?
+          <span class="text-danger">*</span>
+        </label>
+        <textarea id="retro-stop"
+                  class="form-control"
+                  ng-model="c.formData.stop"
+                  rows="4"
+                  placeholder="What practices are not working?"></textarea>
+      </div>
+
+      <!-- Continue Field -->
+      <div class="form-group">
+        <label for="retro-continue">
+          <i class="fa fa-refresh text-primary"></i>
+          What should we CONTINUE doing?
+          <span class="text-danger">*</span>
+        </label>
+        <textarea id="retro-continue"
+                  class="form-control"
+                  ng-model="c.formData.continue_doing"
+                  rows="4"
+                  placeholder="What's working well that we should keep?"></textarea>
+      </div>
+
+      <!-- Actions -->
+      <div class="form-group retro-actions">
+        <button type="button"
+                class="btn btn-primary btn-lg"
+                ng-click="c.submit()"
+                ng-disabled="c.submitting">
+          <span ng-if="!c.submitting">
+            <i class="fa fa-paper-plane"></i> Submit Retrospective
+          </span>
+          <span ng-if="c.submitting">
+            <i class="fa fa-spinner fa-spin"></i> Submitting...
+          </span>
+        </button>
+
+        <a href="/esc?id=my_retrospectives"
+           class="btn btn-default btn-lg">
+          <i class="fa fa-times"></i> Cancel
+        </a>
+      </div>
+
+      <div class="help-block">
+        <span class="text-danger">*</span> All fields are required
+      </div>
+    </div>
+
+    <!-- No sprint available -->
+    <div ng-if="!data.defaultSprint && !data.success" class="alert alert-warning">
+      <i class="fa fa-exclamation-triangle"></i>
+      No sprint available for submission.
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>success</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">2f206f738361f21089529370ceaad35a</sp_column>
+        <sp_widget display_value="SC Catalog Item">3c29786e87133200e0ef0cf888cb0bdf</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 15:07:11</sys_created_on>
+        <sys_id>7638673f8361f21089529370ceaad317</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sp_instance_7638673f8361f21089529370ceaad317</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 17:13:09</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"show_add_cart_button": {
+		"value": "false",
+		"displayValue": "false"
+	},
+	"show_field_validation_messages": {
+		"value": "false",
+		"displayValue": "false"
+	},
+	"show_add_to_wishlist_button": {
+		"value": "false",
+		"displayValue": "false"
+	},
+	"display_cart_on_right": {
+		"value": "false",
+		"displayValue": "false"
+	},
+	"show_less_description": {
+		"value": "false",
+		"displayValue": "false"
+	},
+	"hide_save_as_draft_button": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"hide_delivery_time": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"is_preview": {
+		"value": "false",
+		"displayValue": "false"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=7638673f8361f21089529370ceaad317"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sp_instance_7638673f8361f21089529370ceaad317</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance"&gt;&lt;sp_instance action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;success&lt;/color&gt;&lt;css/&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;order&gt;1&lt;/order&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;2f206f738361f21089529370ceaad35a&lt;/sp_column&gt;&lt;sp_widget display_value="SC Catalog Item"&gt;3c29786e87133200e0ef0cf888cb0bdf&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-12-08 15:07:11&lt;/sys_created_on&gt;&lt;sys_id&gt;7638673f8361f21089529370ceaad317&lt;/sys_id&gt;&lt;sys_mod_count&gt;5&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Retrospective Management" source="x_1865669_retrospe"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Retrospective Management"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_7638673f8361f21089529370ceaad317&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-12-08 17:13:09&lt;/sys_updated_on&gt;&lt;title/&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"show_add_cart_button": {
+		"value": "false",
+		"displayValue": "false"
+	},
+	"show_field_validation_messages": {
+		"value": "false",
+		"displayValue": "false"
+	},
+	"show_add_to_wishlist_button": {
+		"value": "false",
+		"displayValue": "false"
+	},
+	"display_cart_on_right": {
+		"value": "false",
+		"displayValue": "false"
+	},
+	"show_less_description": {
+		"value": "false",
+		"displayValue": "false"
+	},
+	"hide_save_as_draft_button": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"hide_delivery_time": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"is_preview": {
+		"value": "false",
+		"displayValue": "false"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=7638673f8361f21089529370ceaad317"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1875841208</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 17:13:09</sys_created_on>
+        <sys_id>c01588c08335f21089529370ceaad31e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19afef3e92d0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 17:13:09</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>481588c0cc35f2100e445d836967cd1d</update_guid>
+        <update_guid_history>481588c0cc35f2100e445d836967cd1d:1875841208,93f4c8c0b435f210ea4ac4658b1b3ffa:-2143694280,59e484c0b235f2107ccf754fdbfef6e1:-1410515778,b958a73f5561f2102596277586cfa9bb:-198424976,b948ef3f6661f210df8ad07a778920ac:1938249656,7a38673f1f61f210e98dcc42dd530219:-96937819</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">34f744848335f21089529370ceaad36d</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 17:25:46</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>1dfaba24a94f4f98a089ddce5b8e6b90</sys_id>
+        <sys_metadata>7638673f8361f21089529370ceaad317</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sp_instance_7638673f8361f21089529370ceaad317</sys_update_name>
+        <sys_update_version display_value="sp_instance_7638673f8361f21089529370ceaad317">c01588c08335f21089529370ceaad31e</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 17:25:46</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

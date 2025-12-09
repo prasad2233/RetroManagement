@@ -1,0 +1,914 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, $window, $timeout) {
+    var c = this;
+
+    console.log('=== Retro Details Widget Loaded ===');
+    console.log('Retrospective:', $scope.data.retro);
+    console.log('Tasks Count:', $scope.data.tasks.length);
+    console.log('Is Owner:', $scope.data.isOwner);
+
+    // Initialize state
+    c.editing = false;
+    c.saving = false;
+    c.editForm = {};
+
+    // Start editing retrospective
+    c.startEditing = function() {
+        console.log('Starting edit mode');
+        c.editing = true;
+
+        c.editForm = {
+            start: $scope.data.retro.start,
+            stop: $scope.data.retro.stop,
+            continue_doing: $scope.data.retro.continue_doing
+        };
+    };
+
+    // Cancel editing
+    c.cancelEditing = function() {
+        console.log('Canceling edit mode');
+        c.editing = false;
+        c.editForm = {};
+        $scope.data.error = null;
+    };
+
+    // Save retrospective changes (using $scope.data)
+    c.saveRetro = function() {
+        // Validate
+        if (!c.editForm.start || !c.editForm.stop || !c.editForm.continue_doing) {
+            $scope.data.error = 'All fields are required.';
+            return;
+        }
+
+        c.saving = true;
+
+        // Put data onto $scope.data, which becomes `input` on the server
+        $scope.data.action         = 'saveRetro';
+        $scope.data.retroId        = $scope.data.retro.sysId;
+        $scope.data.start          = c.editForm.start;
+        $scope.data.stop           = c.editForm.stop;
+        $scope.data.continue_doing = c.editForm.continue_doing;
+
+        console.log('Saving retrospective via $scope.data:', $scope.data);
+
+        c.server.update($scope.data).then(function(response) {
+            c.saving = false;
+
+            var r = response.data || response;
+            var result = r.result || r;
+            var respData = result.data || result;
+
+            console.log('Server response (unwrapped):', respData);
+
+            if (respData.success) {
+                console.log('✓ Saved successfully');
+                $scope.data.success = respData.success;
+                $scope.data.error = null;
+
+                // Update local retro values
+                $scope.data.retro.start = c.editForm.start;
+                $scope.data.retro.stop = c.editForm.stop;
+                $scope.data.retro.continue_doing = c.editForm.continue_doing;
+
+                c.editing = false;
+                c.editForm = {};
+
+                $timeout(function() {
+                    $scope.data.success = null;
+                }, 3000);
+
+            } else if (respData.error) {
+                console.error('✗ Error:', respData.error);
+                $scope.data.error = respData.error;
+                $scope.data.success = null;
+
+            } else {
+                console.warn('No success or error in save response', respData);
+                $scope.data.error = 'An unexpected error occurred.';
+                $scope.data.success = null;
+            }
+        }).catch(function(error) {
+            c.saving = false;
+            console.error('✗ Server error:', error);
+            $scope.data.error = 'Failed to save. Please try again.';
+        });
+    };
+
+    // View task details
+    c.viewTask = function(taskId, $event) {
+        if ($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+        }
+        console.log('Opening task details for:', taskId);
+        $window.location.href = '/sp?id=task_details&task_id=' + taskId;
+    };
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* Retro Details Widget Styles */
+.retro-section {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    min-height: 200px;
+  }
+  
+  .retro-section p {
+    line-height: 1.6;
+    font-size: 14px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .form-control {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+.retro-details {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.retro-details .panel-heading {
+    background-color: #f8f9fa;
+    border-bottom: 3px solid #007bff;
+    padding: 15px;
+}
+
+.retro-details .panel-heading h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8px 0;
+}
+
+.retro-details .panel-heading small {
+    display: block;
+    font-size: 13px;
+}
+
+/* Retro Sections */
+.retro-section {
+    padding: 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 6px;
+    min-height: 220px;
+    border-left: 4px solid #007bff;
+    transition: all 0.3s ease;
+}
+
+.retro-section:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.retro-section h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.retro-section h4 i {
+    font-size: 20px;
+}
+
+.retro-section p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #333;
+    margin: 10px 0 0 0;
+    word-wrap: break-word;
+}
+
+/* START Section */
+.retro-section:has(h4:contains("START")) {
+    border-left-color: #27ae60;
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+}
+
+.retro-section h4[style*="color: #27ae60"] {
+    color: #27ae60 !important;
+}
+
+/* STOP Section */
+.retro-section h4[style*="color: #e74c3c"] {
+    color: #e74c3c !important;
+}
+
+/* CONTINUE Section */
+.retro-section h4[style*="color: #3498db"] {
+    color: #3498db !important;
+}
+
+/* Tasks Table */
+.retro-details .table {
+    margin-bottom: 0;
+    background-color: #fff;
+}
+
+.retro-details .table thead tr {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.retro-details .table thead th {
+    font-weight: 600;
+    color: #333;
+    padding: 15px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.retro-details .table tbody tr {
+    border-bottom: 1px solid #dee2e6;
+    transition: background-color 0.2s;
+}
+
+.retro-details .table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.retro-details .table tbody td {
+    padding: 15px;
+    vertical-align: middle;
+    font-size: 13px;
+}
+
+.retro-details .table tbody td strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.retro-details .table tbody td small {
+    color: #666;
+    display: block;
+}
+
+/* Badge Styles */
+.badge {
+    background-color: #007bff;
+    color: white;
+    border-radius: 12px;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 8px;
+}
+
+/* Labels */
+.label {
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.label-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.label-warning {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.label-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.label-info {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.label-default {
+    background-color: #6c757d;
+    color: white;
+}
+
+/* Buttons */
+.retro-details .btn {
+    border-radius: 4px;
+    font-size: 13px;
+    padding: 8px 15px;
+    transition: all 0.2s;
+    font-weight: 600;
+}
+
+.retro-details .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.btn-xs {
+    padding: 4px 8px;
+    font-size: 11px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+}
+
+.btn-default {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+.btn-default:hover {
+    background-color: #545b62;
+    border-color: #545b62;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: white;
+}
+
+.btn-info:hover {
+    background-color: #117a8b;
+    border-color: #117a8b;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Alert Styles */
+.alert {
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    font-size: 13px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    color: #856404;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+}
+
+.alert i {
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 21px;
+    color: inherit;
+    opacity: 0.5;
+    float: right;
+}
+
+.close:hover {
+    opacity: 0.75;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-dialog {
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 90%;
+}
+
+.modal-content {
+    border-radius: 6px;
+    border: none;
+}
+
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header .modal-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.modal-header .close {
+    float: none;
+    font-size: 28px;
+}
+
+.modal-body {
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.modal-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    padding: 15px;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Panel Styles */
+.panel {
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.panel-info {
+    border-top: 3px solid #17a2b8;
+}
+
+.panel-info .panel-heading {
+    background-color: #d1ecf1;
+    border-bottom: 1px solid #bee5eb;
+    color: #0c5460;
+}
+
+.panel-info .panel-heading .panel-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.panel-body {
+    padding: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .retro-section {
+        min-height: auto;
+        margin-bottom: 15px;
+    }
+    
+    .table {
+        font-size: 12px;
+    }
+    
+    .table thead th,
+    .table tbody td {
+        padding: 10px;
+    }
+    
+    .retro-details .panel-heading {
+        flex-direction: column;
+    }
+    
+    .btn-sm {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>retro_details</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Retro Details</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    gs.info('=== Retro Details Widget ===');
+    
+    data.retro = null;
+    data.tasks = [];
+    data.error = null;
+    data.currentUser = gs.getUserID();
+    data.isOwner = false;
+    
+    // Get retro sys_id from URL parameter
+    var retroId = $sp.getParameter('retro_id');
+    gs.info('Loading retro with ID: ' + retroId);
+    
+    if (!retroId) {
+        data.error = 'No retrospective ID provided.';
+        gs.warn('No retro_id parameter');
+        return;
+    }
+    
+    // Load retrospective
+    var retroGR = new GlideRecord('x_1865669_retrospe_retrospective_submission');
+    if (retroGR.get(retroId)) {
+        var sprintGR = new GlideRecord('x_1865669_retrospe_sprint');
+        sprintGR.get(retroGR.getValue('sprint'));
+        
+        var retroStatus = retroGR.getValue('status');
+        var isOwner = (retroGR.getValue('submitted_by') === data.currentUser);
+        var isEditable = (retroStatus === 'submitted' && isOwner);
+        
+        gs.info('Retro Status: ' + retroStatus);
+        gs.info('Is Owner: ' + isOwner);
+        gs.info('Is Editable: ' + isEditable);
+        
+        data.retro = {
+            sysId: retroGR.getUniqueValue(),
+            sprintName: sprintGR.getValue('sprint_name') || 'Unknown Sprint',
+            sprintId: retroGR.getValue('sprint'),
+            start: retroGR.getValue('start_items'),
+            stop: retroGR.getValue('stop_items'),
+            continue_doing: retroGR.getValue('continue_items'),
+            submittedBy: retroGR.getDisplayValue('submitted_by'),
+            submittedDate: retroGR.getDisplayValue('submitted_date'),
+            status: retroStatus,
+            isEditable: isEditable
+        };
+        
+        // Check if current user is the owner
+        if (isOwner) {
+            data.isOwner = true;
+        }
+        
+        gs.info('Loaded retro: ' + data.retro.sprintName);
+    } else {
+        data.error = 'Retrospective not found.';
+        gs.warn('Retro not found with ID: ' + retroId);
+        return;
+    }
+    
+    // Load related tasks
+    gs.info('Loading tasks for retro: ' + retroId);
+    var taskGR = new GlideRecord('x_1865669_retrospe_retrospective_task');
+    taskGR.addQuery('retro_submission', retroId);
+    taskGR.orderByDesc('created_on');
+    taskGR.query();
+    
+    while (taskGR.next()) {
+        data.tasks.push({
+            sysId: taskGR.getUniqueValue(),
+            title: taskGR.getValue('title'),
+            description: taskGR.getValue('description'),
+            status: taskGR.getDisplayValue('status'),
+            priority: taskGR.getDisplayValue('priority'),
+            dueDate: taskGR.getDisplayValue('due_date'),
+            assignedTo: taskGR.getDisplayValue('assigned_to'),
+            createdOn: taskGR.getDisplayValue('created_on')
+        });
+    }
+    
+    gs.info('Found ' + data.tasks.length + ' tasks');
+    
+    // Handle save retrospective action
+    if (input && input.action === 'saveRetro') {
+        gs.info('Saving retrospective: ' + input.retroId);
+        
+        try {
+            var saveRetroGR = new GlideRecord('x_1865669_retrospe_retrospective_submission');
+            if (saveRetroGR.get(input.retroId)) {
+                // Check if user is owner
+                if (saveRetroGR.getValue('submitted_by') !== data.currentUser) {
+                    data.error = 'You do not have permission to edit this retrospective.';
+                    gs.warn('Unauthorized edit attempt by: ' + data.currentUser);
+                    return;
+                }
+                
+                // Check if status is 
+							
+                if (saveRetroGR.getValue('status') !== 'submitted') {
+                    data.error = 'This retrospective is no longer editable.';
+                    gs.warn('Edit attempt on non-submit status: ' + saveRetroGR.getValue('status'));
+                    return;
+                }
+                
+                // Validate input
+                if (!input.start || !input.stop || !input.continue_doing) {
+                    data.error = 'All fields are required.';
+                    return;
+                }
+                
+                // Update fields
+                saveRetroGR.setValue('start_items', input.start);
+                saveRetroGR.setValue('stop_items', input.stop);
+                saveRetroGR.setValue('continue_items', input.continue_doing);
+                saveRetroGR.update();
+                
+                data.success = 'Retrospective updated successfully.';
+                gs.info('✓ Retrospective updated: ' + input.retroId);
+                
+                // Update local data
+                data.retro.start = input.start;
+                data.retro.stop = input.stop;
+                data.retro.continue_doing = input.continue_doing;
+            } else {
+                data.error = 'Retrospective not found.';
+            }
+        } catch (e) {
+            data.error = 'Error updating retrospective: ' + e.message;
+            gs.error('Exception: ' + e.message);
+        }
+    }
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-09 05:24:28</sys_created_on>
+        <sys_id>787c26cc8331361089529370ceaad33e</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>Retro Details</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sp_widget_787c26cc8331361089529370ceaad33e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-09 07:10:33</sys_updated_on>
+        <template><![CDATA[
+
+
+
+
+
+
+
+<div class="panel panel-default retro-details">
+  <!-- Error/Success Messages -->
+  <div ng-if="data.error" class="alert alert-danger" style="margin: 0 0 20px 0;">
+    <i class="fa fa-exclamation-circle"></i> {{data.error}}
+    <button type="button" class="close" ng-click="data.error = null">×</button>
+  </div>
+  
+  <div ng-if="data.success" class="alert alert-success" style="margin: 0 0 20px 0;">
+    <i class="fa fa-check-circle"></i> {{data.success}}
+  </div>
+  
+  <!-- No Retro Found -->
+  <div ng-if="!data.retro" class="alert alert-warning">
+    <i class="fa fa-exclamation-triangle"></i> {{data.error || 'Retrospective not found.'}}
+  </div>
+  
+  <!-- Retro Details -->
+  <div ng-if="data.retro">
+    <!-- Header -->
+    <div class="panel-heading">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <h3 class="panel-title" style="margin: 0;">
+            <i class="fa fa-comments"></i> {{data.retro.sprintName}}
+          </h3>
+          <small class="text-muted">
+            Submitted by: <strong>{{data.retro.submittedBy}}</strong> on {{data.retro.submittedDate}}
+          </small>
+        </div>
+        <div>
+          <!-- Edit Button - Show only if owner and status is submit -->
+          <button class="btn btn-sm btn-primary" ng-click="c.startEditing()" ng-if="data.isOwner && data.retro.isEditable && !c.editing">
+            <i class="fa fa-pencil"></i> Edit
+          </button>
+          <!-- Debug: Show why edit button is hidden -->
+          <small ng-if="!data.isOwner" style="color: #999;">
+            (You are not the owner)
+          </small>
+          <small ng-if="data.isOwner && !data.retro.isEditable" style="color: #999;">
+            (Status: {{data.retro.status}} - only "submit" status is editable)
+          </small>
+          <!-- Save Button - Show only when editing -->
+          <button class="btn btn-sm btn-success" ng-click="c.saveRetro()" ng-if="c.editing" ng-disabled="c.saving">
+            <i class="fa fa-save"></i> {{c.saving ? 'Saving...' : 'Save'}}
+          </button>
+          <!-- Cancel Button - Show only when editing -->
+          <button class="btn btn-sm btn-default" ng-click="c.cancelEditing()" ng-if="c.editing">
+            <i class="fa fa-times"></i> Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Retro Content -->
+    <div class="panel-body">
+      <!-- View Mode -->
+      <div ng-if="!c.editing">
+        <div class="row">
+          <!-- START -->
+          <div class="col-md-4">
+            <div class="retro-section">
+              <h4 style="color: #27ae60; border-bottom: 2px solid #27ae60; padding-bottom: 8px;">
+                <i class="fa fa-play"></i> START
+              </h4>
+              <p style="margin-top: 10px;">{{data.retro.start}}</p>
+            </div>
+          </div>
+          
+          <!-- STOP -->
+          <div class="col-md-4">
+            <div class="retro-section">
+              <h4 style="color: #e74c3c; border-bottom: 2px solid #e74c3c; padding-bottom: 8px;">
+                <i class="fa fa-stop"></i> STOP
+              </h4>
+              <p style="margin-top: 10px;">{{data.retro.stop}}</p>
+            </div>
+          </div>
+          
+          <!-- CONTINUE -->
+          <div class="col-md-4">
+            <div class="retro-section">
+              <h4 style="color: #3498db; border-bottom: 2px solid #3498db; padding-bottom: 8px;">
+                <i class="fa fa-refresh"></i> CONTINUE
+              </h4>
+              <p style="margin-top: 10px;">{{data.retro.continue_doing}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Edit Mode -->
+      <div ng-if="c.editing">
+        <div class="row">
+          <!-- START Edit -->
+          <div class="col-md-4">
+            <div class="form-group">
+              <label style="color: #27ae60; font-weight: 600;">
+                <i class="fa fa-play"></i> START
+              </label>
+              <textarea class="form-control" ng-model="c.editForm.start" rows="6" placeholder="What should we start doing?"></textarea>
+            </div>
+          </div>
+          
+          <!-- STOP Edit -->
+          <div class="col-md-4">
+            <div class="form-group">
+              <label style="color: #e74c3c; font-weight: 600;">
+                <i class="fa fa-stop"></i> STOP
+              </label>
+              <textarea class="form-control" ng-model="c.editForm.stop" rows="6" placeholder="What should we stop doing?"></textarea>
+            </div>
+          </div>
+          
+          <!-- CONTINUE Edit -->
+          <div class="col-md-4">
+            <div class="form-group">
+              <label style="color: #3498db; font-weight: 600;">
+                <i class="fa fa-refresh"></i> CONTINUE
+              </label>
+              <textarea class="form-control" ng-model="c.editForm.continue_doing" rows="6" placeholder="What should we continue doing?"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tasks Section -->
+  <div ng-if="data.retro" style="margin-top: 20px;">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <i class="fa fa-tasks"></i> Related Tasks
+          <span class="badge">{{data.tasks.length}}</span>
+        </h4>
+      </div>
+      
+      <div class="panel-body">
+        <!-- No Tasks -->
+        <div ng-if="data.tasks.length === 0" class="alert alert-info">
+          <i class="fa fa-info-circle"></i> No tasks created from this retrospective yet.
+        </div>
+        
+        <!-- Tasks Table -->
+        <div ng-if="data.tasks.length > 0" class="table-responsive">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr style="background-color: #f5f5f5;">
+                <th>Title</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Assigned To</th>
+                <th>Due Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="task in data.tasks">
+                <td>
+                  <strong>{{task.title}}</strong>
+                  <br>
+                  <small class="text-muted">{{task.description | limitTo:50}}{{task.description.length > 50 ? '...' : ''}}</small>
+                </td>
+                <td>
+                  <span class="label" 
+                        ng-class="{'label-success': task.status === 'Completed', 
+                                   'label-warning': task.status === 'In Progress', 
+                                   'label-default': task.status === 'Not Started'}">
+                    {{task.status}}
+                  </span>
+                </td>
+                <td>
+                  <span class="label" 
+                        ng-class="{'label-danger': task.priority === 'High', 
+                                   'label-warning': task.priority === 'Medium', 
+                                   'label-info': task.priority === 'Low'}">
+                    {{task.priority}}
+                  </span>
+                </td>
+                <td>{{task.assignedTo}}</td>
+                <td>
+                  <span ng-if="task.dueDate">{{task.dueDate}}</span>
+                  <span ng-if="!task.dueDate" class="text-muted">-</span>
+                </td>
+                <td>
+                  <button class="btn btn-xs btn-info" ng-click="c.viewTask(task.sysId)" title="View">
+                    <i class="fa fa-eye"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

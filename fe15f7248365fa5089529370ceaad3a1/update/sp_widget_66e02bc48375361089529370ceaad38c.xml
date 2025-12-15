@@ -20,7 +20,7 @@
         state: $scope.data.task.state_value || '100',          // '100','200','300','400'
         short_description: $scope.data.task.short_description || '',
         description: $scope.data.task.description || '',
-        priority: $scope.data.task.priority || 'Medium',
+        priority: $scope.data.task.priority || '2',
         work_note: ''
       };
     }
@@ -46,7 +46,7 @@
       state: $scope.data.task.state_value || '100',
       short_description: $scope.data.task.short_description || '',
       description: $scope.data.task.description || '',
-      priority: $scope.data.task.priority || 'Medium',
+      priority: $scope.data.task.priority || '2',
       work_note: ''
     };
     $scope.data.error = null;
@@ -90,7 +90,10 @@
     c.server.update($scope.data).then(function(response) {
       c.saving = false;
 
-      var res = response.data;   // server script returns data directly
+      // Unwrap like other widgets
+      var r = response.data || response;
+      var result = r.result || r;
+      var res = result.data || result;
 
       console.log('Server response:', res);
 
@@ -162,603 +165,95 @@
   });
 }]]></client_script>
         <controller_as>c</controller_as>
-        <css>/* Page background similar to retro widgets */
-.retro-page-bg {
-  background: radial-gradient(circle at top left, #667eea 0, #4c51bf 40%, #1f2937 100%);
-  padding: 32px 16px;
-}
-
-/* Container */
-.retro-task-container {
-  max-width: 1100px;
+        <css>.modern-task-details {
+  max-width: 1200px;
   margin: 0 auto;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Top bar */
-.retro-top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 18px;
-  gap: 12px;
-}
-
-/* Back button */
-.back-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(15, 23, 42, 0.6);
-  color: #e5e7eb;
-  font-size: 12px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.back-button i {
-  font-size: 11px;
-}
-
-.back-button:hover {
-  background: rgba(129, 140, 248, 0.9);
-  border-color: transparent;
-  color: #f9fafb;
-}
-
-/* Sprint chip */
-.sprint-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: rgba(129, 140, 248, 0.1);
-  border: 1px solid rgba(129, 140, 248, 0.6);
-  color: #e5e7eb;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.sprint-chip i {
-  font-size: 11px;
-}
-
-/* Alerts */
-.alert {
+.alert-message {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-  border-radius: 10px;
-  margin-bottom: 12px;
-  font-size: 12px;
-  animation: fadeInDown 0.2s ease-out;
-}
-
-.alert i {
-  font-size: 15px;
+  gap: 10px;
+  animation: slideIn 0.3s ease;
 }
 
 .alert-error {
-  background: rgba(248, 113, 113, 0.1);
-  color: #fecaca;
-  border: 1px solid #fecaca;
+  background: #fee;
+  border-left: 4px solid #e53e3e;
+  color: #c53030;
 }
 
 .alert-success {
-  background: rgba(52, 211, 153, 0.12);
-  color: #bbf7d0;
-  border: 1px solid #6ee7b7;
+  background: #f0fdf4;
+  border-left: 4px solid #10b981;
+  color: #047857;
 }
 
-/* Cards */
-.task-card {
-  background: #0b1120;
-  border-radius: 18px;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(148, 163, 184, 0.3);
-  backdrop-filter: blur(18px);
+.task-header {
+  background: white;
+  border: 1px solid #e2e8f0;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-.task-card--header {
-  padding: 18px 22px 14px;
-  margin-bottom: 10px;
-}
-
-.task-card--body {
-  padding: 22px 22px 12px;
-}
-
-.task-card--footer {
-  margin-top: 8px;
-  padding: 10px 18px;
+.task-header-content {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-}
-
-/* Header content */
-.task-header-main {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
   align-items: flex-start;
-}
-
-.task-header-left {
-  flex: 1;
-  min-width: 0;
-}
-
-.task-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(148, 163, 184, 0.7);
-  margin-bottom: 6px;
-}
-
-.task-pill-label {
-  font-size: 10px;
-  text-transform: uppercase;
-  color: #9ca3af;
-  letter-spacing: 0.12em;
-}
-
-.task-pill-number {
-  font-size: 11px;
-  color: #e5e7eb;
-  font-weight: 600;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .task-title {
-  font-size: 22px;
-  line-height: 1.3;
-  color: #f9fafb;
-  margin: 4px 0 10px;
-  word-break: break-word;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: #2d3748;
 }
 
-.task-meta-row {
+.task-meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: #718096;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-group {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
 }
 
-.meta-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 11px;
-  color: #e5e7eb;
-  background: rgba(15, 23, 42, 0.85);
-  border: 1px solid rgba(148, 163, 184, 0.5);
-}
-
-.meta-chip i {
-  font-size: 11px;
-  color: #a5b4fc;
-}
-
-.task-header-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 8px;
-}
-
-/* State badge + priority chip */
-.state-badge {
-  padding: 4px 12px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: capitalize;
-  white-space: nowrap;
-}
-
-.state-badge--Completed {
-  background: rgba(34, 197, 94, 0.12);
-  color: #bbf7d0;
-  border: 1px solid rgba(34, 197, 94, 0.6);
-}
-
-.state-badge--In_Progress {
-  background: rgba(234, 179, 8, 0.12);
-  color: #facc15;
-  border: 1px solid rgba(234, 179, 8, 0.7);
-}
-
-.state-badge--Not_Started {
-  background: rgba(100, 116, 139, 0.18);
-  color: #e5e7eb;
-  border: 1px solid rgba(148, 163, 184, 0.7);
-}
-
-.priority-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 3px 10px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 500;
-}
-
-.priority-pill i {
-  font-size: 11px;
-}
-
-.priority-pill--Low {
-  background: rgba(34, 197, 94, 0.1);
-  color: #bbf7d0;
-}
-
-.priority-pill--Medium {
-  background: rgba(59, 130, 246, 0.12);
-  color: #bfdbfe;
-}
-
-.priority-pill--High {
-  background: rgba(251, 191, 36, 0.12);
-  color: #facc15;
-}
-
-.priority-pill--Critical {
-  background: rgba(248, 113, 113, 0.12);
-  color: #fecaca;
-}
-
-/* Body layout */
-.task-layout {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 22px;
-}
-
-.edit-layout {
-  display: block;
-}
-
-/* Sections */
-.section-block {
-  margin-bottom: 18px;
-}
-
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-.section-header h2 {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: #9ca3af;
-}
-
-.section-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: #60a5fa;
-}
-
-.section-tag {
-  margin-left: auto;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #a5b4fc;
-  background: rgba(79, 70, 229, 0.18);
-  border-radius: 999px;
-  padding: 2px 8px;
-}
-
-.section-tag--accent {
-  color: #fbbf24;
-  background: rgba(251, 191, 36, 0.12);
-}
-
-/* Description */
-.description-box {
-  background: radial-gradient(circle at top left, rgba(79, 70, 229, 0.22), rgba(15, 23, 42, 0.95));
-  border-radius: 14px;
-  padding: 14px 16px;
-  font-size: 13px;
-  color: #e5e7eb;
-  line-height: 1.6;
-  border: 1px solid rgba(129, 140, 248, 0.3);
-  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.7);
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-
-.description-box--empty {
-  color: #6b7280;
-  font-style: italic;
-}
-
-/* Notes */
-.notes-container {
-  border-radius: 12px;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(31, 41, 55, 0.9);
-  padding: 10px 10px 4px;
-  max-height: 260px;
-  overflow: auto;
-}
-
-.note-item {
-  background: rgba(15, 23, 42, 0.9);
-  border-radius: 10px;
-  padding: 8px 10px;
-  border: 1px solid rgba(51, 65, 85, 0.9);
-  margin-bottom: 8px;
-}
-
-.note-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 6px;
-}
-
-.note-author-block {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.note-avatar {
-  width: 26px;
-  height: 26px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #22d3ee, #818cf8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 600;
-  color: #0f172a;
-}
-
-.note-author-meta {
-  display: flex;
-  flex-direction: column;
-}
-
-.note-author-name {
-  font-size: 12px;
-  color: #e5e7eb;
-  font-weight: 500;
-}
-
-.note-date {
-  font-size: 10px;
-  color: #9ca3af;
-}
-
-.note-content {
-  font-size: 12px;
-  color: #cbd5f5;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-
-.empty-notes {
-  text-align: center;
-  padding: 20px 8px;
-  color: #6b7280;
-  font-size: 12px;
-}
-
-.empty-notes i {
-  display: block;
-  font-size: 20px;
-  margin-bottom: 4px;
-}
-
-/* Detail list (side column) */
-.detail-list {
-  margin: 0;
-}
-
-.detail-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 6px 0;
-  border-bottom: 1px dashed rgba(31, 41, 55, 0.9);
-}
-
-.detail-row:last-child {
-  border-bottom: none;
-}
-
-.detail-row dt {
-  font-size: 11px;
-  color: #9ca3af;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-}
-
-.detail-row dd {
-  margin: 0;
-  font-size: 12px;
-  color: #e5e7eb;
-  text-align: right;
-}
-
-/* State chip in detail list */
-.state-chip {
-  padding: 2px 10px;
-  border-radius: 999px;
-  font-size: 11px;
-}
-
-.state-chip--Completed {
-  background: rgba(34, 197, 94, 0.12);
-  color: #bbf7d0;
-}
-
-.state-chip--In_Progress {
-  background: rgba(234, 179, 8, 0.12);
-  color: #facc15;
-}
-
-.state-chip--Not_Started {
-  background: rgba(100, 116, 139, 0.25);
-  color: #e5e7eb;
-}
-
-/* Forms */
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 14px 16px;
-}
-
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.form-field--full {
-  margin-top: 12px;
-}
-
-.form-field label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: #9ca3af;
-}
-
-.form-input,
-.form-select,
-.form-textarea {
-  background: rgba(15, 23, 42, 0.96);
-  border-radius: 10px;
-  border: 1px solid rgba(55, 65, 81, 0.9);
-  padding: 8px 10px;
-  font-size: 12px;
-  color: #e5e7eb;
-  outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-}
-
-.form-input:focus,
-.form-select:focus,
-.form-textarea:focus {
-  border-color: #818cf8;
-  box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.6);
-  background: rgba(15, 23, 42, 0.98);
-}
-
-.form-textarea {
-  resize: vertical;
-  min-height: 110px;
-}
-
-/* Footer */
-.footer-left {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.footer-id-label {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: #6b7280;
-}
-
-.footer-id-value {
-  font-size: 11px;
-  color: #9ca3af;
-  font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
-
-.footer-actions {
-  display: flex;
-  gap: 8px;
-}
-
-/* Buttons */
 .btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 7px 14px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  border: none;
-  cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all 0.2s;
 }
 
-.btn i {
-  font-size: 11px;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #4f46e5, #818cf8);
-  color: #f9fafb;
-  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.45);
-}
-
-.btn-primary:hover:not(:disabled) {
+.btn:hover:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(79, 70, 229, 0.6);
-}
-
-.btn-secondary {
-  background: rgba(15, 23, 42, 0.9);
-  color: #e5e7eb;
-  border: 1px solid rgba(148, 163, 184, 0.7);
-}
-
-.btn-secondary:hover {
-  background: rgba(15, 23, 42, 0.98);
-}
-
-.btn-success {
-  background: linear-gradient(135deg, #22c55e, #4ade80);
-  color: #052e16;
-}
-
-.btn-success:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
-}
-
-.btn-ghost {
-  background: transparent;
-  color: #9ca3af;
-  border: 1px dashed rgba(75, 85, 99, 0.9);
-}
-
-.btn-ghost:hover {
-  background: rgba(15, 23, 42, 0.9);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 .btn:disabled {
@@ -766,66 +261,202 @@
   cursor: not-allowed;
 }
 
-/* Error box (fallback) */
-.error-box {
-  background: rgba(248, 113, 113, 0.16);
-  border-radius: 14px;
-  padding: 26px 20px;
-  border: 1px solid rgba(248, 113, 113, 0.5);
-  text-align: center;
-  color: #fecaca;
+.btn-primary {
+  background: #667eea;
+  color: white;
 }
 
-.error-box i {
-  display: block;
-  font-size: 28px;
-  margin-bottom: 8px;
+.btn-success {
+  background: #10b981;
+  color: white;
 }
 
-/* Animations */
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-8px); }
-  to   { opacity: 1; transform: translateY(0); }
+.btn-default {
+  background: white;
+  color: #4a5568;
+  border: 1px solid #e2e8f0;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .task-layout {
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+  .content-grid {
     grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 640px) {
-  .retro-page-bg {
-    padding: 20px 10px;
-  }
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid #e2e8f0;
+}
 
-  .task-card--header,
-  .task-card--body {
-    padding: 16px 14px;
-  }
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #2d3748;
+}
 
-  .task-header-main {
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #f7fafc;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-weight: 500;
+  color: #718096;
+}
+
+.info-value {
+  color: #2d3748;
+  font-weight: 500;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #4a5568;
+  font-size: 14px;
+}
+
+/* Row for State + Priority */
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-group-half {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .form-row {
     flex-direction: column;
-    gap: 10px;
   }
+}
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.4;     /* add this */
+  height: auto;         /* let browser size correctly */
+  box-sizing: border-box;
+}
 
-  .task-title {
-    font-size: 18px;
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid #e2e8f0;
+  overflow: visible;    /* important to avoid clipping at bottom */
+}
+
+select.form-control {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  line-height: 1.4;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.work-note {
+  background: #f8fafc;
+  border-left: 3px solid #667eea;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.work-note-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.work-note-author {
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.work-note-date {
+  color: #718096;
+  font-size: 13px;
+}
+
+.work-note-text {
+  color: #4a5568;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #a0aec0;
+}
+
+.empty-state-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-pending { background: #fef3c7; color: #92400e; }
+.badge-progress { background: #dbeafe; color: #1e40af; }
+.badge-completed { background: #d1fae5; color: #065f46; }
+.badge-cancelled { background: #fee2e2; color: #991b1b; }
+
+.priority-low { color: #10b981; }
+.priority-medium { color: #f59e0b; }
+.priority-high { color: #ef4444; }
+.priority-critical { color: #dc2626; font-weight: 700; }
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-
-  .footer-actions {
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
-
-  .btn {
-    font-size: 10px;
-    padding: 6px 10px;
-  }
-
-  .btn i {
-    display: none;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }</css>
         <data_table>sp_instance</data_table>
@@ -1072,8 +703,9 @@
         gs.info('=== ADDING WORK NOTE ===');
         gs.info('Input work_note: ' + input.work_note);
         gs.info('Trimmed: ' + input.work_note.trim());
-        
-        t.setValue('work_notes', input.work_note.trim());
+        t.work_notes = input.work_note.trim();
+				t.update();
+        //t.setValue('work_notes', input.work_note.trim());
         gs.info('✓ Work note set on task record');
       } else {
         gs.warn('⚠ No work note provided or empty');
@@ -1154,268 +786,246 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-12-09 09:13:41</sys_created_on>
         <sys_id>66e02bc48375361089529370ceaad38c</sys_id>
-        <sys_mod_count>41</sys_mod_count>
+        <sys_mod_count>70</sys_mod_count>
         <sys_name>Retro task details</sys_name>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
         <sys_policy/>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name>sp_widget_66e02bc48375361089529370ceaad38c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-09 14:51:17</sys_updated_on>
-        <template><![CDATA[<div class="retro-page-bg">
-  <div class="retro-task-container" ng-if="!data.error && data.task">
+        <sys_updated_on>2025-12-10 14:55:00</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default" ng-if="data.task">
+  <!-- Error/Success Messages -->
+  <div ng-if="data.error" class="alert alert-danger">
+    <i class="fa fa-exclamation-circle"></i>
+    {{data.error}}
+    <button type="button" class="close" ng-click="data.error = null">×</button>
+  </div>
 
-    <!-- Top bar -->
-    <div class="retro-top-bar">
-      <button class="back-button" ng-click="c.goBack()">
-        <i class="fa fa-arrow-left"></i>
-        <span>Back</span>
+  <div ng-if="data.success" class="alert alert-success">
+    <i class="fa fa-check-circle"></i>
+    {{data.success}}
+  </div>
+
+  <!-- Header -->
+  <div class="panel-heading clearfix">
+    <div class="pull-left">
+      <h3 class="panel-title m-t-none m-b-xs">
+        <i class="fa fa-tasks"></i>
+        {{data.task.number}} - {{data.task.short_description}}
+      </h3>
+      <div class="text-muted small">
+        <i class="fa fa-user"></i>
+        {{data.task.assigned_to || 'Unassigned'}}
+        &nbsp;|&nbsp;
+        <i class="fa fa-info-circle"></i>
+        {{data.task.state_display || 'Pending'}}
+        &nbsp;|&nbsp;
+        <i class="fa fa-flag"></i>
+        {{data.task.priority_display || data.task.priority || '-'}}
+      </div>
+    </div>
+
+    <div class="pull-right btn-group">
+      <button class="btn btn-default btn-sm" ng-click="c.goBack()">
+        <i class="fa fa-arrow-left"></i> Back
       </button>
 
-      <div class="sprint-chip">
-        <i class="fa fa-clipboard-check"></i>
-        <span>Retrospective Task</span>
-      </div>
-    </div>
+      <button class="btn btn-primary btn-sm"
+              ng-if="!c.isEditMode && data.canEdit"
+              ng-click="c.enterEditMode()">
+        <i class="fa fa-pencil"></i> Edit
+      </button>
 
-    <!-- Alerts -->
-    <div class="alert alert-error" ng-if="data.error">
-      <i class="fa fa-exclamation-circle"></i>
-      <span>{{data.error}}</span>
-    </div>
+      <button class="btn btn-default btn-sm"
+              ng-if="c.isEditMode"
+              ng-click="c.cancelEdit()">
+        <i class="fa fa-times"></i> Cancel
+      </button>
 
-    <div class="alert alert-success" ng-if="data.success">
-      <i class="fa fa-check-circle"></i>
-      <span>{{data.success}}</span>
+      <button class="btn btn-success btn-sm"
+              ng-if="c.isEditMode"
+              ng-click="c.save()"
+              ng-disabled="c.saving">
+        <i class="fa fa-save" ng-if="!c.saving"></i>
+        <i class="fa fa-spinner fa-spin" ng-if="c.saving"></i>
+        {{c.saving ? 'Saving...' : 'Save'}}
+      </button>
     </div>
+  </div>
 
-    <!-- Header card -->
-    <div class="task-card task-card--header">
-      <div class="task-header-main">
-        <div class="task-header-left">
-          <div class="task-pill">
-            <span class="task-pill-label">TASK</span>
-            <span class="task-pill-number">{{data.task.number}}</span>
+  <!-- VIEW MODE -->
+  <div class="panel-body" ng-if="!c.isEditMode">
+    <div class="row">
+      <!-- Task details -->
+      <div class="col-md-7">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title m-t-none">
+              <i class="fa fa-info-circle"></i>
+              Task details
+            </h4>
           </div>
-          <h1 class="task-title" ng-bind="data.task.short_description"></h1>
+          <div class="panel-body p-b-none">
+            <dl class="dl-horizontal m-b-none">
+              <dt>Number</dt>
+              <dd>{{data.task.number}}</dd>
 
-          <div class="task-meta-row">
-            <div class="meta-chip">
-              <i class="fa fa-user"></i>
-              <span>{{data.task.assigned_to || 'Unassigned'}}</span>
-            </div>
-            <div class="meta-chip">
-              <i class="fa fa-layer-group"></i>
-              <span>Priority: {{data.task.priority || '-'}}</span>
-            </div>
-          </div>
-        </div>
+              <dt>State</dt>
+              <dd>{{data.task.state_display || 'Pending'}}</dd>
 
-        <div class="task-header-right">
-          <div class="state-badge"
-               ng-class="'state-badge--' + (data.task.state_display || 'Pending').replace(' ', '_')">
-            {{data.task.state_display || 'Pending'}}
-          </div>
-        </div>
-      </div>
-    </div>
+              <dt>Assigned to</dt>
+              <dd>{{data.task.assigned_to || 'Unassigned'}}</dd>
 
-    <!-- Body card -->
-    <div class="task-card task-card--body">
-
-      <!-- VIEW MODE -->
-      <div class="task-layout" ng-if="!c.isEditMode">
-        <div class="task-main-column">
-          <!-- Summary block -->
-          <section class="section-block">
-            <div class="section-header">
-              <h2>Summary</h2>
-              <span class="section-dot"></span>
-            </div>
-            <dl class="detail-list">
-              <div class="detail-row">
-                <dt>Number</dt>
-                <dd>{{data.task.number}}</dd>
-              </div>
-              <div class="detail-row">
-                <dt>State</dt>
-                <dd>
-                  <span class="state-chip"
-                        ng-class="'state-chip--' + (data.task.state_display || 'Pending').replace(' ', '_')">
-                    {{data.task.state_display || 'Pending'}}
-                  </span>
-                </dd>
-              </div>
-              <div class="detail-row">
-                <dt>Assigned To</dt>
-                <dd>{{data.task.assigned_to || 'Unassigned'}}</dd>
-              </div>
-              <div class="detail-row">
-                <dt>Priority</dt>
-                <dd>
-                  <span class="priority-pill"
-                        ng-class="'priority-pill--' + (data.task.priority || 'Medium')">
-                    {{data.task.priority || '-'}}
-                  </span>
-                </dd>
-              </div>
-              <div class="detail-row">
-                <dt>Short Description</dt>
-                <dd>{{data.task.short_description}}</dd>
-              </div>
+              <dt>Priority</dt>
+              <dd>{{data.task.priority_display || data.task.priority || '-'}}</dd>
             </dl>
-          </section>
-
-          <!-- Description -->
-          <section class="section-block">
-            <div class="section-header">
-              <h2>Description</h2>
-              <span class="section-dot"></span>
-            </div>
-            <div class="description-box"
-                 ng-class="{'description-box--empty': !data.task.description}">
-              {{data.task.description || 'No description provided'}}
-            </div>
-          </section>
+          </div>
         </div>
 
-        <!-- Work notes column -->
-        <div class="task-side-column">
-          <section class="section-block">
-            <div class="section-header">
-              <h2>Work Notes</h2>
-              <span class="section-tag">History</span>
-            </div>
-
-            <div class="notes-container">
-              <div class="note-item" ng-repeat="note in data.workNotes">
-                <div class="note-header">
-                  <div class="note-author-block">
-                    <div class="note-avatar">
-                      {{(note.author || '?') | limitTo:1 | uppercase}}
-                    </div>
-                    <div class="note-author-meta">
-                      <span class="note-author-name">{{note.author || 'Unknown'}}</span>
-                      <span class="note-date">
-                        {{note.created_on | date:'MMM d, yyyy HH:mm'}}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="note-content">{{note.value}}</div>
-              </div>
-
-              <div class="empty-notes" ng-if="!data.workNotes || !data.workNotes.length">
-                <i class="fa fa-sticky-note"></i>
-                <p>No work notes yet</p>
-              </div>
-            </div>
-          </section>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title m-t-none">
+              <i class="fa fa-align-left"></i>
+              Description
+            </h4>
+          </div>
+          <div class="panel-body">
+            <p ng-if="data.task.description" class="m-b-none">
+              {{data.task.description}}
+            </p>
+            <p ng-if="!data.task.description"
+               class="text-muted font-italic m-b-none">
+              No description provided.
+            </p>
+          </div>
         </div>
       </div>
 
-      <!-- EDIT MODE -->
-      <div class="edit-layout" ng-if="c.isEditMode">
-        <form novalidate>
-          <section class="section-block">
-            <div class="section-header">
-              <h2>Edit Task</h2>
-              <span class="section-tag section-tag--accent">Update</span>
+      <!-- Work notes -->
+      <div class="col-md-5">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title m-t-none">
+              <i class="fa fa-sticky-note"></i>
+              Work notes
+            </h4>
+          </div>
+          <div class="panel-body">
+            <div ng-if="!data.workNotes || !data.workNotes.length"
+                 class="text-muted text-center">
+              <i class="fa fa-sticky-note-o fa-2x m-b-sm"></i>
+              <p class="m-b-none">No work notes yet.</p>
             </div>
 
-            <!-- State & Priority -->
-            <div class="form-grid">
-              <div class="form-field">
-                <label>State</label>
-                <select class="form-select" ng-model="c.form.state">
-                  <option value="100">Pending</option>
-                  <option value="200">In Progress</option>
-                  <option value="300">Completed</option>
-                  <option value="400">Cancelled</option>
-                </select>
+            <div ng-if="data.workNotes && data.workNotes.length">
+              <div class="well well-sm m-b-sm"
+                   ng-repeat="note in data.workNotes">
+                <div class="clearfix m-b-xs">
+                  <strong>{{note.author || 'Unknown'}}</strong>
+                  <span class="pull-right text-muted small">
+                    {{note.created_on | date:'MMM d, yyyy HH:mm'}}
+                  </span>
+                </div>
+                <div class="small" style="white-space: pre-wrap;">
+                  {{note.value}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDIT MODE -->
+  <div class="panel-body" ng-if="c.isEditMode">
+    <div class="row">
+      <!-- Left: Basic fields -->
+      <div class="col-md-7">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title m-t-none">
+              <i class="fa fa-edit"></i>
+              Edit task
+            </h4>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>State</label>
+                  <select class="form-control" ng-model="c.form.state">
+                    <option value="100">Pending</option>
+                    <option value="200">In Progress</option>
+                    <option value="300">Completed</option>
+                    <option value="400">Cancelled</option>
+                  </select>
+                </div>
               </div>
 
-              <div class="form-field">
-                <label>Priority</label>
-                <select class="form-select" ng-model="c.form.priority">
-                  <option value="Low">Low</option>
-                  <option value="Medium">Medium</option>
-                  <option value="High">High</option>
-                  <option value="Critical">Critical</option>
-                </select>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Priority</label>
+                  <select class="form-control" ng-model="c.form.priority">
+                    <option value="1">Low</option>
+                    <option value="2">Medium</option>
+                    <option value="3">High</option>
+                    <option value="4">Critical</option>
+                  </select>
+                </div>
               </div>
             </div>
 
-            <!-- Short description (locked if Completed/Cancelled) -->
-            <div class="form-field form-field--full">
-              <label>Short Description</label>
+            <div class="form-group">
+              <label>Short description</label>
               <input type="text"
-                     class="form-input"
+                     class="form-control"
                      ng-model="c.form.short_description"
                      ng-disabled="data.task.state_value == '300' || data.task.state_value == '400'"
                      required>
             </div>
 
-            <!-- Description (locked if Completed/Cancelled) -->
-            <div class="form-field form-field--full">
+            <div class="form-group">
               <label>Description</label>
-              <textarea class="form-textarea"
-                        rows="4"
+              <textarea class="form-control"
+                        rows="5"
                         ng-model="c.form.description"
                         ng-disabled="data.task.state_value == '300' || data.task.state_value == '400'">
               </textarea>
             </div>
+          </div>
+        </div>
+      </div>
 
-            <!-- New work note -->
-            <div class="form-field form-field--full">
-              <label>Add Work Note</label>
-              <textarea class="form-textarea"
-                        rows="4"
+      <!-- Right: Add work note -->
+      <div class="col-md-5">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title m-t-none">
+              <i class="fa fa-comment"></i>
+              Add work note
+            </h4>
+          </div>
+          <div class="panel-body">
+            <div class="form-group m-b-none">
+              <textarea class="form-control"
+                        rows="10"
                         ng-model="c.form.work_note"
-                        placeholder="Add a work note..."></textarea>
+                        placeholder="Add a work note to track your progress...">
+              </textarea>
             </div>
-          </section>
-        </form>
-      </div>
-    </div>
-
-    <!-- Footer (buttons only) -->
-    <div class="task-card task-card--footer">
-      <div class="footer-actions">
-        <button class="btn btn-secondary"
-                ng-if="!c.isEditMode && data.canEdit"
-                ng-click="c.enterEditMode()">
-          <i class="fa fa-pen"></i>
-          <span>Edit</span>
-        </button>
-
-        <button class="btn btn-ghost"
-                ng-if="c.isEditMode"
-                ng-click="c.cancelEdit()">
-          <i class="fa fa-times"></i>
-          <span>Cancel</span>
-        </button>
-
-        <button class="btn btn-primary"
-                ng-if="c.isEditMode"
-                ng-click="c.save()"
-                ng-disabled="c.saving">
-          <i class="fa fa-save" ng-if="!c.saving"></i>
-          <i class="fa fa-spinner fa-spin" ng-if="c.saving"></i>
-          <span ng-if="!c.saving">Save</span>
-          <span ng-if="c.saving">Saving…</span>
-        </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Error-only state -->
-  <div class="retro-task-container" ng-if="data.error && !data.task">
-    <div class="error-box">
-      <i class="fa fa-exclamation-triangle"></i>
-      <p>{{data.error}}</p>
-    </div>
-  </div>
+<!-- Error-only state when no task -->
+<div ng-if="data.error && !data.task" class="alert alert-danger">
+  <i class="fa fa-exclamation-triangle"></i>
+  <span>{{data.error}}</span>
 </div>]]></template>
     </sp_widget>
 </record_update>

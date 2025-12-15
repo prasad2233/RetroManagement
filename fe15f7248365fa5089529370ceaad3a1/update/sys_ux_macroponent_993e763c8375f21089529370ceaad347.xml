@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_macroponent">
+    <sys_ux_macroponent action="INSERT_OR_UPDATE">
+        <associated_types/>
+        <bundles/>
+        <category>page</category>
+        <component_dependencies/>
+        <composition>[
+    {
+        "definition": {
+            "id": "0e238931bce36c9fe3b52475c69c85a3",
+            "type": "MACROPONENT"
+        },
+        "elementId": "attachment_1",
+        "elementLabel": "Attachment 1",
+        "isHidden": {
+            "type": "JSON_LITERAL",
+            "value": false
+        },
+        "overrides": null,
+        "propertyValues": {
+            "actionConfigId": {
+                "binding": {
+                    "address": [
+                        "actionConfigId"
+                    ],
+                    "category": "app"
+                },
+                "type": "CONTEXT_BINDING"
+            },
+            "currentEncryptionContext": {
+                "binding": {
+                    "address": [
+                        "userPrefs",
+                        "encryption_context"
+                    ],
+                    "category": "session"
+                },
+                "type": "CONTEXT_BINDING"
+            },
+            "isAttachmentUploadDisabled": {
+                "binding": {
+                    "address": [
+                        "isAttachmentUploadDisabled"
+                    ],
+                    "category": "props"
+                },
+                "type": "CONTEXT_BINDING"
+            },
+            "isReadOnly": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "mode": {
+                "type": "JSON_LITERAL",
+                "value": ""
+            },
+            "recordDisplayValue": {
+                "type": "JSON_LITERAL",
+                "value": ""
+            },
+            "refreshRequested": {
+                "binding": {
+                    "address": [
+                        "lastRefreshed"
+                    ],
+                    "category": "props"
+                },
+                "type": "CONTEXT_BINDING"
+            },
+            "sysId": {
+                "binding": {
+                    "address": [
+                        "sysId"
+                    ],
+                    "category": "props"
+                },
+                "type": "CONTEXT_BINDING"
+            },
+            "table": {
+                "binding": {
+                    "address": [
+                        "table"
+                    ],
+                    "category": "props"
+                },
+                "type": "CONTEXT_BINDING"
+            },
+            "userEncryptionContexts": {
+                "binding": {
+                    "address": [
+                        "user",
+                        "encryptionContexts"
+                    ],
+                    "category": "session"
+                },
+                "type": "CONTEXT_BINDING"
+            },
+            "view": {
+                "binding": {
+                    "address": [
+                        "view"
+                    ],
+                    "category": "app"
+                },
+                "type": "CONTEXT_BINDING"
+            }
+        },
+        "slot": "default-slot",
+        "styles": {
+            "height": "100%",
+            "width": "100%"
+        }
+    }
+]</composition>
+        <da_relay_models/>
+        <data>[]</data>
+        <description/>
+        <disable_auto_reflow>false</disable_auto_reflow>
+        <dispatched_events>f078e8db0f0210107d20409dc4767e94,4578e8db0f0210107d20409dc4767e99,0d78e8db0f0210107d20409dc4767ea1</dispatched_events>
+        <ext_controller_dep/>
+        <extends display_value="Page Template">19be392623033300f4b4c50947bf65ba</extends>
+        <extension_point/>
+        <form_factors>{}</form_factors>
+        <handled_events/>
+        <interactions/>
+        <interfaces/>
+        <internal_event_mappings>{}</internal_event_mappings>
+        <layout>{
+    "default": {
+        "children": null,
+        "items": [
+            {
+                "rules": {
+                    "grid-area": "default-slot"
+                },
+                "slotName": "default-slot",
+                "styles": {
+                    "display": "flex",
+                    "height": "auto",
+                    "margin-top": "calc(var(--now-scale-space--xs, 1) * var(--now-static-space--xs))",
+                    "padding": "calc(var(--now-scale-space--xl, 1) * var(--now-static-space--xl))"
+                }
+            }
+        ],
+        "root": null,
+        "rules": {
+            "grid-template-areas": "'default-slot'",
+            "grid-template-columns": "1fr",
+            "grid-template-rows": "1fr"
+        },
+        "styles": null,
+        "type": "grid"
+    }
+}</layout>
+        <macroponent_dependencies/>
+        <name>Attachment</name>
+        <output_prop_mapping/>
+        <props>[
+    {
+        "defaultValue": null,
+        "description": null,
+        "fieldType": null,
+        "label": "table",
+        "mandatory": false,
+        "name": "table",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": null
+    },
+    {
+        "defaultValue": null,
+        "description": null,
+        "fieldType": null,
+        "label": "sysId",
+        "mandatory": false,
+        "name": "sysId",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": null
+    },
+    {
+        "defaultValue": "",
+        "description": null,
+        "fieldType": null,
+        "label": "view",
+        "mandatory": false,
+        "name": "view",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": null
+    },
+    {
+        "defaultValue": "",
+        "description": null,
+        "fieldType": null,
+        "label": "actionConfigId",
+        "mandatory": false,
+        "name": "actionConfigId",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": null
+    },
+    {
+        "defaultValue": null,
+        "description": null,
+        "fieldType": null,
+        "label": "isAttachmentUploadDisabled",
+        "mandatory": false,
+        "name": "isAttachmentUploadDisabled",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": null
+    },
+    {
+        "defaultValue": "",
+        "description": null,
+        "fieldType": null,
+        "label": "refreshRequested",
+        "mandatory": false,
+        "name": "refreshRequested",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": null
+    }
+]</props>
+        <required_translations>[ ]</required_translations>
+        <root_component/>
+        <root_component_config>{ "bare": true }</root_component_config>
+        <root_component_definition/>
+        <schema_version>1.0.0</schema_version>
+        <state_persistence_config/>
+        <state_properties>[]</state_properties>
+        <sys_class_name>sys_ux_macroponent</sys_class_name>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2025-12-11 14:37:29</sys_created_on>
+        <sys_id>993e763c8375f21089529370ceaad347</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Attachment</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_ux_macroponent_993e763c8375f21089529370ceaad347</sys_update_name>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2025-12-11 14:37:29</sys_updated_on>
+    </sys_ux_macroponent>
+    <sys_translated_text action="delete_multiple" query="documentkey=993e763c8375f21089529370ceaad347"/>
+</record_update>

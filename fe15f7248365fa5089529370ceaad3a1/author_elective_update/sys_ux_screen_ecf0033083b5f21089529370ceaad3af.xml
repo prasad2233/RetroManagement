@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ux_screen">
+    <sys_ux_screen action="DELETE">
+        <active>true</active>
+        <app_config display_value="Retro">a4431530837db21089529370ceaad3cb</app_config>
+        <description/>
+        <disable_auto_reflow>false</disable_auto_reflow>
+        <event_mappings/>
+        <macroponent display_value="Default">e8f0033083b5f21089529370ceaad3ac</macroponent>
+        <macroponent_config/>
+        <name>Default</name>
+        <order>0</order>
+        <parent_macroponent display_value="Workspace App Shell">c276387cc331101080d6d3658940ddd2</parent_macroponent>
+        <required_translations>[ ]</required_translations>
+        <rollback_screen/>
+        <screen_condition/>
+        <screen_type display_value="record">6cf047fc8375f21089529370ceaad3b7</screen_type>
+        <sys_class_name>sys_ux_screen</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-11 14:49:27</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>ecf0033083b5f21089529370ceaad3af</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Default</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_ux_screen_ecf0033083b5f21089529370ceaad3af</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-11 14:49:27</sys_updated_on>
+    </sys_ux_screen>
+    <sys_translated_text action="DELETE" query="documentkey=ecf0033083b5f21089529370ceaad3af"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sys_ux_screen_ecf0033083b5f21089529370ceaad3af</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ux_screen"><sys_ux_screen action="INSERT_OR_UPDATE"><active>true</active><app_config display_value="Retro">a4431530837db21089529370ceaad3cb</app_config><description/><disable_auto_reflow>false</disable_auto_reflow><event_mappings/><macroponent display_value="Default">e8f0033083b5f21089529370ceaad3ac</macroponent><macroponent_config/><name>Default</name><order>0</order><parent_macroponent display_value="Workspace App Shell">c276387cc331101080d6d3658940ddd2</parent_macroponent><required_translations>[ ]</required_translations><rollback_screen/><screen_condition/><screen_type display_value="record">6cf047fc8375f21089529370ceaad3b7</screen_type><sys_class_name>sys_ux_screen</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-11 14:49:27</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>ecf0033083b5f21089529370ceaad3af</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Default</sys_name><sys_overrides/><sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package><sys_policy/><sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope><sys_update_name>sys_ux_screen_ecf0033083b5f21089529370ceaad3af</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-11 14:49:27</sys_updated_on></sys_ux_screen><sys_translated_text action="delete_multiple" query="documentkey=ecf0033083b5f21089529370ceaad3af"/></record_update>]]></payload>
+        <payload_hash>-399765237</payload_hash>
+        <record_name>Default</record_name>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-11 14:49:27</sys_created_on>
+        <sys_id>a4f0033083b5f21089529370ceaad3b3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19b0de36fbd0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-11 14:49:27</sys_updated_on>
+        <type>UX Screen</type>
+        <update_guid>a8f00330feb5f210d2661c6fc91f83b2</update_guid>
+        <update_guid_history>a8f00330feb5f210d2661c6fc91f83b2:-399765237</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-11 15:38:37</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_screen">sys_ux_screen</sys_db_object>
+        <sys_id>56e830b07a1b4ddbb640e710add53519</sys_id>
+        <sys_metadata>ecf0033083b5f21089529370ceaad3af</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Default</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sys_ux_screen_ecf0033083b5f21089529370ceaad3af</sys_update_name>
+        <sys_update_version display_value="sys_ux_screen_ecf0033083b5f21089529370ceaad3af">a4f0033083b5f21089529370ceaad3b3</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-11 15:38:37</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="" section_id="57feb67c8375f21089529370ceaad3d6" sys_domain="global" table="x_1865669_retrospe_retrospective_submission" version="3" view="retro1">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>number</element>
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-11 14:40:54</sys_created_on>
+            <sys_id>57fef67c8375f21089529370ceaad322</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1865669_retrospe_retrospective_submission" sys_domain="global" view="57feb67c8375f21089529370ceaad3d2">57feb67c8375f21089529370ceaad3d6</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-11 14:40:54</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>sprint</element>
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-11 14:40:54</sys_created_on>
+            <sys_id>57fef67c8375f21089529370ceaad323</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1865669_retrospe_retrospective_submission" sys_domain="global" view="57feb67c8375f21089529370ceaad3d2">57feb67c8375f21089529370ceaad3d6</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-11 14:40:54</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-11 14:40:54</sys_created_on>
+            <sys_id>5ffef67c8375f21089529370ceaad323</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1865669_retrospe_retrospective_submission" sys_domain="global" view="57feb67c8375f21089529370ceaad3d2">57feb67c8375f21089529370ceaad3d6</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-11 14:40:54</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>submitted_by</element>
+            <position>3</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-11 14:40:54</sys_created_on>
+            <sys_id>57fef67c8375f21089529370ceaad324</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1865669_retrospe_retrospective_submission" sys_domain="global" view="57feb67c8375f21089529370ceaad3d2">57feb67c8375f21089529370ceaad3d6</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-11 14:40:54</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>team</element>
+            <position>4</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-11 14:40:54</sys_created_on>
+            <sys_id>5ffef67c8375f21089529370ceaad324</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1865669_retrospe_retrospective_submission" sys_domain="global" view="57feb67c8375f21089529370ceaad3d2">57feb67c8375f21089529370ceaad3d6</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-11 14:40:54</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>5</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-11 14:40:54</sys_created_on>
+            <sys_id>57fef67c8375f21089529370ceaad325</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1865669_retrospe_retrospective_submission" sys_domain="global" view="57feb67c8375f21089529370ceaad3d2">57feb67c8375f21089529370ceaad3d6</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-11 14:40:54</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>start_items</element>
+            <position>6</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-11 14:40:54</sys_created_on>
+            <sys_id>5ffef67c8375f21089529370ceaad325</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1865669_retrospe_retrospective_submission" sys_domain="global" view="57feb67c8375f21089529370ceaad3d2">57feb67c8375f21089529370ceaad3d6</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-11 14:40:54</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>stop_items</element>
+            <position>7</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-11 14:40:54</sys_created_on>
+            <sys_id>57fef67c8375f21089529370ceaad326</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1865669_retrospe_retrospective_submission" sys_domain="global" view="57feb67c8375f21089529370ceaad3d2">57feb67c8375f21089529370ceaad3d6</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-11 14:40:54</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>continue_items</element>
+            <position>8</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-11 14:40:54</sys_created_on>
+            <sys_id>5ffef67c8375f21089529370ceaad326</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1865669_retrospe_retrospective_submission" sys_domain="global" view="57feb67c8375f21089529370ceaad3d2">57feb67c8375f21089529370ceaad3d6</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-11 14:40:54</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>9</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-11 14:40:54</sys_created_on>
+            <sys_id>57fef67c8375f21089529370ceaad327</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1865669_retrospe_retrospective_submission" sys_domain="global" view="57feb67c8375f21089529370ceaad3d2">57feb67c8375f21089529370ceaad3d6</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-11 14:40:54</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>status</element>
+            <position>10</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-11 14:40:54</sys_created_on>
+            <sys_id>5ffef67c8375f21089529370ceaad327</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1865669_retrospe_retrospective_submission" sys_domain="global" view="57feb67c8375f21089529370ceaad3d2">57feb67c8375f21089529370ceaad3d6</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-11 14:40:54</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>reviewed_by</element>
+            <position>11</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-11 14:40:54</sys_created_on>
+            <sys_id>57fef67c8375f21089529370ceaad328</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1865669_retrospe_retrospective_submission" sys_domain="global" view="57feb67c8375f21089529370ceaad3d2">57feb67c8375f21089529370ceaad3d6</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-11 14:40:54</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>12</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-11 14:40:54</sys_created_on>
+            <sys_id>5ffef67c8375f21089529370ceaad328</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1865669_retrospe_retrospective_submission" sys_domain="global" view="57feb67c8375f21089529370ceaad3d2">57feb67c8375f21089529370ceaad3d6</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-11 14:40:54</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>reviewed_date</element>
+            <position>13</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-11 14:40:54</sys_created_on>
+            <sys_id>57fef67c8375f21089529370ceaad329</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1865669_retrospe_retrospective_submission" sys_domain="global" view="57feb67c8375f21089529370ceaad3d2">57feb67c8375f21089529370ceaad3d6</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-11 14:40:54</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>submitted_date</element>
+            <position>14</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-11 14:40:54</sys_created_on>
+            <sys_id>5ffef67c8375f21089529370ceaad329</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1865669_retrospe_retrospective_submission" sys_domain="global" view="57feb67c8375f21089529370ceaad3d2">57feb67c8375f21089529370ceaad3d6</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-11 14:40:54</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_1865669_retrospe_retrospective_submission</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-11 14:40:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>57feb67c8375f21089529370ceaad3d6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_1865669_retrospe_retrospective_submission</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+            <sys_update_name>sys_ui_section_57feb67c8375f21089529370ceaad3d6</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-11 14:40:54</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="retro1" name="retro1">57feb67c8375f21089529370ceaad3d2</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

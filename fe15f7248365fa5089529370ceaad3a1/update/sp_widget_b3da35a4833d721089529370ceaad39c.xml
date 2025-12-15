@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>retro_list</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>retro list</name>
+        <option_schema>[{"displayValue":"Retrospective Submission","name":"table","section":"other","label":"table","type":"reference","value":"x_1865669_retrospe_retrospective_submission","ed":{"reference":"x_1865669_retrospe_retrospective_submission"}}]</option_schema>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  // Get list data
+  data.items = [];
+  
+  var gr = new GlideRecord('incident');
+  gr.addQuery('active', true);
+  gr.orderByDesc('sys_created_on');
+  gr.setLimit(50);
+  gr.query();
+  
+  while(gr.next()) {
+    data.items.push({
+      sys_id: gr.getUniqueValue(),
+      number: gr.getValue('number'),
+      short_description: gr.getValue('short_description'),
+      state: gr.getDisplayValue('state'),
+      priority: gr.getDisplayValue('priority'),
+      assigned_to: gr.getDisplayValue('assigned_to')
+    });
+  }
+  
+  // Column configuration
+  data.columns = [
+    {label: 'Number', field: 'number'},
+    {label: 'Description', field: 'short_description'},
+    {label: 'State', field: 'state'},
+    {label: 'Priority', field: 'priority'},
+    {label: 'Assigned To', field: 'assigned_to'}
+  ];
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-10 15:04:49</sys_created_on>
+        <sys_id>b3da35a4833d721089529370ceaad39c</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>retro list</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sp_widget_b3da35a4833d721089529370ceaad39c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-10 15:11:06</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{data.title || 'Records'}}</h3>
+  </div>
+  
+  <!-- Use OOB table styling -->
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th ng-repeat="col in data.columns">{{col.label}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in data.items" ng-click="c.openRecord(item.sys_id)">
+        <td ng-repeat="col in data.columns">{{item[col.field]}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>]]></template>
+    </sp_widget>
+</record_update>

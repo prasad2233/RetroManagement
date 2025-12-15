@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_event">
+    <sys_ux_event action="DELETE">
+        <description/>
+        <event_name>SIMPLE_LIST#NAV_ITEM_SELECTED</event_name>
+        <explicit_api_name/>
+        <interfaces/>
+        <label>SIMPLE_LIST#NAV_ITEM_SELECTED</label>
+        <props>[]</props>
+        <required_translations>[ ]</required_translations>
+        <schema_version>1.0.0</schema_version>
+        <sys_class_name>sys_ux_event</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-11 10:04:32</sys_created_on>
+        <sys_id>b21bf9748331f21089529370ceaad345</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SIMPLE_LIST#NAV_ITEM_SELECTED</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_ux_event_b21bf9748331f21089529370ceaad345</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-11 10:04:32</sys_updated_on>
+    </sys_ux_event>
+    <sys_translated_text action="DELETE" query="documentkey=b21bf9748331f21089529370ceaad345"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sys_ux_event_b21bf9748331f21089529370ceaad345</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_event"><sys_ux_event action="INSERT_OR_UPDATE"><description/><event_name>SIMPLE_LIST#NAV_ITEM_SELECTED</event_name><explicit_api_name/><interfaces/><label>SIMPLE_LIST#NAV_ITEM_SELECTED</label><props>[]</props><required_translations>[ ]</required_translations><schema_version>1.0.0</schema_version><sys_class_name>sys_ux_event</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-11 10:04:32</sys_created_on><sys_id>b21bf9748331f21089529370ceaad345</sys_id><sys_mod_count>0</sys_mod_count><sys_name>SIMPLE_LIST#NAV_ITEM_SELECTED</sys_name><sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package><sys_policy/><sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope><sys_update_name>sys_ux_event_b21bf9748331f21089529370ceaad345</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-11 10:04:32</sys_updated_on></sys_ux_event><sys_translated_text action="delete_multiple" query="documentkey=b21bf9748331f21089529370ceaad345"/></record_update>]]></payload>
+        <payload_hash>-1563963804</payload_hash>
+        <record_name>SIMPLE_LIST#NAV_ITEM_SELECTED</record_name>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-11 10:04:32</sys_created_on>
+        <sys_id>cbbf393c8331f21089529370ceaad343</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19b0cde94df0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-11 10:04:32</sys_updated_on>
+        <type>UX Event</type>
+        <update_guid>cfbf393ce331f210b34591408b598c42</update_guid>
+        <update_guid_history>cfbf393ce331f210b34591408b598c42:-1563963804</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-11 15:34:44</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_event">sys_ux_event</sys_db_object>
+        <sys_id>6587e617e4a04a4eae790217fa381444</sys_id>
+        <sys_metadata>b21bf9748331f21089529370ceaad345</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SIMPLE_LIST#NAV_ITEM_SELECTED</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sys_ux_event_b21bf9748331f21089529370ceaad345</sys_update_name>
+        <sys_update_version display_value="sys_ux_event_b21bf9748331f21089529370ceaad345">cbbf393c8331f21089529370ceaad343</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-11 15:34:44</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

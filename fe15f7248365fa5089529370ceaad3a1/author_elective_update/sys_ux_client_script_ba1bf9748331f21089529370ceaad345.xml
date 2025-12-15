@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_client_script">
+    <sys_ux_client_script action="DELETE">
+        <controller_preset/>
+        <includes/>
+        <macroponent display_value="Default">74837d3c83fdb21089529370ceaad380</macroponent>
+        <name>list_1/listTitle</name>
+        <preset/>
+        <required_translations>[]</required_translations>
+        <script><![CDATA[function evaluateProperty({api, helpers}) {
+   let translatedListTitle = helpers.translateSync(api.context.props.listTitle);
+   return translatedListTitle;
+}]]></script>
+        <script_api_version>2.0.0</script_api_version>
+        <sys_class_name>sys_ux_client_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-11 11:01:14</sys_created_on>
+        <sys_id>ba1bf9748331f21089529370ceaad345</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>list_1/listTitle</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_ux_client_script_ba1bf9748331f21089529370ceaad345</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-11 11:01:14</sys_updated_on>
+        <target>macroponent</target>
+        <type>transform</type>
+    </sys_ux_client_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sys_ux_client_script_ba1bf9748331f21089529370ceaad345</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ux_client_script"&gt;&lt;sys_ux_client_script action="INSERT_OR_UPDATE"&gt;&lt;controller_preset/&gt;&lt;includes/&gt;&lt;macroponent display_value="Default"&gt;74837d3c83fdb21089529370ceaad380&lt;/macroponent&gt;&lt;name&gt;list_1/listTitle&lt;/name&gt;&lt;preset/&gt;&lt;required_translations&gt;[]&lt;/required_translations&gt;&lt;script&gt;&lt;![CDATA[function evaluateProperty({api, helpers}) {
+   let translatedListTitle = helpers.translateSync(api.context.props.listTitle);
+   return translatedListTitle;
+}]]&gt;&lt;/script&gt;&lt;script_api_version&gt;2.0.0&lt;/script_api_version&gt;&lt;sys_class_name&gt;sys_ux_client_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-12-11 11:01:14&lt;/sys_created_on&gt;&lt;sys_id&gt;ba1bf9748331f21089529370ceaad345&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;list_1/listTitle&lt;/sys_name&gt;&lt;sys_package display_value="Retrospective Management" source="x_1865669_retrospe"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Retrospective Management"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ux_client_script_ba1bf9748331f21089529370ceaad345&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-12-11 11:01:14&lt;/sys_updated_on&gt;&lt;target&gt;macroponent&lt;/target&gt;&lt;type&gt;transform&lt;/type&gt;&lt;/sys_ux_client_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-757178930</payload_hash>
+        <record_name>list_1/listTitle</record_name>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-11 11:01:14</sys_created_on>
+        <sys_id>69bc4ebc8371f21089529370ceaad3ff</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19b0d127e0a0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-11 11:01:14</sys_updated_on>
+        <type>UX Client Script</type>
+        <update_guid>2dbc4ebc5e71f210666825532dc29afe</update_guid>
+        <update_guid_history>2dbc4ebc5e71f210666825532dc29afe:-757178930</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-11 15:31:11</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_client_script">sys_ux_client_script</sys_db_object>
+        <sys_id>145d6317f24e4f968752cf2459ae62e9</sys_id>
+        <sys_metadata>ba1bf9748331f21089529370ceaad345</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>list_1/listTitle</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sys_ux_client_script_ba1bf9748331f21089529370ceaad345</sys_update_name>
+        <sys_update_version display_value="sys_ux_client_script_ba1bf9748331f21089529370ceaad345">69bc4ebc8371f21089529370ceaad3ff</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-11 15:31:11</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

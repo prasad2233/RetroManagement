@@ -31,186 +31,10 @@
 }
 ]]></client_script>
         <controller_as>c</controller_as>
-        <css>.submit-section {
-  background: white;
-  padding: 30px 20px;
-  border-radius: 4px;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.submit-header {
-  margin-bottom: 20px;
-  border-bottom: 2px solid #f0f0f0;
-  padding-bottom: 15px;
-}
-
-.submit-title {
-  font-size: 20px;
-  color: #1a1a2e;
-  margin: 0;
-  font-weight: 600;
-}
-
-.submit-content {
-  margin-top: 20px;
-}
-
-.btn {
-  padding: 12px 24px;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  box-shadow: 0 4px 12px rgba(102,126,234,0.4);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(102,126,234,0.6);
-}
-
-.btn-primary:active {
-  transform: translateY(0);
-}
-
-.btn-lg {
-  padding: 14px 32px;
-  font-size: 15px;
-  width: 100%;
-  justify-content: center;
-}
-
-.btn-icon {
-  font-size: 18px;
-  flex-shrink: 0;
-}
-
-.btn-text {
-  word-break: break-word;
-}
-
-.submit-hint {
-  margin-top: 12px;
-  color: #43e97b;
-  font-size: 13px;
-  font-weight: 500;
-  text-align: center;
-}
-
-.sprint-not-ready {
-  padding: 20px;
-  background: #fff8e1;
-  border-left: 4px solid #ffc107;
-  border-radius: 4px;
-}
-
-.info-message {
-  color: #856404;
-  font-size: 14px;
-  font-weight: 600;
-  margin: 0 0 8px 0;
-}
-
-.info-text {
-  color: #856404;
-  font-size: 12px;
-  margin: 0;
-}
-
-/* TABLET: 768px - 1024px */
-@media (max-width: 1024px) {
-  .submit-section {
-    padding: 25px 15px;
-  }
-
-  .submit-title {
-    font-size: 18px;
-  }
-
-  .btn-lg {
-    padding: 12px 20px;
-    font-size: 14px;
-  }
-}
-
-/* MOBILE: Below 768px */
-@media (max-width: 768px) {
-  .submit-section {
-    padding: 20px 15px;
-    margin-bottom: 20px;
-  }
-
-  .submit-header {
-    margin-bottom: 15px;
-    padding-bottom: 12px;
-  }
-
-  .submit-title {
-    font-size: 16px;
-  }
-
-  .submit-content {
-    margin-top: 15px;
-  }
-
-  .btn {
-    padding: 11px 20px;
-    font-size: 13px;
-    gap: 6px;
-  }
-
-  .btn-lg {
-    padding: 12px 16px;
-    font-size: 13px;
-  }
-
-  .btn-icon {
-    font-size: 16px;
-  }
-
-  .submit-hint {
-    font-size: 12px;
-    margin-top: 10px;
-  }
-
-  .sprint-not-ready {
-    padding: 15px;
-  }
-
-  .info-message {
-    font-size: 13px;
-  }
-
-  .info-text {
-    font-size: 11px;
-  }
-}
-
-/* SMALL MOBILE: Below 480px */
-@media (max-width: 480px) {
-  .submit-section {
-    padding: 15px 12px;
-  }
-
-  .submit-title {
-    font-size: 15px;
-  }
-
-  .btn-text {
-    white-space: normal;
-  }
-}</css>
+        <css>.m-b-lg { margin-bottom: 20px; }
+.m-b-xs { margin-bottom: 5px; }
+.m-b-none { margin-bottom: 0; }
+.m-t-sm { margin-top: 8px; }</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -227,28 +51,54 @@
         <script><![CDATA[(function() {
   var user = gs.getUser();
   var userId = user.getID();
-
-  // Current active sprint (ready for submissions)
+  
+  // 1) Find all teams where this user is a member
+  var teamIds = [];
+  var teamMemberGr = new GlideRecord('x_1865669_retrospe_team_member');
+  teamMemberGr.addQuery('user', userId);
+  teamMemberGr.query();
+  
+  while (teamMemberGr.next()) {
+    var teamId = teamMemberGr.getValue('team');
+    if (teamId) {
+      teamIds.push(teamId);
+    }
+  }
+  
+  // If user is not in any team, return early
+  if (teamIds.length === 0) {
+    data.sprintReady = false;
+    data.currentSprint = 'No team assigned';
+    data.noTeam = true;
+    return;
+  }
+  
+  data.noTeam = false;
+  
+  // 2) Get current active sprint (ready for submissions) for user's teams
   var gr = new GlideRecord('x_1865669_retrospe_sprint');
   gr.addQuery('state', 'ready_for_submission');
+  gr.addQuery('team', 'IN', teamIds.join(','));
   gr.orderByDesc('start_date');
   gr.setLimit(1);
   gr.query();
-
+  
   if (gr.next()) {
     data.currentSprint = gr.sprint_name.toString();
     data.currentSprintId = gr.sys_id.toString();
     data.sprintReady = true;
-
-    // Check if user already submitted for this sprint
+    data.teamName = gr.team.getDisplayValue();
+    
+    // 3) Check if user already submitted for this sprint
     var retroGr = new GlideRecord('x_1865669_retrospe_retrospective_submission');
     retroGr.addQuery('sprint', gr.sys_id);
     retroGr.addQuery('submitted_by', userId);
     retroGr.query();
-
+    
     if (retroGr.next()) {
       data.alreadySubmitted = true;
       data.submitBtnText = 'Update Retrospective';
+      data.submissionId = retroGr.sys_id.toString();
     } else {
       data.alreadySubmitted = false;
       data.submitBtnText = 'Submit Retrospective';
@@ -256,6 +106,7 @@
   } else {
     data.sprintReady = false;
     data.currentSprint = 'No sprint ready';
+    data.alreadySubmitted = false;
   }
 })();]]></script>
         <servicenow>false</servicenow>
@@ -263,33 +114,45 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-12-08 12:42:34</sys_created_on>
         <sys_id>68274bbf836db21089529370ceaad347</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>17</sys_mod_count>
         <sys_name>SUBMIT SECTION</sys_name>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
         <sys_policy/>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name>sp_widget_68274bbf836db21089529370ceaad347</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-09 08:55:02</sys_updated_on>
-        <template><![CDATA[<div class="submit-section">
-  <div class="submit-header">
-    <h2 class="submit-title">Share Your Feedback</h2>
+        <sys_updated_on>2025-12-13 12:11:23</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default m-b-lg">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <i class="fa fa-commenting-o"></i>
+      Share Your Feedback
+    </h3>
   </div>
-  
-<div class="submit-content">
-  <!-- Show button if sprint ready -->
-  <div ng-if="data.sprintReady">
-    <button class="btn btn-primary btn-lg" ng-click="c.openSubmitForm()">
-      <span class="btn-icon">✏️</span>
-      <span class="btn-text">Submit Retrospective for {{data.currentSprint}}</span>
-    </button>
-    <p class="submit-hint">✅ Sprint is ready for your feedback</p>
-  </div>
-  
-  <!-- Show message if sprint not ready -->
-  <div ng-if="!data.sprintReady" class="sprint-not-ready">
-    <p class="info-message">❌ No sprint is ready for submission</p>
-    <p class="info-text">Please check back later.</p>
+
+  <div class="panel-body">
+    <!-- Show button if sprint ready -->
+    <div ng-if="data.sprintReady">
+      <button class="btn btn-primary btn-lg" ng-click="c.openSubmitForm()">
+        <i class="fa fa-pencil"></i>
+        Submit retrospective for {{data.currentSprint}}
+      </button>
+      <p class="text-success m-t-sm">
+        <i class="fa fa-check-circle"></i>
+        Sprint is ready for your feedback.
+      </p>
+    </div>
+
+    <!-- Show message if sprint not ready -->
+    <div ng-if="!data.sprintReady">
+      <div class="alert alert-info m-b-xs">
+        <i class="fa fa-info-circle"></i>
+        No sprint is ready for submission.
+      </div>
+      <p class="text-muted m-b-none">
+        Please check back later.
+      </p>
+    </div>
   </div>
 </div>]]></template>
     </sp_widget>

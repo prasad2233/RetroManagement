@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_vlist">
+    <sp_instance_vlist action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>info</color>
+        <css/>
+        <display_field>number</display_field>
+        <field_list/>
+        <filter table="x_1865669_retrospe_retrospective_submission">submitted_byDYNAMIC90d1921e5f510100a9ad2572f2b477fe<item endquery="false" field="submitted_by" goto="false" newquery="false" operator="DYNAMIC" or="false" value="90d1921e5f510100a9ad2572f2b477fe"/>
+        </filter>
+        <glyph/>
+        <id/>
+        <maximum_entries>5</maximum_entries>
+        <order>1</order>
+        <order_by/>
+        <order_direction>asc</order_direction>
+        <roles/>
+        <short_description/>
+        <size>lg</size>
+        <sp_column display_value="1">bcbbddac8379721089529370ceaad342</sp_column>
+        <sp_page/>
+        <sp_widget display_value="Simple List">5b255672cb03020000f8d856634c9c28</sp_widget>
+        <sys_class_name>sp_instance_vlist</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-10 12:49:00</sys_created_on>
+        <sys_id>2acb11ec8379721089529370ceaad3f7</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sp_instance_vlist_2acb11ec8379721089529370ceaad3f7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-10 12:57:54</sys_updated_on>
+        <table>x_1865669_retrospe_retrospective_submission</table>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"always_show": {
+		"value": "",
+		"displayValue": ""
+	},
+	"panel_body_height": {
+		"value": "",
+		"displayValue": ""
+	},
+	"image_field": {
+		"value": "sys_id",
+		"displayValue": "sys_id"
+	},
+	"secondary_fields": {
+		"value": "sprint,status",
+		"displayValue": "sprint,status"
+	},
+	"rounded_images": {
+		"value": "false",
+		"displayValue": "false"
+	},
+	"list_page": {
+		"value": "",
+		"displayValue": ""
+	},
+	"hide_footer": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"view": {
+		"value": "796322700a0a0b8c006fedf32a7d5052",
+		"displayValue": "Activity"
+	},
+	"disable_record_watcher": {
+		"value": "",
+		"displayValue": ""
+	},
+	"filter_acls": {
+		"value": "false",
+		"displayValue": "false"
+	}
+}]]></widget_parameters>
+    </sp_instance_vlist>
+    <sys_translated_text action="DELETE" query="documentkey=2acb11ec8379721089529370ceaad3f7"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sp_instance_vlist_2acb11ec8379721089529370ceaad3f7</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance_vlist"&gt;&lt;sp_instance_vlist action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;info&lt;/color&gt;&lt;css/&gt;&lt;display_field&gt;number&lt;/display_field&gt;&lt;field_list/&gt;&lt;filter table="x_1865669_retrospe_retrospective_submission"&gt;submitted_byDYNAMIC90d1921e5f510100a9ad2572f2b477fe&lt;item endquery="false" field="submitted_by" goto="false" newquery="false" operator="DYNAMIC" or="false" value="90d1921e5f510100a9ad2572f2b477fe"/&gt;&lt;/filter&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;maximum_entries&gt;5&lt;/maximum_entries&gt;&lt;order&gt;1&lt;/order&gt;&lt;order_by/&gt;&lt;order_direction&gt;asc&lt;/order_direction&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;lg&lt;/size&gt;&lt;sp_column display_value="1"&gt;bcbbddac8379721089529370ceaad342&lt;/sp_column&gt;&lt;sp_page/&gt;&lt;sp_widget display_value="Simple List"&gt;5b255672cb03020000f8d856634c9c28&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance_vlist&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-12-10 12:49:00&lt;/sys_created_on&gt;&lt;sys_id&gt;2acb11ec8379721089529370ceaad3f7&lt;/sys_id&gt;&lt;sys_mod_count&gt;9&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Retrospective Management" source="x_1865669_retrospe"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Retrospective Management"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_vlist_2acb11ec8379721089529370ceaad3f7&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-12-10 12:57:54&lt;/sys_updated_on&gt;&lt;table&gt;x_1865669_retrospe_retrospective_submission&lt;/table&gt;&lt;title/&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"always_show": {
+		"value": "",
+		"displayValue": ""
+	},
+	"panel_body_height": {
+		"value": "",
+		"displayValue": ""
+	},
+	"image_field": {
+		"value": "sys_id",
+		"displayValue": "sys_id"
+	},
+	"secondary_fields": {
+		"value": "sprint,status",
+		"displayValue": "sprint,status"
+	},
+	"rounded_images": {
+		"value": "false",
+		"displayValue": "false"
+	},
+	"list_page": {
+		"value": "",
+		"displayValue": ""
+	},
+	"hide_footer": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"view": {
+		"value": "796322700a0a0b8c006fedf32a7d5052",
+		"displayValue": "Activity"
+	},
+	"disable_record_watcher": {
+		"value": "",
+		"displayValue": ""
+	},
+	"filter_acls": {
+		"value": "false",
+		"displayValue": "false"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance_vlist&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=2acb11ec8379721089529370ceaad3f7"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>125446023</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-10 12:57:54</sys_created_on>
+        <sys_id>f4dd9d6083b9721089529370ceaad320</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19b0856f2230000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-10 12:57:54</sys_updated_on>
+        <type>Instance of Simple List</type>
+        <update_guid>7cdd9d6060b972101ef5ce7c8dd5001f</update_guid>
+        <update_guid_history>7cdd9d6060b972101ef5ce7c8dd5001f:125446023,88ad596040b972108aa46200cb8d0e73:-1494573594,482d952068b97210f104a496a9d13044:125446023,2fec592014b9721008884be804dfdf7c:126258484,11cc1decf0797210be10d800103a1ea5:802193364,e5bc1520a3b972103715372f2601aaa0:-1908295560,fd9c95ecac7972104b5b8098d8249113:-1698798444,887c9dec00797210b13bba5dcf5af89a:1044141852,20fb51ec59797210f294ee2a7f68688f:1052340392,eecb11ecdb797210ac7e364eb205c7f9:-1616832209</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">fe7e59a083b9721089529370ceaad39b</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-10 13:00:46</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance_vlist">sp_instance_vlist</sys_db_object>
+        <sys_id>145573623f38494db37a79841c467a21</sys_id>
+        <sys_metadata>2acb11ec8379721089529370ceaad3f7</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sp_instance_vlist_2acb11ec8379721089529370ceaad3f7</sys_update_name>
+        <sys_update_version display_value="sp_instance_vlist_2acb11ec8379721089529370ceaad3f7">f4dd9d6083b9721089529370ceaad320</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-10 13:00:46</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

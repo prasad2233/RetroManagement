@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_data_policy_rule">
+    <sys_data_policy_rule action="DELETE">
+        <disabled>true</disabled>
+        <field>team</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_data_policy_rule</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 09:33:27</sys_created_on>
+        <sys_data_policy display_value="Lock sprint when complete">92db5ef783e9b21089529370ceaad382</sys_data_policy>
+        <sys_id>9adb5ef783e9b21089529370ceaad38d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>team</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_data_policy_rule_9adb5ef783e9b21089529370ceaad38d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 09:33:27</sys_updated_on>
+        <table>x_1865669_retrospe_sprint</table>
+    </sys_data_policy_rule>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sys_data_policy_rule_9adb5ef783e9b21089529370ceaad38d</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_data_policy_rule"><sys_data_policy_rule action="INSERT_OR_UPDATE"><disabled>true</disabled><field>team</field><mandatory>ignore</mandatory><sys_class_name>sys_data_policy_rule</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-08 09:33:27</sys_created_on><sys_data_policy display_value="Lock sprint when complete">92db5ef783e9b21089529370ceaad382</sys_data_policy><sys_id>9adb5ef783e9b21089529370ceaad38d</sys_id><sys_mod_count>0</sys_mod_count><sys_name>team</sys_name><sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package><sys_policy/><sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope><sys_update_name>sys_data_policy_rule_9adb5ef783e9b21089529370ceaad38d</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-08 09:33:27</sys_updated_on><table>x_1865669_retrospe_sprint</table></sys_data_policy_rule></record_update>]]></payload>
+        <payload_hash>812707543</payload_hash>
+        <record_name>team</record_name>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-08 09:33:27</sys_created_on>
+        <sys_id>12db5ef783e9b21089529370ceaad390</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19afd4f0d020000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-08 09:33:27</sys_updated_on>
+        <type>Data Policy Rule</type>
+        <update_guid>16db5ef794e9b2107bbae0fdb92c228f</update_guid>
+        <update_guid_history>16db5ef794e9b2107bbae0fdb92c228f:812707543</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-10 11:02:00</sys_created_on>
+        <sys_db_object display_value="" name="sys_data_policy_rule">sys_data_policy_rule</sys_db_object>
+        <sys_id>2269d4019c274dac8ae22acfdc083410</sys_id>
+        <sys_metadata>9adb5ef783e9b21089529370ceaad38d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>team</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sys_data_policy_rule_9adb5ef783e9b21089529370ceaad38d</sys_update_name>
+        <sys_update_version display_value="sys_data_policy_rule_9adb5ef783e9b21089529370ceaad38d">12db5ef783e9b21089529370ceaad390</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-10 11:02:00</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

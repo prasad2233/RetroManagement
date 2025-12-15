@@ -6,143 +6,20 @@
   // Header banner - no client logic needed
 }]]></client_script>
         <controller_as>c</controller_as>
-        <css>.header-banner {
-  background: linear-gradient(135deg, #2d5a5a 0%, #1a3a3a 100%);
-  color: white;
-  padding: 40px 20px;
-  border-radius: 4px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  gap: 20px;
-  flex-wrap: wrap;
+        <css>.m-b-lg {
+  margin-bottom: 20px;
 }
-
-.header-left {
-  flex: 1;
-  min-width: 200px;
+.m-t-none {
+  margin-top: 0;
 }
-
-.header-title {
-  font-size: 36px;
-  font-weight: 600;
-  margin: 0 0 10px 0;
-  color: white;
-  line-height: 1.2;
+.m-b-xs {
+  margin-bottom: 5px;
 }
-
-.header-subtitle {
-  font-size: 14px;
-  color: rgba(255,255,255,0.9);
-  margin: 0;
-  line-height: 1.5;
+.m-b-none {
+  margin-bottom: 0;
 }
-
-.header-right {
-  text-align: right;
-  min-width: fit-content;
-}
-
-.user-greeting {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: flex-end;
-}
-
-.greeting-name {
-  font-size: 18px;
-  font-weight: 600;
-  color: white;
-  white-space: nowrap;
-}
-
-.sprint-badge {
-  font-size: 12px;
-  background: rgba(255,255,255,0.2);
-  padding: 6px 12px;
-  border-radius: 20px;
-  color: white;
-  display: inline-block;
-  white-space: nowrap;
-}
-
-/* TABLET: 768px - 1024px */
-@media (max-width: 1024px) {
-  .header-banner {
-    padding: 30px 15px;
-  }
-
-  .header-title {
-    font-size: 28px;
-  }
-
-  .greeting-name {
-    font-size: 16px;
-  }
-}
-
-/* MOBILE: Below 768px */
-@media (max-width: 768px) {
-  .header-banner {
-    flex-direction: column;
-    text-align: center;
-    padding: 25px 15px;
-    gap: 15px;
-  }
-
-  .header-left {
-    width: 100%;
-  }
-
-  .header-title {
-    font-size: 24px;
-    margin-bottom: 8px;
-  }
-
-  .header-subtitle {
-    font-size: 13px;
-  }
-
-  .header-right {
-    text-align: center;
-    width: 100%;
-  }
-
-  .user-greeting {
-    align-items: center;
-  }
-
-  .greeting-name {
-    font-size: 14px;
-  }
-
-  .sprint-badge {
-    font-size: 11px;
-    padding: 5px 10px;
-  }
-}
-
-/* SMALL MOBILE: Below 480px */
-@media (max-width: 480px) {
-  .header-banner {
-    padding: 20px 12px;
-    gap: 12px;
-  }
-
-  .header-title {
-    font-size: 20px;
-  }
-
-  .header-subtitle {
-    font-size: 12px;
-  }
-
-  .greeting-name {
-    font-size: 13px;
-  }
+.m-t-xs {
+  margin-top: 5px;
 }</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -159,24 +36,71 @@
         <roles/>
         <script><![CDATA[(function() {
   var user = gs.getUser();
+  var userId = user.getID();
   
   data.userName = user.getDisplayName();
   
-  // Get current active sprint
+  // 1) Find all teams where this user is a member
+  var teamIds = [];
+  var teamMemberGr = new GlideRecord('x_1865669_retrospe_team_member');
+  teamMemberGr.addQuery('user', userId);
+  teamMemberGr.query();
+  
+  while (teamMemberGr.next()) {
+    var teamId = teamMemberGr.getValue('team');
+    if (teamId) {
+      teamIds.push(teamId);
+    }
+  }
+  
+  // If user is not in any team, return early
+  if (teamIds.length === 0) {
+    data.currentSprint = 'No team assigned';
+    data.currentSprintId = '';
+    data.sprintState = 'none';
+    data.sprintReady = false;
+    data.alreadySubmitted = false;
+    data.noTeam = true;
+    return;
+  }
+  
+  data.noTeam = false;
+  
+  // 2) Get current active sprint for user's teams
   var gr = new GlideRecord('x_1865669_retrospe_sprint');
-	gr.addEncodedQuery('stateINin_progress,ready_for_submission,ready_for_review')
+  gr.addEncodedQuery('stateINin_progress,ready_for_submission,ready_for_review');
+  gr.addQuery('team', 'IN', teamIds.join(','));
   gr.orderByDesc('start_date');
   gr.setLimit(1);
   gr.query();
-	
   
-  if(gr.next()) {
+  if (gr.next()) {
     data.currentSprint = gr.sprint_name.toString();
     data.currentSprintId = gr.sys_id.toString();
     data.sprintState = gr.state.toString();
+    data.sprintReady = true;
+    data.teamName = gr.team.getDisplayValue();
+    
+    // 3) Check if user already submitted for this sprint
+    var retroGr = new GlideRecord('x_1865669_retrospe_retrospective_submission');
+    retroGr.addQuery('sprint', gr.sys_id);
+    retroGr.addQuery('submitted_by', userId);
+    retroGr.query();
+    
+    if (retroGr.next()) {
+      data.alreadySubmitted = true;
+      data.submitBtnText = 'Update Retrospective';
+      data.submissionId = retroGr.sys_id.toString();
+    } else {
+      data.alreadySubmitted = false;
+      data.submitBtnText = 'Submit Retrospective';
+    }
   } else {
     data.currentSprint = 'No active sprint';
+    data.currentSprintId = '';
     data.sprintState = 'none';
+    data.sprintReady = false;
+    data.alreadySubmitted = false;
   }
 })();]]></script>
         <servicenow>false</servicenow>
@@ -184,24 +108,37 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-12-08 10:59:07</sys_created_on>
         <sys_id>897f2673836db21089529370ceaad3fa</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_name>Retrospective Header Banner</sys_name>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
         <sys_policy/>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name>sp_widget_897f2673836db21089529370ceaad3fa</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-08 11:40:21</sys_updated_on>
-        <template><![CDATA[<div class="header-banner">
-  <div class="header-left">
-    <h1 class="header-title">]]>📝<![CDATA[ My Retrospectives</h1>
-    <p class="header-subtitle">Submit your feedback and track action items</p>
-  </div>
-  
-  <div class="header-right">
-    <div class="user-greeting">
-      <div class="greeting-name">]]>👋<![CDATA[ Hello, {{data.userName}}!</div>
-      <div class="sprint-badge">Current Sprint: {{data.currentSprint}}</div>
+        <sys_updated_on>2025-12-13 12:12:45</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default m-b-lg">
+  <div class="panel-body">
+    <div class="row">
+      <!-- Left side -->
+      <div class="col-sm-8">
+        <h1 class="h3 m-t-none m-b-xs">
+          <span class="icon-article" aria-hidden="true"></span>
+          My Retrospectives
+        </h1>
+        <p class="text-muted m-b-none">
+          Submit your feedback and track action items
+        </p>
+      </div>
+
+      <!-- Right side -->
+      <div class="col-sm-4 text-right">
+        <div class="small text-muted">
+          Hello, <strong>{{data.userName}}</strong>
+        </div>
+        <div class="label label-info m-t-xs">
+          Current Sprint: {{data.currentSprint}}
+        </div>
+      </div>
     </div>
   </div>
 </div>]]></template>

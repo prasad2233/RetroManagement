@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_app_route">
+    <sys_ux_app_route action="INSERT_OR_UPDATE">
+        <app_config display_value="">f224e5a3530210102c30ddeeff7b128d</app_config>
+        <description/>
+        <extension_point/>
+        <fields>table,sysId</fields>
+        <icon/>
+        <name>Confirm Publish Modal</name>
+        <optional_parameters/>
+        <order>0</order>
+        <parent_macroponent display_value="record default copy">722e36b88375f21089529370ceaad3e9</parent_macroponent>
+        <parent_macroponent_composition_element_id>modalContainerViewport</parent_macroponent_composition_element_id>
+        <route_type>kb_confirm_publish_modal</route_type>
+        <screen_type display_value="Confirm Publish Modal">34f747b377820110dc25a5ed5b5a99d8</screen_type>
+        <sys_class_name>sys_ux_app_route</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-11 14:37:21</sys_created_on>
+        <sys_id>232eb23c8375f21089529370ceaad363</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Confirm Publish Modal</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_ux_app_route_232eb23c8375f21089529370ceaad363</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-11 14:37:21</sys_updated_on>
+    </sys_ux_app_route>
+    <sys_translated_text action="delete_multiple" query="documentkey=232eb23c8375f21089529370ceaad363"/>
+</record_update>

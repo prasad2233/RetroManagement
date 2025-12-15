@@ -3,7 +3,7 @@
         <category>custom</category>
         <client_script><![CDATA[function($scope, $window, $timeout) {
 	var c = this;
-
+	
 	// ----- Model -----
 	c.formData = {
 		sprint: '',
@@ -12,7 +12,7 @@
 		continue_doing: ''
 	};
 	c.submitting = false;
-
+	
 	// ----- Watchers -----
 	$scope.$watch('data.defaultSprint', function(newVal) {
 		if (newVal) {
@@ -20,114 +20,75 @@
 			console.log('Retro widget: sprint loaded:', newVal);
 		}
 	});
-
+	
 	// ----- Actions -----
-c.submit = function() {
-    console.log('=== Retro widget: SUBMIT ===', c.formData);
-
-    if (!c.formData.sprint) {
-        alert('Sprint is not available. Please refresh and try again.');
-        return;
-    }
-    if (!c.formData.start || c.formData.start.trim() === '') {
-        alert('Please fill in the START field');
-        return;
-    }
-    if (!c.formData.stop || c.formData.stop.trim() === '') {
-        alert('Please fill in the STOP field');
-        return;
-    }
-    if (!c.formData.continue_doing || c.formData.continue_doing.trim() === '') {
-        alert('Please fill in the CONTINUE field');
-        return;
-    }
-
-    c.submitting = true;
-
-    // Put submission data onto $scope.data (this is what comes back as input)
-    $scope.data.action         = 'submit';
-    $scope.data.sprint         = c.formData.sprint;
-    $scope.data.start          = c.formData.start;
-    $scope.data.stop           = c.formData.stop;
-    $scope.data.continue_doing = c.formData.continue_doing;
-
-    console.log('Retro widget: sending $scope.data =', $scope.data);
-
-    c.server.update($scope.data).then(function(response) {
-        console.log('=== Retro widget: SERVER RESPONSE ===', response);
-        c.submitting = false;
-
-        var r = response.data || response;
-        var result = r.result || r;
-        var responseData = result.data || result;
-
-        console.log('Retro widget: unwrapped response data:', responseData);
-
-        if (responseData.success) {
-            $scope.data.success = responseData.success;
-            $scope.data.error = null;
-
-            c.formData = {
-                sprint: $scope.data.defaultSprint,
-                start: '',
-                stop: '',
-                continue_doing: ''
-            };
-
-            $timeout(function() {
-                $window.location.href = '/esc?id=my_retrospectives';
-            }, 2000);
-
-        } else if (responseData.error) {
-            $scope.data.error = responseData.error;
-            $scope.data.success = null;
-
-        } else {
-            console.warn('Retro widget: no success or error in response', responseData);
-            $scope.data.error = 'An unexpected error occurred.';
-            $scope.data.success = null;
-        }
-    }).catch(function(error) {
-        c.submitting = false;
-        console.error('✗ Retro widget: catch error:', error);
-        $scope.data.error = 'An error occurred. Please try again.';
-        $scope.data.success = null;
-    });
-};
+	c.goBack = function() {
+		$window.history.back();
+	};
+	
+	c.submit = function() {
+		console.log('=== Retro widget: SUBMIT ===', c.formData);
+		if (!c.formData.sprint) {
+			alert('Sprint is not available. Please refresh and try again.');
+			return;
+		}
+		if (!c.formData.start || c.formData.start.trim() === '') {
+			alert('Please fill in the START field');
+			return;
+		}
+		if (!c.formData.stop || c.formData.stop.trim() === '') {
+			alert('Please fill in the STOP field');
+			return;
+		}
+		if (!c.formData.continue_doing || c.formData.continue_doing.trim() === '') {
+			alert('Please fill in the CONTINUE field');
+			return;
+		}
+		c.submitting = true;
+		// Put submission data onto $scope.data (this is what comes back as input)
+		$scope.data.action         = 'submit';
+		$scope.data.sprint         = c.formData.sprint;
+		$scope.data.start          = c.formData.start;
+		$scope.data.stop           = c.formData.stop;
+		$scope.data.continue_doing = c.formData.continue_doing;
+		console.log('Retro widget: sending $scope.data =', $scope.data);
+		c.server.update($scope.data).then(function(response) {
+			console.log('=== Retro widget: SERVER RESPONSE ===', response);
+			c.submitting = false;
+			var r = response.data || response;
+			var result = r.result || r;
+			var responseData = result.data || result;
+			console.log('Retro widget: unwrapped response data:', responseData);
+			if (responseData.success) {
+				$scope.data.success = responseData.success;
+				$scope.data.error = null;
+				c.formData = {
+					sprint: $scope.data.defaultSprint,
+					start: '',
+					stop: '',
+					continue_doing: ''
+				};
+				$timeout(function() {
+					$window.location.href = '/esc?id=my_retrospectives';
+				}, 2000);
+			} else if (responseData.error) {
+				$scope.data.error = responseData.error;
+				$scope.data.success = null;
+			} else {
+				console.warn('Retro widget: no success or error in response', responseData);
+				$scope.data.error = 'An unexpected error occurred.';
+				$scope.data.success = null;
+			}
+		}).catch(function(error) {
+			c.submitting = false;
+			console.error('✗ Retro widget: catch error:', error);
+			$scope.data.error = 'An error occurred. Please try again.';
+			$scope.data.success = null;
+		});
+	};
 }]]></client_script>
         <controller_as>c</controller_as>
-        <css>.retro-submission-form {
-  max-width: 80rem;
-  margin: 0 auto;
-}
-
-.retro-sprint-info {
-  margin-bottom: 2rem;
-}
-
-.retro-sprint-info h4 {
-  margin-top: 0;
-  margin-bottom: 0.8rem;
-}
-
-.retro-sprint-name {
-  font-size: 1.6rem;
-}
-
-.retro-actions .btn {
-  margin-right: 1rem;
-}
-
-@media (max-width: 768px) {
-  .retro-submission-form {
-    margin: 0 0.5rem;
-  }
-
-  .retro-actions .btn-lg {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-}</css>
+        <css/>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -296,39 +257,52 @@ c.submit = function() {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-12-08 17:23:55</sys_created_on>
         <sys_id>f18784848335f21089529370ceaad327</sys_id>
-        <sys_mod_count>48</sys_mod_count>
+        <sys_mod_count>51</sys_mod_count>
         <sys_name>retro-submission-form</sys_name>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
         <sys_policy/>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name>sp_widget_f18784848335f21089529370ceaad327</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-08 19:22:08</sys_updated_on>
-        <template><![CDATA[<div class="retro-submission-form panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Submit Retrospective</h3>
+        <sys_updated_on>2025-12-10 14:49:43</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default">
+  <div class="panel-heading clearfix">
+    <h3 class="panel-title pull-left">
+      <i class="fa fa-sticky-note"></i>
+      Submit Retrospective
+    </h3>
+    <div class="pull-right">
+      <button class="btn btn-default btn-sm" ng-click="c.goBack()">
+        <i class="fa fa-arrow-left"></i> Back
+      </button>
+    </div>
   </div>
 
   <div class="panel-body">
     <!-- Error message -->
     <div ng-if="data.error" class="alert alert-danger">
-      <i class="fa fa-exclamation-circle"></i> {{data.error}}
+      <i class="fa fa-exclamation-circle"></i>
+      {{data.error}}
     </div>
 
     <!-- Success message -->
     <div ng-if="data.success" class="alert alert-success">
-      <i class="fa fa-check-circle"></i> {{data.success}}
-      <p>Redirecting to My Retrospectives...</p>
+      <i class="fa fa-check-circle"></i>
+      {{data.success}}
+      <p class="m-b-none">Redirecting to My Retrospectives...</p>
     </div>
 
     <!-- Main form content -->
     <div ng-if="!data.success && data.defaultSprint">
-      <!-- Sprint Info Box -->
-      <div class="alert alert-info retro-sprint-info">
-        <h4><i class="fa fa-calendar"></i> Sprint Information</h4>
-        <div class="retro-sprint-name">
+      <!-- Sprint Info -->
+      <div class="alert alert-info">
+        <h4 class="m-t-none">
+          <i class="fa fa-calendar"></i>
+          Sprint information
+        </h4>
+        <p class="m-b-none">
           <strong>Sprint:</strong> {{data.currentSprintName}}
-        </div>
+        </p>
       </div>
 
       <!-- Hidden sprint field bound to model -->
@@ -336,77 +310,84 @@ c.submit = function() {
              ng-model="c.formData.sprint"
              value="{{data.defaultSprint}}" />
 
-      <!-- Start Field -->
+      <!-- Start -->
       <div class="form-group">
         <label for="retro-start">
           <i class="fa fa-play text-success"></i>
-          What should we START doing?
+          What should we start doing?
           <span class="text-danger">*</span>
         </label>
         <textarea id="retro-start"
                   class="form-control"
                   ng-model="c.formData.start"
                   rows="4"
-                  placeholder="What new practices should we adopt?"></textarea>
+                  placeholder="What new practices should we adopt?">
+        </textarea>
       </div>
 
-      <!-- Stop Field -->
+      <!-- Stop -->
       <div class="form-group">
         <label for="retro-stop">
           <i class="fa fa-stop text-danger"></i>
-          What should we STOP doing?
+          What should we stop doing?
           <span class="text-danger">*</span>
         </label>
         <textarea id="retro-stop"
                   class="form-control"
                   ng-model="c.formData.stop"
                   rows="4"
-                  placeholder="What practices are not working?"></textarea>
+                  placeholder="What practices are not working?">
+        </textarea>
       </div>
 
-      <!-- Continue Field -->
+      <!-- Continue -->
       <div class="form-group">
         <label for="retro-continue">
           <i class="fa fa-refresh text-primary"></i>
-          What should we CONTINUE doing?
+          What should we continue doing?
           <span class="text-danger">*</span>
         </label>
         <textarea id="retro-continue"
                   class="form-control"
                   ng-model="c.formData.continue_doing"
                   rows="4"
-                  placeholder="What's working well that we should keep?"></textarea>
+                  placeholder="What is working well that we should keep?">
+        </textarea>
       </div>
 
       <!-- Actions -->
-      <div class="form-group retro-actions">
+      <div class="form-group">
         <button type="button"
-                class="btn btn-primary btn-lg"
+                class="btn btn-primary"
                 ng-click="c.submit()"
                 ng-disabled="c.submitting">
           <span ng-if="!c.submitting">
-            <i class="fa fa-paper-plane"></i> Submit Retrospective
+            <i class="fa fa-paper-plane"></i>
+            Submit retrospective
           </span>
           <span ng-if="c.submitting">
-            <i class="fa fa-spinner fa-spin"></i> Submitting...
+            <i class="fa fa-spinner fa-spin"></i>
+            Submitting...
           </span>
         </button>
 
         <a href="/esc?id=my_retrospectives"
-           class="btn btn-default btn-lg">
-          <i class="fa fa-times"></i> Cancel
+           class="btn btn-default">
+          <i class="fa fa-times"></i>
+          Cancel
         </a>
       </div>
 
-      <div class="help-block">
-        <span class="text-danger">*</span> All fields are required
-      </div>
+      <p class="help-block m-b-none">
+        <span class="text-danger">*</span>
+        All fields are required.
+      </p>
     </div>
 
     <!-- No sprint available -->
     <div ng-if="!data.defaultSprint && !data.success" class="alert alert-warning">
       <i class="fa fa-exclamation-triangle"></i>
-      No sprint available for submission.
+      No sprint is available for submission.
     </div>
   </div>
 </div>]]></template>

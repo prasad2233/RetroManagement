@@ -10,12 +10,12 @@
         <condition>current.status == 'submitted' &amp;&amp; (     gs.hasRole('x_1865669_retrospe.manager') ||     gs.hasRole('x_1865669_retrospe.admin') )</condition>
         <form_action>true</form_action>
         <form_button>true</form_button>
-        <form_button_v2>false</form_button_v2>
+        <form_button_v2>true</form_button_v2>
         <form_context_menu>false</form_context_menu>
         <form_link>false</form_link>
         <form_menu_button_v2>false</form_menu_button_v2>
         <form_style/>
-        <format_for_configurable_workspace>false</format_for_configurable_workspace>
+        <format_for_configurable_workspace>true</format_for_configurable_workspace>
         <hint/>
         <isolate_script>false</isolate_script>
         <list_action>false</list_action>
@@ -60,7 +60,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>beeb226b8329721089529370ceaad326</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Mark as Valid</sys_name>
         <sys_overrides/>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
@@ -68,7 +68,7 @@
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name>sys_ui_action_beeb226b8329721089529370ceaad326</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-07 16:07:56</sys_updated_on>
+        <sys_updated_on>2025-12-12 05:37:19</sys_updated_on>
         <table>x_1865669_retrospe_retrospective_submission</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>false</ui16_compatible>

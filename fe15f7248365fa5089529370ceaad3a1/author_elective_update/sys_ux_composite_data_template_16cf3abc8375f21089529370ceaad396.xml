@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_composite_data_template">
+    <sys_ux_composite_data_template action="DELETE">
+        <active>true</active>
+        <name>Sprint view</name>
+        <sys_class_name>sys_ux_composite_data_template</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-11 14:45:51</sys_created_on>
+        <sys_id>16cf3abc8375f21089529370ceaad396</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Sprint view</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_ux_composite_data_template_16cf3abc8375f21089529370ceaad396</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-11 14:45:51</sys_updated_on>
+        <template>{&#13;
+  "component": "now-card-evam-record",&#13;
+  "staticValues": {&#13;
+    "highlightedHeaderIcon": {&#13;
+      "translatable": false,&#13;
+      "key": "flag-fill"&#13;
+    },&#13;
+    "highlightedHeaderBkgColor": {&#13;
+      "translatable": false,&#13;
+      "key": "moderate"&#13;
+    },&#13;
+    "subtitleIcon": {&#13;
+      "translatable": false,&#13;
+      "key": "calendar-fill"&#13;
+    },&#13;
+    "imageType": {&#13;
+      "translatable": false,&#13;
+      "key": "image"&#13;
+    },&#13;
+    "subtitleImageType": {&#13;
+      "translatable": false,&#13;
+      "key": "avatar"&#13;
+    },&#13;
+    "detailLabelOne": {&#13;
+      "translatable": true,&#13;
+      "key": "Team"&#13;
+    },&#13;
+    "detailLabelTwo": {&#13;
+      "translatable": true,&#13;
+      "key": "Start - End"&#13;
+    },&#13;
+    "detailLabelThree": {&#13;
+      "translatable": true,&#13;
+      "key": "State"&#13;
+    },&#13;
+    "showCardShadow": {&#13;
+      "translatable": false,&#13;
+      "key": false&#13;
+    }&#13;
+  },&#13;
+  "mappings": {&#13;
+    "highlightedHeaderLabel": "number",                 // e.g. RETROSPR00123&#13;
+    "textHeaderLabel": "sprint_name",                   // Sprint name&#13;
+    "titleLabel": "sprint_name",                        // Main title&#13;
+    "imageURL": "team.manager.photo",                   // Optional: team manager photo&#13;
+    "subtitle": "team.team_name",                       // Subtitle under header (team)&#13;
+    "subtitleAvatarName": "team.manager.name",          // Avatar initials/name&#13;
+    "subtitleAvatarURL": "team.manager.photo",          // Avatar image&#13;
+    "detailValueOne": "team.team_name",                 // Team name again or other info&#13;
+    "detailValueTwo": "start_date,end_date",            // You can format via formatter/data resource&#13;
+    "detailValueThree": "state"                         // in_progress / ready_for_review / complete&#13;
+  },&#13;
+  "actionMappings": {&#13;
+    "mainActions": [&#13;
+      "open_record",        // custom or standard action to open sprint&#13;
+      "view_retrospectives" // custom action to show related retros&#13;
+    ],&#13;
+    "clickAction": "navigation"&#13;
+  }&#13;
+}</template>
+    </sys_ux_composite_data_template>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sys_ux_composite_data_template_16cf3abc8375f21089529370ceaad396</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_composite_data_template"><sys_ux_composite_data_template action="INSERT_OR_UPDATE"><active>true</active><name>Sprint view</name><sys_class_name>sys_ux_composite_data_template</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-11 14:45:51</sys_created_on><sys_id>16cf3abc8375f21089529370ceaad396</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Sprint view</sys_name><sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package><sys_policy/><sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope><sys_update_name>sys_ux_composite_data_template_16cf3abc8375f21089529370ceaad396</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-11 14:45:51</sys_updated_on><template>{&#13;
+  "component": "now-card-evam-record",&#13;
+  "staticValues": {&#13;
+    "highlightedHeaderIcon": {&#13;
+      "translatable": false,&#13;
+      "key": "flag-fill"&#13;
+    },&#13;
+    "highlightedHeaderBkgColor": {&#13;
+      "translatable": false,&#13;
+      "key": "moderate"&#13;
+    },&#13;
+    "subtitleIcon": {&#13;
+      "translatable": false,&#13;
+      "key": "calendar-fill"&#13;
+    },&#13;
+    "imageType": {&#13;
+      "translatable": false,&#13;
+      "key": "image"&#13;
+    },&#13;
+    "subtitleImageType": {&#13;
+      "translatable": false,&#13;
+      "key": "avatar"&#13;
+    },&#13;
+    "detailLabelOne": {&#13;
+      "translatable": true,&#13;
+      "key": "Team"&#13;
+    },&#13;
+    "detailLabelTwo": {&#13;
+      "translatable": true,&#13;
+      "key": "Start - End"&#13;
+    },&#13;
+    "detailLabelThree": {&#13;
+      "translatable": true,&#13;
+      "key": "State"&#13;
+    },&#13;
+    "showCardShadow": {&#13;
+      "translatable": false,&#13;
+      "key": false&#13;
+    }&#13;
+  },&#13;
+  "mappings": {&#13;
+    "highlightedHeaderLabel": "number",                 // e.g. RETROSPR00123&#13;
+    "textHeaderLabel": "sprint_name",                   // Sprint name&#13;
+    "titleLabel": "sprint_name",                        // Main title&#13;
+    "imageURL": "team.manager.photo",                   // Optional: team manager photo&#13;
+    "subtitle": "team.team_name",                       // Subtitle under header (team)&#13;
+    "subtitleAvatarName": "team.manager.name",          // Avatar initials/name&#13;
+    "subtitleAvatarURL": "team.manager.photo",          // Avatar image&#13;
+    "detailValueOne": "team.team_name",                 // Team name again or other info&#13;
+    "detailValueTwo": "start_date,end_date",            // You can format via formatter/data resource&#13;
+    "detailValueThree": "state"                         // in_progress / ready_for_review / complete&#13;
+  },&#13;
+  "actionMappings": {&#13;
+    "mainActions": [&#13;
+      "open_record",        // custom or standard action to open sprint&#13;
+      "view_retrospectives" // custom action to show related retros&#13;
+    ],&#13;
+    "clickAction": "navigation"&#13;
+  }&#13;
+}</template></sys_ux_composite_data_template></record_update>]]></payload>
+        <payload_hash>-968957958</payload_hash>
+        <record_name>Sprint view</record_name>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-11 14:45:51</sys_created_on>
+        <sys_id>ff10cb7c8375f21089529370ceaad358</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19b0de0222e0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-11 14:45:51</sys_updated_on>
+        <type>View Template</type>
+        <update_guid>f310cb7c1b75f21074654d528eaef958</update_guid>
+        <update_guid_history>f310cb7c1b75f21074654d528eaef958:-968957958</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-11 14:46:45</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_composite_data_template">sys_ux_composite_data_template</sys_db_object>
+        <sys_id>5a3e79fdaa474328a33ccecf63abc640</sys_id>
+        <sys_metadata>16cf3abc8375f21089529370ceaad396</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Sprint view</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sys_ux_composite_data_template_16cf3abc8375f21089529370ceaad396</sys_update_name>
+        <sys_update_version display_value="sys_ux_composite_data_template_16cf3abc8375f21089529370ceaad396">ff10cb7c8375f21089529370ceaad358</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-11 14:46:45</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="d37004f083a5fa5089529370ceaad316" label="Sprint" max_length="40" name="x_1865669_retrospe_sprint" type="collection">
-        <element label="Start Date" max_length="40" name="start_date" type="glide_date"/>
+        <element label="Start Date" mandatory="true" max_length="40" name="start_date" type="glide_date"/>
         <element display="true" label="Sprint Name" mandatory="true" max_length="100" name="sprint_name" type="string"/>
         <element label="End Date" mandatory="true" max_length="40" name="end_date" type="glide_date"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" read_only="true" type="string"/>

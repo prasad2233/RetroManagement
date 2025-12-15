@@ -143,590 +143,18 @@
     }, true);
 }]]></client_script>
         <controller_as>c</controller_as>
-        <css>/* Dashboard Wrapper and Layout */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.dashboard-wrapper {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-  padding: 40px 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-}
-
-.dashboard-header {
-  max-width: 1400px;
-  margin: 0 auto 50px;
-  text-align: center;
-  color: white;
-}
-
-.dashboard-title {
-  font-size: 40px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-}
-
-.dashboard-title i {
-  font-size: 45px;
-}
-
-.dashboard-subtitle {
-  font-size: 16px;
-  opacity: 0.95;
-  margin: 0;
-  font-weight: 300;
-}
-
-/* Lists Container Grid */
-.lists-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 30px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-/* List Card Base Styles */
-.list-card {
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: slideUp 0.6s ease-out;
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.list-card:hover {
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-  transform: translateY(-8px);
-}
-
-/* Card Header Styles */
-.card-header {
-  padding: 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-}
-
-.my-retros-card .card-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.team-retros-card .card-header {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-}
-
-.my-tasks-card .card-header {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-}
-
-.team-tasks-card .card-header {
-  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex: 1;
-}
-
-.card-icon {
-  font-size: 32px;
-  color: white;
-  opacity: 0.95;
-}
-
-.header-text {
-  color: white;
-}
-
-.card-title {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: -0.5px;
-}
-
-.card-subtitle {
-  margin: 5px 0 0 0;
-  font-size: 12px;
-  opacity: 0.9;
-  font-weight: 400;
-}
-
-.card-count {
-  background: rgba(255, 255, 255, 0.25);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-  flex-shrink: 0;
-  backdrop-filter: blur(10px);
-}
-
-/* Card Body */
-.card-body {
-  flex: 1;
-  padding: 16px;
+        <css>.list-scroll {
+  max-height: 500px;     /* adjust height as you like */
   overflow-y: auto;
-  max-height: 500px;
 }
 
-.card-body::-webkit-scrollbar {
-  width: 6px;
-}
-
-.card-body::-webkit-scrollbar-track {
-  background: #f5f5f5;
-}
-
-.card-body::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 10px;
-}
-
-.card-body::-webkit-scrollbar-thumb:hover {
-  background: #999;
-}
-
-/* List Item Styles */
-.list-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px;
-  margin-bottom: 10px;
-  border: 1px solid #e8e8e8;
-  border-radius: 10px;
-  background: #fafafa;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-}
-
-.list-item.clickable {
-  cursor: pointer;
-}
-
-.list-item:hover {
-  background: white;
-  border-color: #667eea;
-  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2);
-  transform: translateX(6px);
-}
-
-.list-item:active {
-  transform: translateX(3px);
-}
-
-/* Item Left - Icons and Avatars */
-.item-left {
-  flex-shrink: 0;
-}
-
-.item-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: white;
-  font-weight: 600;
-}
-
-.my-retro-icon {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.my-task-icon {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-}
-
-.item-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: white;
-  font-weight: 600;
-}
-
-.team-avatar {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-}
-
-.team-task-avatar {
-  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-}
-
-/* Item Center - Content */
-.item-center {
-  flex: 1;
-  min-width: 0;
-}
-
-.item-title {
-  margin: 0 0 6px 0;
-  font-size: 14px;
-  font-weight: 600;
-  color: #333;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.item-description {
-  margin: 0;
-  font-size: 12px;
-  color: #777;
-  /* allow wrapping */
-  white-space: normal;
-  overflow: visible;
-  text-overflow: clip;
-  display: flex;
-  align-items: flex-start;
-  gap: 6px;
-}
-
-
-.task-number {
-  display: inline-block;
-  background: #f0f0f0;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: 600;
-  color: #666;
-}
-
-/* Item Right - Badges and Icons */
-.item-right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-}
-
-.action-icon {
-  color: #ccc;
-  font-size: 16px;
-  transition: all 0.3s;
-}
-
-.list-item:hover .action-icon {
-  color: #667eea;
-  transform: translateX(4px);
-}
-
-/* Status Badges */
-.status-badge {
-  display: inline-block;
-  padding: 5px 12px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 600;
-  white-space: nowrap;
-  text-transform: capitalize;
-}
-
-.status-submit {
-  background: #fff4e6;
-  color: #ff9800;
-}
-
-.status-approved {
-  background: #e8f5e9;
-  color: #4caf50;
-}
-
-.status-pending {
-  background: #e3f2fd;
-  color: #2196f3;
-}
-
-.status-draft {
-  background: #f5f5f5;
-  color: #666;
-}
-
-/* State Badges */
-.state-badge {
-  display: inline-block;
-  padding: 5px 12px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 600;
-  white-space: nowrap;
-  text-transform: capitalize;
-}
-
-.state-Completed {
-  background: #e8f5e9;
-  color: #4caf50;
-}
-
-.state-In\ Progress {
-  background: #fff4e6;
-  color: #ff9800;
-}
-
-.state-Not\ Started {
-  background: #f5f5f5;
-  color: #666;
-}
-
-/* View Badge */
-.view-badge {
-  display: inline-block;
-  padding: 5px 12px;
-  border-radius: 6px;
-  font-size: 10px;
-  font-weight: 700;
-  background: #e9ecef;
-  color: #495057;
-  white-space: nowrap;
-  letter-spacing: 0.5px;
-}
-
-/* Empty State */
-.empty-state {
-  text-align: center;
-  padding: 60px 20px;
-  color: #999;
-}
-
-.empty-icon {
-  font-size: 56px;
-  margin-bottom: 16px;
-  display: block;
-}
-
-.empty-title {
-  margin: 0 0 8px 0;
-  font-size: 15px;
-  font-weight: 600;
-  color: #666;
-}
-
-.empty-text {
-  margin: 0;
-  font-size: 12px;
-  color: #999;
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-  .lists-container {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 24px;
-  }
-
-  .dashboard-title {
-    font-size: 32px;
-  }
-
-  .card-header {
-    padding: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .dashboard-wrapper {
-    padding: 25px 15px;
-  }
-
-  .dashboard-header {
-    margin-bottom: 35px;
-  }
-
-  .dashboard-title {
-    font-size: 26px;
-    gap: 10px;
-  }
-
-  .dashboard-title i {
-    font-size: 32px;
-  }
-
-  .dashboard-subtitle {
-    font-size: 14px;
-  }
-
-  .lists-container {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .card-header {
-    padding: 18px;
-  }
-
-  .card-title {
-    font-size: 16px;
-  }
-
-  .card-subtitle {
-    font-size: 11px;
-  }
-
-  .card-count {
-    padding: 6px 12px;
-    font-size: 12px;
-  }
-
-  .card-icon {
-    font-size: 26px;
-  }
-
-  .list-item {
-    padding: 12px;
-    margin-bottom: 8px;
-    gap: 10px;
-  }
-
-  .item-icon,
-  .item-avatar {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-  }
-
-  .item-title {
-    font-size: 13px;
-  }
-
-  .item-description {
-    font-size: 11px;
-  }
-
-  .status-badge,
-  .state-badge,
-  .view-badge {
-    padding: 4px 10px;
-    font-size: 10px;
-  }
-
-  .card-body {
-    max-height: 400px;
-  }
-
-  .empty-state {
-    padding: 50px 20px;
-  }
-
-  .empty-icon {
-    font-size: 48px;
-    margin-bottom: 14px;
-  }
-
-  .empty-title {
-    font-size: 14px;
-  }
-
-  .empty-text {
-    font-size: 11px;
-  }
-}
-
-@media (max-width: 480px) {
-  .dashboard-wrapper {
-    padding: 15px 10px;
-  }
-
-  .dashboard-title {
-    font-size: 22px;
-  }
-
-  .dashboard-subtitle {
-    font-size: 13px;
-  }
-
-  .lists-container {
-    gap: 14px;
-  }
-
-  .card-header {
-    padding: 14px;
-  }
-
-  .header-content {
-    gap: 10px;
-  }
-
-  .card-title {
-    font-size: 14px;
-  }
-
-  .card-subtitle {
-    font-size: 10px;
-  }
-
-  .card-icon {
-    font-size: 22px;
-  }
-
-  .card-count {
-    padding: 4px 10px;
-    font-size: 11px;
-  }
-
-  .list-item {
-    padding: 10px;
-    gap: 8px;
-  }
-
-  .item-icon,
-  .item-avatar {
-    width: 36px;
-    height: 36px;
-    font-size: 16px;
-  }
-
-  .item-title {
-    font-size: 12px;
-  }
-
-  .item-description {
-    font-size: 10px;
-  }
-
-  .action-icon {
-    font-size: 14px;
-  }
-
-  .card-body {
-    max-height: 350px;
-  }
-}</css>
+.p-0 { padding: 0 !important; }
+.p-md { padding: 15px; }
+.m-b-none { margin-bottom: 0; }
+.m-b-sm { margin-bottom: 10px; }
+.m-t-none { margin-top: 0; }
+.m-l-xs { margin-left: 4px; }
+</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -857,189 +285,264 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-12-08 12:48:03</sys_created_on>
         <sys_id>b068073383edb21089529370ceaad3c4</sys_id>
-        <sys_mod_count>51</sys_mod_count>
+        <sys_mod_count>63</sys_mod_count>
         <sys_name>LISTS CONTAINER</sys_name>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
         <sys_policy/>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name>sp_widget_b068073383edb21089529370ceaad3c4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-09 09:28:09</sys_updated_on>
-        <template><![CDATA[<div class="dashboard-wrapper">
-  <div class="dashboard-header">
-    <h1 class="dashboard-title">
-      <i class="fa fa-th-large"></i> Retrospective Dashboard
+        <sys_updated_on>2025-12-10 15:39:41</sys_updated_on>
+        <template><![CDATA[<div class="container">
+  <!-- Header -->
+  <div class="page-header">
+    <h1 class="h3">
+      <i class="fa fa-th-large"></i>
+      Retrospective Dashboard
     </h1>
-    <p class="dashboard-subtitle">Manage your retrospectives and action items</p>
+    <p class="text-muted">
+      Manage your retrospectives and action items
+    </p>
   </div>
 
-  <div class="lists-container">
-    <!-- Column 1: My Retro Submissions -->
-    <div class="list-card my-retros-card">
-      <div class="card-header">
-        <div class="header-content">
-          <i class="card-icon fa fa-pencil"></i>
-          <div class="header-text">
-            <h3 class="card-title">My Retrospectives</h3>
-            <p class="card-subtitle">Submissions I've created</p>
+  <div class="row">
+
+    <!-- My Retrospectives -->
+    <div class="col-sm-6 col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          <div class="pull-left">
+            <i class="fa fa-pencil text-primary"></i>
+            <span class="panel-title">My Retrospectives</span>
+            <div class="text-muted small">Submissions I've created</div>
           </div>
+          <span class="badge pull-right">{{data.myRetros.length}}</span>
         </div>
-        <span class="card-count">{{data.myRetros.length}}</span>
-      </div>
-      
-      <div class="card-body">
-        <div ng-if="data.myRetros.length > 0">
-          <div ng-repeat="retro in data.myRetros" class="list-item clickable" ng-click="openRetro(retro.sys_id, $event)">
-            <div class="item-left">
-              <div class="item-icon my-retro-icon">
-                <i class="fa fa-file-text"></i>
+        <div class="panel-body p-0">
+          <div ng-if="data.myRetros.length > 0"
+               class="list-scroll list-group m-b-none">
+            <a class="list-group-item"
+               ng-repeat="retro in data.myRetros"
+               ng-click="openRetro(retro.sys_id, $event)">
+              <div>
+                <!-- Retro number -->
+                <div class="text-primary">
+                  <i class="fa fa-file-text-o"></i>
+                  <strong ng-bind="retro.number"></strong>
+                </div>
+
+                <!-- Sprint -->
+                <div class="text-muted small">
+                  <strong>Sprint:</strong>
+                  <span ng-bind="retro.sprint"></span>
+                </div>
+
+                <!-- Submitted date -->
+                <div class="text-muted small">
+                  <strong>Submitted:</strong>
+                  <i class="fa fa-calendar"></i>
+                  <span ng-bind="retro.submitted_date | date:'MMM d, yyyy'"></span>
+                </div>
+
+                <!-- Status -->
+                <div class="m-t-xs">
+                  <strong>Status:</strong>
+                  <span class="label label-default"
+                        ng-class="'label-' + (retro.status || 'default')"
+                        ng-bind="retro.status">
+                  </span>
+                </div>
               </div>
-            </div>
-            <div class="item-center">
-              <h4 class="item-title" ng-bind="retro.sprint"></h4>
-              <p class="item-description">
-                <i class="fa fa-calendar"></i>
-                <span ng-bind="retro.submitted_date | date:'MMM d, yyyy'"></span>
-              </p>
-            </div>
-            <div class="item-right">
-              <span class="status-badge" ng-class="'status-' + retro.status" ng-bind="retro.status"></span>
-              <i class="fa fa-chevron-right action-icon"></i>
-            </div>
+            </a>
           </div>
-        </div>
-        <div ng-if="data.myRetros.length === 0" class="empty-state">
-          <div class="empty-icon">]]>📋<![CDATA[</div>
-          <h4 class="empty-title">No retrospectives</h4>
-          <p class="empty-text">You haven't submitted any retrospectives yet</p>
+
+          <div ng-if="data.myRetros.length === 0"
+               class="text-center text-muted p-md">
+            <i class="fa fa-clipboard fa-2x m-b-sm"></i>
+            <h4 class="h5 m-t-none">No retrospectives</h4>
+            <p class="m-b-none">You haven't submitted any retrospectives yet.</p>
+          </div>
         </div>
       </div>
     </div>
-    
-    <!-- Column 2: Team's Retro Submissions -->
-    <div class="list-card team-retros-card">
-      <div class="card-header">
-        <div class="header-content">
-          <i class="card-icon fa fa-users"></i>
-          <div class="header-text">
-            <h3 class="card-title">Team Retrospectives</h3>
-            <p class="card-subtitle">From team members</p>
+
+    <!-- Team Retrospectives -->
+    <div class="col-sm-6 col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          <div class="pull-left">
+            <i class="fa fa-users text-info"></i>
+            <span class="panel-title">Team Retrospectives</span>
+            <div class="text-muted small">From team members</div>
           </div>
+          <span class="badge pull-right">{{data.teamRetros.length}}</span>
         </div>
-        <span class="card-count">{{data.teamRetros.length}}</span>
-      </div>
-      
-      <div class="card-body">
-        <div ng-if="data.teamRetros.length > 0">
-          <div ng-repeat="retro in data.teamRetros" class="list-item clickable" ng-click="openRetro(retro.sys_id, $event)">
-            <div class="item-left">
-              <div class="item-avatar team-avatar">
-                <i class="fa fa-user"></i>
+        <div class="panel-body p-0">
+          <div ng-if="data.teamRetros.length > 0"
+               class="list-scroll list-group m-b-none">
+            <a class="list-group-item"
+               ng-repeat="retro in data.teamRetros"
+               ng-click="openRetro(retro.sys_id, $event)">
+              <div>
+                <!-- Retro number -->
+                <div class="text-info">
+                  <i class="fa fa-file-text-o"></i>
+                  <strong ng-bind="retro.number"></strong>
+                </div>
+
+                <!-- Sprint -->
+                <div class="text-muted small">
+                  <strong>Sprint:</strong>
+                  <span ng-bind="retro.sprint"></span>
+                </div>
+
+                <!-- Assigned to (submitted_by) -->
+                <div class="text-muted small">
+                  <strong>Assigned to:</strong>
+                  <i class="fa fa-user"></i>
+                  <span ng-bind="retro.submitted_by"></span>
+                </div>
+
+                <!-- Submitted date -->
+                <div class="text-muted small">
+                  <strong>Submitted:</strong>
+                  <i class="fa fa-calendar"></i>
+                  <span ng-bind="retro.submitted_date | date:'MMM d, yyyy'"></span>
+                </div>
+
+                <!-- Status -->
+                <div class="m-t-xs">
+                  <strong>Status:</strong>
+                  <span class="label label-default"
+                        ng-class="'label-' + (retro.status || 'default')"
+                        ng-bind="retro.status">
+                  </span>
+                </div>
               </div>
-            </div>
-            <div class="item-center">
-              <h4 class="item-title" ng-bind="retro.sprint"></h4>
-              <p class="item-description">
-                <i class="fa fa-user"></i>
-                <span ng-bind="retro.submitted_by"></span>
-              </p>
-            </div>
-            <div class="item-right">
-              <span class="view-badge">VIEW</span>
-              <i class="fa fa-chevron-right action-icon"></i>
-            </div>
+            </a>
           </div>
-        </div>
-        <div ng-if="data.teamRetros.length === 0" class="empty-state">
-          <div class="empty-icon">]]>👥<![CDATA[</div>
-          <h4 class="empty-title">No team retrospectives</h4>
-          <p class="empty-text">No submissions yet</p>
+
+          <div ng-if="data.teamRetros.length === 0"
+               class="text-center text-muted p-md">
+            <i class="fa fa-users fa-2x m-b-sm"></i>
+            <h4 class="h5 m-t-none">No team retrospectives</h4>
+            <p class="m-b-none">No submissions yet.</p>
+          </div>
         </div>
       </div>
     </div>
-    
-    <!-- Column 3: My Action Items -->
-    <div class="list-card my-tasks-card">
-      <div class="card-header">
-        <div class="header-content">
-          <i class="card-icon fa fa-check-circle"></i>
-          <div class="header-text">
-            <h3 class="card-title">My Tasks</h3>
-            <p class="card-subtitle">Action items for me</p>
+
+    <!-- My Tasks -->
+    <div class="col-sm-6 col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          <div class="pull-left">
+            <i class="fa fa-check-circle text-success"></i>
+            <span class="panel-title">My Tasks</span>
+            <div class="text-muted small">Action items for me</div>
           </div>
+          <span class="badge pull-right">{{data.myTasks.length}}</span>
         </div>
-        <span class="card-count">{{data.myTasks.length}}</span>
-      </div>
-      
-      <div class="card-body">
-        <div ng-if="data.myTasks.length > 0">
-          <div ng-repeat="task in data.myTasks" class="list-item clickable" ng-click="openTask(task.sys_id, $event)">
-            <div class="item-left">
-              <div class="item-icon my-task-icon">
-                <i class="fa fa-tasks"></i>
+        <div class="panel-body p-0">
+          <div ng-if="data.myTasks.length > 0"
+               class="list-scroll list-group m-b-none">
+            <a class="list-group-item"
+               ng-repeat="task in data.myTasks"
+               ng-click="openTask(task.sys_id, $event)">
+              <div>
+                <!-- Task number -->
+                <div class="text-success">
+                  <i class="fa fa-ticket"></i>
+                  <strong ng-bind="task.number"></strong>
+                </div>
+
+                <!-- Short description -->
+                <div class="text-muted small">
+                  <strong>Short description:</strong>
+                  <span ng-bind="task.short_description"></span>
+                </div>
+
+                <!-- Status -->
+                <div class="m-t-xs">
+                  <strong>Status:</strong>
+                  <span class="label label-default"
+                        ng-class="'label-' + (task.state || 'default')"
+                        ng-bind="task.state">
+                  </span>
+                </div>
               </div>
-            </div>
-            <div class="item-center">
-              <h4 class="item-title" ng-bind="task.short_description"></h4>
-              <p class="item-description">
-                <span class="task-number" ng-bind="task.number"></span>
-              </p>
-            </div>
-            <div class="item-right">
-              <span class="state-badge" ng-class="'state-' + task.state" ng-bind="task.state"></span>
-              <i class="fa fa-chevron-right action-icon"></i>
-            </div>
+            </a>
           </div>
-        </div>
-        <div ng-if="data.myTasks.length === 0" class="empty-state">
-          <div class="empty-icon">✅</div>
-          <h4 class="empty-title">No tasks</h4>
-          <p class="empty-text">No action items assigned</p>
+
+          <div ng-if="data.myTasks.length === 0"
+               class="text-center text-muted p-md">
+            <i class="fa fa-check fa-2x m-b-sm"></i>
+            <h4 class="h5 m-t-none">No tasks</h4>
+            <p class="m-b-none">No action items assigned.</p>
+          </div>
         </div>
       </div>
     </div>
-    
-    <!-- Column 4: Team's Action Items -->
-    <div class="list-card team-tasks-card">
-      <div class="card-header">
-        <div class="header-content">
-          <i class="card-icon fa fa-inbox"></i>
-          <div class="header-text">
-            <h3 class="card-title">Team Tasks</h3>
-            <p class="card-subtitle">For team members</p>
+
+    <!-- Team Tasks -->
+    <div class="col-sm-6 col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          <div class="pull-left">
+            <i class="fa fa-inbox text-warning"></i>
+            <span class="panel-title">Team Tasks</span>
+            <div class="text-muted small">For team members</div>
           </div>
+          <span class="badge pull-right">{{data.teamTasks.length}}</span>
         </div>
-        <span class="card-count">{{data.teamTasks.length}}</span>
-      </div>
-      
-      <div class="card-body">
-        <div ng-if="data.teamTasks.length > 0">
-          <div ng-repeat="task in data.teamTasks" class="list-item clickable" ng-click="openTask(task.sys_id, $event)">
-            <div class="item-left">
-              <div class="item-avatar team-task-avatar">
-                <i class="fa fa-briefcase"></i>
+        <div class="panel-body p-0">
+          <div ng-if="data.teamTasks.length > 0"
+               class="list-scroll list-group m-b-none">
+            <a class="list-group-item"
+               ng-repeat="task in data.teamTasks"
+               ng-click="openTask(task.sys_id, $event)">
+              <div>
+                <!-- Task number -->
+                <div class="text-warning">
+                  <i class="fa fa-ticket"></i>
+                  <strong ng-bind="task.number"></strong>
+                </div>
+
+                <!-- Short description -->
+                <div class="text-muted small">
+                  <strong>Short description:</strong>
+                  <span ng-bind="task.short_description"></span>
+                </div>
+
+                <!-- Assigned to -->
+                <div class="text-muted small">
+                  <strong>Assigned to:</strong>
+                  <i class="fa fa-user"></i>
+                  <span ng-bind="task.assigned_to"></span>
+                </div>
+
+                <!-- Status -->
+                <div class="m-t-xs">
+                  <strong>Status:</strong>
+                  <span class="label label-default"
+                        ng-class="'label-' + (task.state || 'default')"
+                        ng-bind="task.state">
+                  </span>
+                </div>
               </div>
-            </div>
-            <div class="item-center">
-              <h4 class="item-title" ng-bind="task.short_description"></h4>
-              <p class="item-description">
-                <i class="fa fa-user"></i>
-                <span ng-bind="task.assigned_to"></span>
-              </p>
-            </div>
-            <div class="item-right">
-              <span class="view-badge">VIEW</span>
-              <i class="fa fa-chevron-right action-icon"></i>
-            </div>
+            </a>
           </div>
-        </div>
-        <div ng-if="data.teamTasks.length === 0" class="empty-state">
-          <div class="empty-icon">]]>🎯<![CDATA[</div>
-          <h4 class="empty-title">No team tasks</h4>
-          <p class="empty-text">No action items</p>
+
+          <div ng-if="data.teamTasks.length === 0"
+               class="text-center text-muted p-md">
+            <i class="fa fa-bullseye fa-2x m-b-sm"></i>
+            <h4 class="h5 m-t-none">No team tasks</h4>
+            <p class="m-b-none">No action items.</p>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 </div>]]></template>
     </sp_widget>

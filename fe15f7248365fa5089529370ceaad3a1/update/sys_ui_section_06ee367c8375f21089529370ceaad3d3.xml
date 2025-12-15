@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="x_1865669_retrospe_retrospective_submiss" section_id="06ee367c8375f21089529370ceaad3d3" sys_domain="global" table="x_1865669_retrospe_retrospective_submission" version="3" view="retro">
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>x_1865669_retrospe_retrospective_submiss</caption>
+            <header>false</header>
+            <name>x_1865669_retrospe_retrospective_submission</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-11 14:40:32</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>06ee367c8375f21089529370ceaad3d3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_1865669_retrospe_retrospective_submission</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+            <sys_update_name>sys_ui_section_06ee367c8375f21089529370ceaad3d3</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-11 14:40:32</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="retro" name="retro">c2ee367c8375f21089529370ceaad3ce</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_macroponent">
+    <sys_ux_macroponent action="INSERT_OR_UPDATE">
+        <associated_types/>
+        <bundles/>
+        <category>page</category>
+        <component_dependencies/>
+        <composition>[
+    {
+        "definition": {
+            "id": "9fa0b553c3649c0254f64f3a7983e61e",
+            "type": "MACROPONENT"
+        },
+        "elementId": "form_templates",
+        "elementLabel": "Form templates",
+        "eventMappings": [],
+        "isHidden": {
+            "type": "JSON_LITERAL",
+            "value": ""
+        },
+        "isNonDestructive": false,
+        "overrides": null,
+        "propertyValues": {
+            "currentUser": {
+                "binding": {
+                    "address": [],
+                    "category": "session"
+                },
+                "type": "CONTEXT_BINDING"
+            },
+            "encodedRecord": {
+                "binding": {
+                    "address": [
+                        "encodedRecord"
+                    ],
+                    "category": "props"
+                },
+                "type": "CONTEXT_BINDING"
+            },
+            "fields": {
+                "binding": {
+                    "address": [
+                        "fields"
+                    ],
+                    "category": "props"
+                },
+                "type": "CONTEXT_BINDING"
+            },
+            "refreshRequested": {
+                "binding": {
+                    "address": [
+                        "refreshRequested"
+                    ],
+                    "category": "props"
+                },
+                "type": "CONTEXT_BINDING"
+            },
+            "sysId": {
+                "binding": {
+                    "address": [
+                        "sysId"
+                    ],
+                    "category": "props"
+                },
+                "type": "CONTEXT_BINDING"
+            },
+            "table": {
+                "binding": {
+                    "address": [
+                        "table"
+                    ],
+                    "category": "props"
+                },
+                "type": "CONTEXT_BINDING"
+            }
+        },
+        "slot": "default-slot",
+        "styles": {}
+    }
+]</composition>
+        <da_relay_models/>
+        <data>[]</data>
+        <description/>
+        <disable_auto_reflow>false</disable_auto_reflow>
+        <dispatched_events>d26557140b831010a8b1c96237673ab3</dispatched_events>
+        <ext_controller_dep/>
+        <extends display_value="Page Template">19be392623033300f4b4c50947bf65ba</extends>
+        <extension_point/>
+        <form_factors>{}</form_factors>
+        <handled_events/>
+        <interactions/>
+        <interfaces/>
+        <internal_event_mappings>{}</internal_event_mappings>
+        <layout>{
+    "default": {
+        "children": null,
+        "items": [
+            {
+                "rules": {
+                    "grid-column": "1"
+                },
+                "slotName": "default-slot",
+                "styles": {
+                    "display": "flex",
+                    "flex-direction": "column",
+                    "height": "100%"
+                }
+            }
+        ],
+        "root": null,
+        "rules": {
+            "display": "grid",
+            "grid-gap": "0px",
+            "grid-template-columns": "1fr",
+            "grid-template-rows": "1fr ",
+            "height": "100%"
+        },
+        "styles": null,
+        "templateId": null,
+        "type": "grid"
+    }
+}</layout>
+        <macroponent_dependencies/>
+        <name>Template default</name>
+        <output_prop_mapping/>
+        <props>[
+    {
+        "defaultValue": null,
+        "description": null,
+        "fieldType": "string",
+        "label": "sysId",
+        "mandatory": false,
+        "name": "sysId",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": "string"
+    },
+    {
+        "defaultValue": null,
+        "description": null,
+        "fieldType": "string",
+        "label": "table",
+        "mandatory": false,
+        "name": "table",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": "string"
+    },
+    {
+        "defaultValue": null,
+        "description": null,
+        "fieldType": "string",
+        "label": "fields",
+        "mandatory": false,
+        "name": "fields",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": "string"
+    },
+    {
+        "defaultValue": null,
+        "description": null,
+        "fieldType": "string",
+        "label": "Encoded Record",
+        "mandatory": false,
+        "name": "encodedRecord",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": "string"
+    },
+    {
+        "defaultValue": 0,
+        "description": null,
+        "fieldType": "json",
+        "label": "Templates refresh requested",
+        "mandatory": false,
+        "name": "refreshRequested",
+        "readOnly": false,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": "json"
+    }
+]</props>
+        <required_translations>[ ]</required_translations>
+        <root_component/>
+        <root_component_config>{
+  "bare" : true
+}</root_component_config>
+        <root_component_definition/>
+        <schema_version>1.0.0</schema_version>
+        <state_persistence_config/>
+        <state_properties>[]</state_properties>
+        <sys_class_name>sys_ux_macroponent</sys_class_name>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2025-12-11 14:37:27</sys_created_on>
+        <sys_id>f43e363c8375f21089529370ceaad357</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Template default</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_ux_macroponent_f43e363c8375f21089529370ceaad357</sys_update_name>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2025-12-11 14:37:27</sys_updated_on>
+    </sys_ux_macroponent>
+    <sys_translated_text action="delete_multiple" query="documentkey=f43e363c8375f21089529370ceaad357"/>
+</record_update>

@@ -4,7 +4,7 @@
         <acls/>
         <active>true</active>
         <annotation/>
-        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=1087000,viewActivatedIn=naturalLanguage</attributes>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=107005000,viewActivatedIn=naturalLanguage</attributes>
         <authored_on_release_version>26000</authored_on_release_version>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
@@ -15,7 +15,7 @@
         <flow_priority>MEDIUM</flow_priority>
         <generation_source/>
         <internal_name>task_assignment_notification</internal_name>
-        <label_cache>[{"name":"Created or Updated_1.current.short_description","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛Short description","reference":"","reference_display":"Short description","type":"string","base_type":"string","parent_table_name":"x_1865669_retrospe_retrospective_task","column_name":"short_description","usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":["ah_subject",null]}},{"name":"Created or Updated_1.current.assigned_to","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛Assigned to","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"x_1865669_retrospe_retrospective_task","column_name":"assigned_to","usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":["ah_to",null]}}]</label_cache>
+        <label_cache>[{"name":"Created or Updated_1.current.sys_id","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"x_1865669_retrospe_retrospective_task","column_name":"sys_id","usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":[null]}},{"name":"Created or Updated_1.current.state","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛State","reference":"","reference_display":"State","type":"choice","base_type":"choice","parent_table_name":"x_1865669_retrospe_retrospective_task","column_name":"state","choices":[{"label":"-- None --","used":false,"image":"","reference":false,"rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"label":"Pending","used":false,"image":"","reference":false,"rawLabel":"Pending","selected":false,"missing":false,"value":"100","parameters":{"name":"x_1865669_retrospe_retrospective_task","dependent_values":[""]}},{"label":"In Progress","used":false,"image":"","reference":false,"rawLabel":"In Progress","selected":false,"missing":false,"value":"200","parameters":{"name":"x_1865669_retrospe_retrospective_task","dependent_values":[""]}},{"label":"Completed","used":false,"image":"","reference":false,"rawLabel":"Completed","selected":false,"missing":false,"value":"300","parameters":{"name":"x_1865669_retrospe_retrospective_task","dependent_values":[""]}},{"label":"Cancelled","used":false,"image":"","reference":false,"rawLabel":"Cancelled","selected":false,"missing":false,"value":"400","parameters":{"name":"x_1865669_retrospe_retrospective_task","dependent_values":[""]}}],"usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":[null]}},{"name":"Created or Updated_1.current.sprint.sprint_name","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛Sprint➛Sprint Name","reference":"","reference_display":"Sprint Name","type":"string","base_type":"string","parent_table_name":"x_1865669_retrospe_sprint","column_name":"sprint_name","usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":[null]}},{"name":"Created or Updated_1.current.number","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛Number","reference":"","reference_display":"Number","type":"string","base_type":"string","parent_table_name":"x_1865669_retrospe_retrospective_task","column_name":"number","usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":[null]}},{"name":"Created or Updated_1.current.assigned_to.name","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛Assigned to➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"name","usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":[null]}},{"name":"Created or Updated_1.current.assigned_to.email","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛Assigned to➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email","usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":["ah_to"]}},{"name":"Created or Updated_1.current.short_description","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛Short description","reference":"","reference_display":"Short description","type":"string","base_type":"string","parent_table_name":"x_1865669_retrospe_retrospective_task","column_name":"short_description","usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":["ah_subject",null]}},{"name":"Created or Updated_1.current.assigned_to","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛Assigned to","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"x_1865669_retrospe_retrospective_task","column_name":"assigned_to","usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":["ah_to",null]}}]</label_cache>
         <master_snapshot>ee838a028339f21089529370ceaad343</master_snapshot>
         <master_snapshot_digest/>
         <name>Task Assignment Notification</name>
@@ -36,7 +36,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>416f7d0a83f5f21089529370ceaad397</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>Task Assignment Notification</sys_name>
         <sys_overrides/>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
@@ -44,7 +44,7 @@
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name>sys_hub_flow_416f7d0a83f5f21089529370ceaad397</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-15 07:33:35</sys_updated_on>
+        <sys_updated_on>2025-12-16 12:58:53</sys_updated_on>
         <type>flow</type>
         <version>2</version>
     </sys_hub_flow>
@@ -83,14 +83,14 @@
         <identifier>416f7d0a83f5f21089529370ceaad397</identifier>
         <runner>FDTriggerRunner</runner>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-12-15 07:33:35</sys_created_on>
-        <sys_id>ae838a028339f21089529370ceaad388</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_created_on>2025-12-16 12:58:53</sys_created_on>
+        <sys_id>a197dc6a8339761089529370ceaad3ff</sys_id>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-15 07:33:35</sys_updated_on>
+        <sys_updated_on>2025-12-16 12:58:53</sys_updated_on>
         <trigger display_value="">e2838a028339f21089529370ceaad388</trigger>
     </sys_trigger_runner_mapping>
-    <sys_trigger_runner_mapping action="delete_multiple" query="identifier=416f7d0a83f5f21089529370ceaad397^sys_idNOT INae838a028339f21089529370ceaad388"/>
+    <sys_trigger_runner_mapping action="delete_multiple" query="identifier=416f7d0a83f5f21089529370ceaad397^sys_idNOT INa197dc6a8339761089529370ceaad3ff"/>
     <sys_hub_flow_stage action="delete_multiple" query="flow=416f7d0a83f5f21089529370ceaad397"/>
     <sys_flow_cat_variable_model action="delete_multiple" query="id=416f7d0a83f5f21089529370ceaad397^sys_idNOT IN4d6f7d0a83f5f21089529370ceaad397"/>
     <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
@@ -385,7 +385,7 @@
         <action_type_parent display_value="Send Email">98c181d20b100300d97d8bf637673ab5</action_type_parent>
         <attributes/>
         <comment/>
-        <compiled_snapshot/>
+        <compiled_snapshot>c1806bf4a70323008299b39f087901cb</compiled_snapshot>
         <display_text/>
         <flow display_value="Task Assignment Notification">416f7d0a83f5f21089529370ceaad397</flow>
         <generation_source/>
@@ -395,17 +395,51 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-12-15 07:33:27</sys_created_on>
         <sys_id>b8834a028339f21089529370ceaad327</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-15 07:33:27</sys_updated_on>
+        <sys_updated_on>2025-12-16 11:33:55</sys_updated_on>
         <ui_id>cc31bc2a-91ff-47ad-8312-5cb2b19226d4</ui_id>
-        <values>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</values>
+        <values>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</values>
     </sys_hub_action_instance_v2>
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=b8834a028339f21089529370ceaad327"/>
     <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=416f7d0a83f5f21089529370ceaad397"/>
     <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=416f7d0a83f5f21089529370ceaad397"/>
-    <sys_hub_pill_compound action="delete_multiple" query="attached_to=416f7d0a83f5f21089529370ceaad397^sys_idNOT IN38834a028339f21089529370ceaad32a,b0834a028339f21089529370ceaad32b,fc834a028339f21089529370ceaad32a"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=416f7d0a83f5f21089529370ceaad397^sys_idNOT IN16b1c86e83b5761089529370ceaad348,1ab1c86e83b5761089529370ceaad347,38834a028339f21089529370ceaad32a,52b1c86e83b5761089529370ceaad347,52b1c86e83b5761089529370ceaad348,9eb1c86e83b5761089529370ceaad347,b0834a028339f21089529370ceaad32b,dab1c86e83b5761089529370ceaad347,fc834a028339f21089529370ceaad32a"/>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>416f7d0a83f5f21089529370ceaad397</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Created or Updated_1.current.sys_id}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-16 11:23:21</sys_created_on>
+        <sys_id>16b1c86e83b5761089529370ceaad348</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-16 11:23:21</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>8e2675b6-daee-4718-8107-009b2b0359b9</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>416f7d0a83f5f21089529370ceaad397</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Created or Updated_1.current.number}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-16 11:23:21</sys_created_on>
+        <sys_id>1ab1c86e83b5761089529370ceaad347</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-16 11:23:21</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>b3b26eda-c617-45a5-b3d8-2327b20dd327</ui_id>
+    </sys_hub_pill_compound>
     <sys_hub_pill_compound action="INSERT_OR_UPDATE">
         <attached_to>416f7d0a83f5f21089529370ceaad397</attached_to>
         <extra_info/>
@@ -427,6 +461,57 @@
         <attached_to>416f7d0a83f5f21089529370ceaad397</attached_to>
         <extra_info/>
         <order>0</order>
+        <prescription>{{Created or Updated_1.current.assigned_to.name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-16 11:23:21</sys_created_on>
+        <sys_id>52b1c86e83b5761089529370ceaad347</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-16 11:23:21</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>97fec6b2-8abf-4666-9d1f-f3c0ecfd3654</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>416f7d0a83f5f21089529370ceaad397</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Created or Updated_1.current.state}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-16 11:23:21</sys_created_on>
+        <sys_id>52b1c86e83b5761089529370ceaad348</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-16 11:23:21</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>454109bd-91f7-4fb6-a62f-b7d6967d6f70</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>416f7d0a83f5f21089529370ceaad397</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Created or Updated_1.current.sprint.sprint_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-16 11:23:21</sys_created_on>
+        <sys_id>9eb1c86e83b5761089529370ceaad347</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-16 11:23:21</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>d976ed2a-fb16-455b-aebe-4f63f0c52be4</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>416f7d0a83f5f21089529370ceaad397</attached_to>
+        <extra_info/>
+        <order>0</order>
         <prescription>{{Created or Updated_1.current.short_description}}</prescription>
         <source_ui_id/>
         <sys_created_by>admin</sys_created_by>
@@ -439,6 +524,23 @@
         <transform_compositions>[]</transform_compositions>
         <transform_definition_id/>
         <ui_id>b31b4739-089e-4f75-9264-6adc8957d543</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>416f7d0a83f5f21089529370ceaad397</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Created or Updated_1.current.short_description}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-16 11:23:21</sys_created_on>
+        <sys_id>dab1c86e83b5761089529370ceaad347</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-16 11:23:21</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>8985f74c-8fbd-48c7-9232-7946239a1bfb</ui_id>
     </sys_hub_pill_compound>
     <sys_hub_pill_compound action="INSERT_OR_UPDATE">
         <attached_to>416f7d0a83f5f21089529370ceaad397</attached_to>
@@ -545,7 +647,7 @@
         <description/>
         <flow_priority>MEDIUM</flow_priority>
         <internal_name>task_assignment_notification</internal_name>
-        <label_cache>[{"name":"Created or Updated_1.current.short_description","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛Short description","reference":"","reference_display":"Short description","type":"string","base_type":"string","parent_table_name":"x_1865669_retrospe_retrospective_task","column_name":"short_description","usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":["ah_subject",null]}},{"name":"Created or Updated_1.current.assigned_to","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛Assigned to","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"x_1865669_retrospe_retrospective_task","column_name":"assigned_to","usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":["ah_to",null]}}]</label_cache>
+        <label_cache>[{"name":"Created or Updated_1.current.sys_id","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"x_1865669_retrospe_retrospective_task","column_name":"sys_id","usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":[null]}},{"name":"Created or Updated_1.current.state","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛State","reference":"","reference_display":"State","type":"choice","base_type":"choice","parent_table_name":"x_1865669_retrospe_retrospective_task","column_name":"state","choices":[{"label":"-- None --","used":false,"image":"","reference":false,"rawLabel":"-- None --","selected":false,"missing":false,"value":""},{"label":"Pending","used":false,"image":"","reference":false,"rawLabel":"Pending","selected":false,"missing":false,"value":"100","parameters":{"name":"x_1865669_retrospe_retrospective_task","dependent_values":[""]}},{"label":"In Progress","used":false,"image":"","reference":false,"rawLabel":"In Progress","selected":false,"missing":false,"value":"200","parameters":{"name":"x_1865669_retrospe_retrospective_task","dependent_values":[""]}},{"label":"Completed","used":false,"image":"","reference":false,"rawLabel":"Completed","selected":false,"missing":false,"value":"300","parameters":{"name":"x_1865669_retrospe_retrospective_task","dependent_values":[""]}},{"label":"Cancelled","used":false,"image":"","reference":false,"rawLabel":"Cancelled","selected":false,"missing":false,"value":"400","parameters":{"name":"x_1865669_retrospe_retrospective_task","dependent_values":[""]}}],"usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":[null]}},{"name":"Created or Updated_1.current.sprint.sprint_name","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛Sprint➛Sprint Name","reference":"","reference_display":"Sprint Name","type":"string","base_type":"string","parent_table_name":"x_1865669_retrospe_sprint","column_name":"sprint_name","usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":[null]}},{"name":"Created or Updated_1.current.number","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛Number","reference":"","reference_display":"Number","type":"string","base_type":"string","parent_table_name":"x_1865669_retrospe_retrospective_task","column_name":"number","usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":[null]}},{"name":"Created or Updated_1.current.assigned_to.name","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛Assigned to➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"name","usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":[null]}},{"name":"Created or Updated_1.current.assigned_to.email","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛Assigned to➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email","usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":["ah_to"]}},{"name":"Created or Updated_1.current.short_description","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛Short description","reference":"","reference_display":"Short description","type":"string","base_type":"string","parent_table_name":"x_1865669_retrospe_retrospective_task","column_name":"short_description","usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":["ah_subject",null]}},{"name":"Created or Updated_1.current.assigned_to","label":"Trigger - Record Created or Updated➛Retrospective Task Record➛Assigned to","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"x_1865669_retrospe_retrospective_task","column_name":"assigned_to","usedInstances":{"cc31bc2a-91ff-47ad-8312-5cb2b19226d4":["ah_to",null]}}]</label_cache>
         <master>true</master>
         <name>Task Assignment Notification</name>
         <natlang/>
@@ -562,7 +664,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>ee838a028339f21089529370ceaad343</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name/>
         <sys_overrides/>
         <sys_package/>
@@ -570,7 +672,7 @@
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-15 07:33:34</sys_updated_on>
+        <sys_updated_on>2025-12-16 12:58:53</sys_updated_on>
         <type>flow</type>
         <version>2</version>
     </sys_hub_flow_snapshot>
@@ -595,7 +697,7 @@
         <active>true</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
-        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id,uiTypeLabel=Document ID</attributes>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id</attributes>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
@@ -654,14 +756,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-12-15 07:33:34</sys_created_on>
         <sys_id>22838a028339f21089529370ceaad346</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-15 07:33:34</sys_updated_on>
+        <sys_updated_on>2025-12-16 12:58:53</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -679,7 +781,7 @@
         <active>true</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
-        <attributes>child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object</attributes>
+        <attributes>child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,co_type_name=FDCollection,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object</attributes>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
@@ -738,14 +840,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-12-15 07:33:34</sys_created_on>
         <sys_id>aa838a028339f21089529370ceaad350</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-15 07:33:34</sys_updated_on>
+        <sys_updated_on>2025-12-15 11:35:07</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -763,7 +865,7 @@
         <active>true</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
-        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name,uiTypeLabel=Table Name</attributes>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name</attributes>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
@@ -822,14 +924,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-12-15 07:33:34</sys_created_on>
         <sys_id>e6838a028339f21089529370ceaad357</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-15 07:33:34</sys_updated_on>
+        <sys_updated_on>2025-12-16 12:58:53</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -880,17 +982,51 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-12-15 07:33:35</sys_created_on>
         <sys_id>e2838a028339f21089529370ceaad37d</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-15 07:33:35</sys_updated_on>
+        <sys_updated_on>2025-12-16 12:58:53</sys_updated_on>
         <ui_id>cc31bc2a-91ff-47ad-8312-5cb2b19226d4</ui_id>
-        <values>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</values>
+        <values>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</values>
     </sys_hub_action_instance_v2>
     <sys_hub_alias_mapping action="delete_multiple" query="source_id=e2838a028339f21089529370ceaad37d"/>
     <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=ee838a028339f21089529370ceaad343"/>
     <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=ee838a028339f21089529370ceaad343"/>
-    <sys_hub_pill_compound action="delete_multiple" query="attached_to=ee838a028339f21089529370ceaad343^sys_idNOT IN22838a028339f21089529370ceaad37f,2e838a028339f21089529370ceaad37e,ae838a028339f21089529370ceaad37e"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=ee838a028339f21089529370ceaad343^sys_idNOT IN102208ae83b5761089529370ceaad302,1c2208ae83b5761089529370ceaad302,22838a028339f21089529370ceaad37f,2e838a028339f21089529370ceaad37e,5c2208ae83b5761089529370ceaad301,942208ae83b5761089529370ceaad302,982208ae83b5761089529370ceaad301,ae838a028339f21089529370ceaad37e,d02208ae83b5761089529370ceaad302"/>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>ee838a028339f21089529370ceaad343</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Created or Updated_1.current.sys_id}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-16 11:25:08</sys_created_on>
+        <sys_id>102208ae83b5761089529370ceaad302</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-16 11:25:08</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>8e2675b6-daee-4718-8107-009b2b0359b9</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>ee838a028339f21089529370ceaad343</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Created or Updated_1.current.state}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-16 11:25:08</sys_created_on>
+        <sys_id>1c2208ae83b5761089529370ceaad302</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-16 11:25:08</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>454109bd-91f7-4fb6-a62f-b7d6967d6f70</ui_id>
+    </sys_hub_pill_compound>
     <sys_hub_pill_compound action="INSERT_OR_UPDATE">
         <attached_to>ee838a028339f21089529370ceaad343</attached_to>
         <extra_info/>
@@ -929,6 +1065,57 @@
         <attached_to>ee838a028339f21089529370ceaad343</attached_to>
         <extra_info/>
         <order>0</order>
+        <prescription>{{Created or Updated_1.current.short_description}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-16 11:25:08</sys_created_on>
+        <sys_id>5c2208ae83b5761089529370ceaad301</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-16 11:25:08</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>8985f74c-8fbd-48c7-9232-7946239a1bfb</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>ee838a028339f21089529370ceaad343</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Created or Updated_1.current.assigned_to.name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-16 11:25:08</sys_created_on>
+        <sys_id>942208ae83b5761089529370ceaad302</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-16 11:25:08</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>97fec6b2-8abf-4666-9d1f-f3c0ecfd3654</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>ee838a028339f21089529370ceaad343</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Created or Updated_1.current.number}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-16 11:25:08</sys_created_on>
+        <sys_id>982208ae83b5761089529370ceaad301</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-16 11:25:08</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>b3b26eda-c617-45a5-b3d8-2327b20dd327</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>ee838a028339f21089529370ceaad343</attached_to>
+        <extra_info/>
+        <order>0</order>
         <prescription>{{Created or Updated_1.current.assigned_to}}</prescription>
         <source_ui_id/>
         <sys_created_by>admin</sys_created_by>
@@ -941,6 +1128,23 @@
         <transform_compositions>[]</transform_compositions>
         <transform_definition_id/>
         <ui_id>d441b9ca-13f0-4c15-b233-3c3a6ded4995</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>ee838a028339f21089529370ceaad343</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{Created or Updated_1.current.sprint.sprint_name}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-16 11:25:08</sys_created_on>
+        <sys_id>d02208ae83b5761089529370ceaad302</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-16 11:25:08</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>d976ed2a-fb16-455b-aebe-4f63f0c52be4</ui_id>
     </sys_hub_pill_compound>
     <sys_hub_flow_variable action="delete_multiple" query="model=ee838a028339f21089529370ceaad343"/>
     <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_ee838a028339f21089529370ceaad343^sys_idNOT IN22838a028339f21089529370ceaad355,aa838a028339f21089529370ceaad35b,e2838a028339f21089529370ceaad34e"/>
@@ -1019,12 +1223,12 @@
     <sys_hub_flow action="UPDATE">
         <sys_id>416f7d0a83f5f21089529370ceaad397</sys_id>
         <latest_snapshot>ee838a028339f21089529370ceaad343</latest_snapshot>
-        <compiler_build/>
+        <compiler_build>glide-xanadu-07-02-2024__patch10-08-08-2025_08-21-2025_1913.zip</compiler_build>
     </sys_hub_flow>
     <sys_flow_trigger_plan action="delete_multiple" query="plan_id=416f7d0a83f5f21089529370ceaad397^sys_idNOT IN62838a028339f21089529370ceaad38a"/>
     <sys_flow_trigger_plan action="INSERT_OR_UPDATE">
         <binding_strategy>com.snc.process_flow.engine.binding.OncePerRecord</binding_strategy>
-        <plan/>
+        <plan>{"type":"PlanProxy","persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_trigger_plan","id":"62838a028339f21089529370ceaad38a","name":"plan","plan_signature":null}}</plan>
         <plan_id>416f7d0a83f5f21089529370ceaad397</plan_id>
         <snapshot>ee838a028339f21089529370ceaad343</snapshot>
         <sys_created_by>admin</sys_created_by>
@@ -1032,11 +1236,11 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>62838a028339f21089529370ceaad38a</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_overrides/>
         <sys_scope/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-15 07:33:35</sys_updated_on>
+        <sys_updated_on>2025-12-16 12:58:53</sys_updated_on>
         <trigger display_value="">e2838a028339f21089529370ceaad388</trigger>
     </sys_flow_trigger_plan>
     <sys_flow_subflow_plan action="delete_multiple" query="plan_id=416f7d0a83f5f21089529370ceaad397"/>

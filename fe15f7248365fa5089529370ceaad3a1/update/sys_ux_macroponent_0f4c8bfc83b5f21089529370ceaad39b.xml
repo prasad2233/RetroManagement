@@ -1556,6 +1556,96 @@
     },
     {
         "definition": {
+            "id": "d37ce8abca89d02905fed903c8e34d8e",
+            "type": "MACROPONENT"
+        },
+        "elementId": "button_1",
+        "elementLabel": "Button 1",
+        "eventMappings": [
+            {
+                "eventMappingId": "cmjiihhbbpfffaaffwyddbiiiiqvsxcbbhhh",
+                "isConfiguration": false,
+                "offRowStorageId": null,
+                "sourceEventApiName": "sn_button.NOW_BUTTON#CLICKED",
+                "sourceEventCorrelationId": null,
+                "sourceEventDefinition": {
+                    "apiName": "sn_button.NOW_BUTTON#CLICKED",
+                    "id": null,
+                    "type": "UXEVENT"
+                },
+                "sourceEventSysId": null,
+                "targets": [
+                    {
+                        "broker": null,
+                        "clientScript": {
+                            "payload": {
+                                "type": "JSON_LITERAL",
+                                "value": {}
+                            },
+                            "sysId": "07a7fe1a8331761089529370ceaad3ad"
+                        },
+                        "conditional": null,
+                        "declarativeAction": null,
+                        "event": null,
+                        "operation": null,
+                        "targetId": "cmjiihhbbpfffaaffwzddbiiiidyrvcmnb",
+                        "type": "CLIENT_SCRIPT"
+                    }
+                ]
+            }
+        ],
+        "preset": null,
+        "propertyValues": {
+            "animatedIcon": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "configAria": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "disabled": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "icon": {
+                "type": "JSON_LITERAL",
+                "value": "arrow-left-outline"
+            },
+            "label": {
+                "type": "TRANSLATION_LITERAL",
+                "value": {
+                    "code": null,
+                    "comment": "",
+                    "message": "Back"
+                }
+            },
+            "landmark": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "size": {
+                "type": "JSON_LITERAL",
+                "value": "md"
+            },
+            "tooltipContent": {
+                "type": "TRANSLATION_LITERAL",
+                "value": {
+                    "code": null,
+                    "comment": "",
+                    "message": "Go back"
+                }
+            },
+            "variant": {
+                "type": "JSON_LITERAL",
+                "value": "tertiary"
+            }
+        },
+        "slot": null,
+        "styles": null
+    },
+    {
+        "definition": {
             "id": "d356d14b6e293a3020a244b63d278d8f",
             "type": "MACROPONENT"
         },
@@ -3124,353 +3214,6 @@
     },
     {
         "definition": {
-            "id": "d356d14b6e293a3020a244b63d278d8f",
-            "type": "MACROPONENT"
-        },
-        "elementId": "warning_messages_container",
-        "elementLabel": "Warning Messages Container",
-        "eventMappings": [],
-        "extensionPoints": [],
-        "isHero": false,
-        "isNonDestructive": false,
-        "items": [],
-        "overrides": {
-            "composition": [
-                {
-                    "definition": {
-                        "id": "1f6e0643eca7a637e36bd7833549ec9e",
-                        "type": "MACROPONENT"
-                    },
-                    "elementId": "record_not_found",
-                    "elementLabel": "Record not found",
-                    "eventMappings": [],
-                    "extensionPoints": [],
-                    "isHero": false,
-                    "isHidden": {
-                        "operation": {
-                            "left": {
-                                "operation": {
-                                    "left": {
-                                        "operation": {
-                                            "left": {
-                                                "binding": {
-                                                    "address": [
-                                                        "record",
-                                                        "isValid"
-                                                    ]
-                                                },
-                                                "type": "DATA_OUTPUT_BINDING"
-                                            },
-                                            "operator": "NOT_EQUAL",
-                                            "right": {
-                                                "type": "JSON_LITERAL",
-                                                "value": true
-                                            }
-                                        },
-                                        "type": "BINARY"
-                                    },
-                                    "operator": "AND",
-                                    "right": {
-                                        "operation": {
-                                            "left": {
-                                                "binding": {
-                                                    "address": [
-                                                        "record",
-                                                        "isValid"
-                                                    ]
-                                                },
-                                                "type": "DATA_OUTPUT_BINDING"
-                                            },
-                                            "operator": "NOT_EQUAL",
-                                            "right": {
-                                                "type": "JSON_LITERAL",
-                                                "value": false
-                                            }
-                                        },
-                                        "type": "BINARY"
-                                    }
-                                },
-                                "type": "BINARY"
-                            },
-                            "operator": "OR",
-                            "right": {
-                                "operation": {
-                                    "left": {
-                                        "binding": {
-                                            "address": [
-                                                "record",
-                                                "isValid"
-                                            ]
-                                        },
-                                        "type": "DATA_OUTPUT_BINDING"
-                                    },
-                                    "operator": "EQUAL",
-                                    "right": {
-                                        "type": "JSON_LITERAL",
-                                        "value": true
-                                    }
-                                },
-                                "type": "BINARY"
-                            }
-                        },
-                        "type": "BINARY"
-                    },
-                    "isNonDestructive": false,
-                    "items": [],
-                    "overrides": null,
-                    "propertyValues": {
-                        "hasNoMargin": {
-                            "type": "JSON_LITERAL",
-                            "value": false
-                        },
-                        "label": {
-                            "type": "TRANSLATION_LITERAL",
-                            "value": {
-                                "code": null,
-                                "comment": "",
-                                "message": "Record not found"
-                            }
-                        },
-                        "level": {
-                            "type": "JSON_LITERAL",
-                            "value": "1"
-                        },
-                        "variant": {
-                            "type": "JSON_LITERAL",
-                            "value": "header-primary"
-                        },
-                        "wontWrap": {
-                            "type": "JSON_LITERAL",
-                            "value": false
-                        }
-                    },
-                    "slot": null,
-                    "styles": null
-                },
-                {
-                    "definition": {
-                        "id": "1f6e0643eca7a637e36bd7833549ec9e",
-                        "type": "MACROPONENT"
-                    },
-                    "elementId": "security_constraints",
-                    "elementLabel": "Security constraints",
-                    "eventMappings": [],
-                    "extensionPoints": [],
-                    "isHero": false,
-                    "isHidden": {
-                        "operation": {
-                            "left": {
-                                "operation": {
-                                    "left": {
-                                        "operation": {
-                                            "left": {
-                                                "operation": {
-                                                    "left": {
-                                                        "binding": {
-                                                            "address": [
-                                                                "record",
-                                                                "isValid"
-                                                            ]
-                                                        },
-                                                        "type": "DATA_OUTPUT_BINDING"
-                                                    },
-                                                    "operator": "NOT_EQUAL",
-                                                    "right": {
-                                                        "type": "JSON_LITERAL",
-                                                        "value": true
-                                                    }
-                                                },
-                                                "type": "BINARY"
-                                            },
-                                            "operator": "AND",
-                                            "right": {
-                                                "operation": {
-                                                    "left": {
-                                                        "binding": {
-                                                            "address": [
-                                                                "record",
-                                                                "isValid"
-                                                            ]
-                                                        },
-                                                        "type": "DATA_OUTPUT_BINDING"
-                                                    },
-                                                    "operator": "NOT_EQUAL",
-                                                    "right": {
-                                                        "type": "JSON_LITERAL",
-                                                        "value": false
-                                                    }
-                                                },
-                                                "type": "BINARY"
-                                            }
-                                        },
-                                        "type": "BINARY"
-                                    },
-                                    "operator": "OR",
-                                    "right": {
-                                        "operation": {
-                                            "left": {
-                                                "binding": {
-                                                    "address": [
-                                                        "record",
-                                                        "isValid"
-                                                    ]
-                                                },
-                                                "type": "DATA_OUTPUT_BINDING"
-                                            },
-                                            "operator": "EQUAL",
-                                            "right": {
-                                                "type": "JSON_LITERAL",
-                                                "value": false
-                                            }
-                                        },
-                                        "type": "BINARY"
-                                    }
-                                },
-                                "type": "BINARY"
-                            },
-                            "operator": "OR",
-                            "right": {
-                                "operation": {
-                                    "left": {
-                                        "operation": {
-                                            "left": {
-                                                "binding": {
-                                                    "address": [
-                                                        "record",
-                                                        "isValid"
-                                                    ]
-                                                },
-                                                "type": "DATA_OUTPUT_BINDING"
-                                            },
-                                            "operator": "EQUAL",
-                                            "right": {
-                                                "type": "JSON_LITERAL",
-                                                "value": true
-                                            }
-                                        },
-                                        "type": "BINARY"
-                                    },
-                                    "operator": "AND",
-                                    "right": {
-                                        "operation": {
-                                            "left": {
-                                                "binding": {
-                                                    "address": [
-                                                        "record",
-                                                        "acl",
-                                                        "canRead"
-                                                    ]
-                                                },
-                                                "type": "DATA_OUTPUT_BINDING"
-                                            },
-                                            "operator": "EQUAL",
-                                            "right": {
-                                                "type": "JSON_LITERAL",
-                                                "value": true
-                                            }
-                                        },
-                                        "type": "BINARY"
-                                    }
-                                },
-                                "type": "BINARY"
-                            }
-                        },
-                        "type": "BINARY"
-                    },
-                    "isNonDestructive": false,
-                    "items": [],
-                    "overrides": null,
-                    "propertyValues": {
-                        "hasNoMargin": {
-                            "type": "JSON_LITERAL",
-                            "value": false
-                        },
-                        "label": {
-                            "type": "TRANSLATION_LITERAL",
-                            "value": {
-                                "code": null,
-                                "comment": "",
-                                "message": "Security constraints prevent access to requested page"
-                            }
-                        },
-                        "level": {
-                            "type": "JSON_LITERAL",
-                            "value": "1"
-                        },
-                        "variant": {
-                            "type": "JSON_LITERAL",
-                            "value": "header-primary"
-                        },
-                        "wontWrap": {
-                            "type": "JSON_LITERAL",
-                            "value": false
-                        }
-                    },
-                    "slot": null,
-                    "styles": null
-                }
-            ],
-            "layout": {
-                "default": {
-                    "children": null,
-                    "isInline": null,
-                    "items": [
-                        {
-                            "element_id": "security_constraints",
-                            "styles": {}
-                        },
-                        {
-                            "element_id": "record_not_found",
-                            "styles": {}
-                        }
-                    ],
-                    "root": null,
-                    "rules": null,
-                    "styles": {
-                        "flex-direction": "column"
-                    },
-                    "templateId": "5832fd4d53c31010e6bcddeeff7b12db",
-                    "type": "flex"
-                },
-                "version": "3.0.0"
-            }
-        },
-        "preset": {
-            "controllerElementId": "record",
-            "disabledEventTargetIds": [],
-            "id": "9aeb8ba90de3e59686276ced85f01329"
-        },
-        "propertyValues": {
-            "ariaRegionHeadingLevel": {
-                "type": "JSON_LITERAL",
-                "value": "1"
-            },
-            "ariaRegionName": {
-                "type": "TRANSLATION_LITERAL",
-                "value": {
-                    "code": null,
-                    "comment": "",
-                    "message": ""
-                }
-            },
-            "ariaRole": {
-                "type": "JSON_LITERAL",
-                "value": ""
-            },
-            "includeAriaHeading": {
-                "type": "JSON_LITERAL",
-                "value": false
-            },
-            "type": {
-                "type": "JSON_LITERAL",
-                "value": "section"
-            }
-        },
-        "slot": null,
-        "styles": null
-    },
-    {
-        "definition": {
             "id": "b6151414a3cbd00c6e3421d3dee5de8b",
             "type": "MACROPONENT"
         },
@@ -4096,11 +3839,28 @@
             }
         },
         "readEvaluationMode": "EAGER"
+    },
+    {
+        "definition": {
+            "id": "4bf5dda0cb11311078520592a2e866c1",
+            "type": "CONTROLLER"
+        },
+        "dependencies": {},
+        "elementId": "data_manager_exclusion_form_1",
+        "elementLabel": "Data Manager Exclusion Form 1",
+        "eventMappings": [],
+        "inputValues": {
+            "ts": {
+                "type": "JSON_LITERAL",
+                "value": ""
+            }
+        },
+        "readEvaluationMode": "EAGER"
     }
 ]</data>
         <description/>
         <disable_auto_reflow>false</disable_auto_reflow>
-        <dispatched_events/>
+        <dispatched_events>c3a7fe1a8331761089529370ceaad3ad</dispatched_events>
         <ext_controller_dep/>
         <extends display_value="Page Template">19be392623033300f4b4c50947bf65ba</extends>
         <extension_point/>
@@ -4153,6 +3913,10 @@
         "isInline": null,
         "items": [
             {
+                "element_id": "button_1",
+                "styles": {}
+            },
+            {
                 "element_id": "top_container",
                 "styles": {
                     "width": "100%"
@@ -4160,12 +3924,6 @@
             },
             {
                 "element_id": "ribbon_container",
-                "styles": {
-                    "width": "100%"
-                }
-            },
-            {
-                "element_id": "warning_messages_container",
                 "styles": {
                     "width": "100%"
                 }
@@ -4336,6 +4094,9 @@
   "message" : "Activity",
   "comment" : ""
 }, {
+  "message" : "Back",
+  "comment" : ""
+}, {
   "message" : "Cancel",
   "comment" : ""
 }, {
@@ -4357,19 +4118,16 @@
   "message" : "Editable record form only",
   "comment" : ""
 }, {
+  "message" : "Go back",
+  "comment" : ""
+}, {
   "message" : "List of record activities and input fields for posting work notes or comments",
   "comment" : ""
 }, {
   "message" : "Record History",
   "comment" : ""
 }, {
-  "message" : "Record not found",
-  "comment" : ""
-}, {
   "message" : "RelatedList",
-  "comment" : ""
-}, {
-  "message" : "Security constraints prevent access to requested page",
   "comment" : ""
 }, {
   "message" : "Yes",
@@ -4387,14 +4145,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-12-11 15:39:03</sys_created_on>
         <sys_id>0f4c8bfc83b5f21089529370ceaad39b</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>Default</sys_name>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
         <sys_policy/>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name>sys_ux_macroponent_0f4c8bfc83b5f21089529370ceaad39b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-13 16:23:59</sys_updated_on>
+        <sys_updated_on>2025-12-16 07:18:31</sys_updated_on>
     </sys_ux_macroponent>
     <sys_translated_text action="delete_multiple" query="documentkey=0f4c8bfc83b5f21089529370ceaad39b"/>
 </record_update>

@@ -169,130 +169,175 @@
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-    gs.info('=== List Container Server Script ===');
-    
-    data.myRetros = [];
-    data.teamRetros = [];
-    data.myTasks = [];
-    data.teamTasks = [];
-    data.currentUser = gs.getUserID();
-    data.error = null;
-    
-    // Get current user info
-    var userGR = new GlideRecord('sys_user');
-    userGR.get(data.currentUser);
-    var currentUserName = userGR.getDisplayName();
-    gs.info('Current user: ' + currentUserName + ' (' + data.currentUser + ')');
-    
-    // Load user's own retrospectives
-    gs.info('Loading user retros...');
-    var myRetroGR = new GlideRecord('x_1865669_retrospe_retrospective_submission');
-    myRetroGR.addQuery('submitted_by', data.currentUser);
-    myRetroGR.orderByDesc('submitted_date');
-    myRetroGR.query();
-    
-    while (myRetroGR.next()) {
-        var sprintGR = new GlideRecord('x_1865669_retrospe_sprint');
-        sprintGR.get(myRetroGR.getValue('sprint'));
-        
-        data.myRetros.push({
-            sys_id: myRetroGR.getUniqueValue(),
-            number: myRetroGR.getDisplayValue('number'),
-            sprint: sprintGR.getValue('sprint_name'),
-            submitted_date: myRetroGR.getValue('submitted_date'),
-            status: myRetroGR.getDisplayValue('status'),
-            isEditable: myRetroGR.getValue('status') === 'submit',
-            isOwner: true
-        });
+  gs.info('=== List Container Server Script ===');
+  
+  data.myRetros = [];
+  data.teamRetros = [];
+  data.myTasks = [];
+  data.teamTasks = [];
+  data.currentUser = gs.getUserID();
+  data.error = null;
+  
+  // Get current user info
+  var userGR = new GlideRecord('sys_user');
+  userGR.get(data.currentUser);
+  var currentUserName = userGR.getDisplayName();
+  gs.info('Current user: ' + currentUserName + ' (' + data.currentUser + ')');
+  
+  // Step 1: Find all teams the current user belongs to
+  var myTeamIds = [];
+  var teamMemberGR = new GlideRecord('x_1865669_retrospe_team_member');
+  teamMemberGR.addQuery('user', data.currentUser);
+  teamMemberGR.addQuery('active', true);
+  teamMemberGR.query();
+  
+  while (teamMemberGR.next()) {
+    var teamId = teamMemberGR.getValue('team');
+    if (teamId) {
+      myTeamIds.push(teamId);
     }
+  }
+  
+  gs.info('User belongs to ' + myTeamIds.length + ' team(s): ' + myTeamIds.join(','));
+  
+  // Step 2: Build full team user set (including current user)
+  var teamUserIds = [];
+  
+  // Always include current user as part of the team user set
+  teamUserIds.push(data.currentUser);
+  
+  if (myTeamIds.length > 0) {
+    var allMembersGR = new GlideRecord('x_1865669_retrospe_team_member');
+    allMembersGR.addQuery('team', 'IN', myTeamIds.join(','));
+    allMembersGR.addQuery('active', true);
+    allMembersGR.query();
     
-    gs.info('Found ' + data.myRetros.length + ' user retros');
+    while (allMembersGR.next()) {
+      var memberId = allMembersGR.getValue('user');
+      if (memberId && teamUserIds.indexOf(memberId) === -1) {
+        teamUserIds.push(memberId);
+      }
+    }
+  }
+  
+  gs.info('Team user set size: ' + teamUserIds.length + ' (' + teamUserIds.join(',') + ')');
+  
+  // Step 3: Load user's own retrospectives
+  gs.info('Loading user retros...');
+  var myRetroGR = new GlideRecord('x_1865669_retrospe_retrospective_submission');
+  myRetroGR.addQuery('submitted_by', data.currentUser);
+  myRetroGR.orderByDesc('submitted_date');
+  myRetroGR.query();
+  
+  while (myRetroGR.next()) {
+    var sprintGR = new GlideRecord('x_1865669_retrospe_sprint');
+    sprintGR.get(myRetroGR.getValue('sprint'));
     
-    // Load team retrospectives
-    gs.info('Loading team retros...');
+    data.myRetros.push({
+      sys_id: myRetroGR.getUniqueValue(),
+      number: myRetroGR.getDisplayValue('number'),
+      sprint: sprintGR.getDisplayValue('sprint_name'),
+      submitted_date: myRetroGR.getValue('submitted_date'),
+      status: myRetroGR.getDisplayValue('status'),
+      // adjust status value if your choice is 'submitted'
+      isEditable: myRetroGR.getValue('status') === 'submitted',
+      isOwner: true
+    });
+  }
+  
+  gs.info('Found ' + data.myRetros.length + ' user retros');
+  
+  // Step 4: Load team retrospectives (all users in same teams, including current user)
+  gs.info('Loading team retros...');
+  if (teamUserIds.length > 0) {
     var teamRetroGR = new GlideRecord('x_1865669_retrospe_retrospective_submission');
-    teamRetroGR.addQuery('submitted_by', '!=', data.currentUser);
+    teamRetroGR.addQuery('submitted_by', 'IN', teamUserIds.join(','));
     teamRetroGR.orderByDesc('submitted_date');
     teamRetroGR.query();
     
     while (teamRetroGR.next()) {
-        var sprintGR = new GlideRecord('x_1865669_retrospe_sprint');
-        sprintGR.get(teamRetroGR.getValue('sprint'));
-        
-        var submitterGR = new GlideRecord('sys_user');
-        submitterGR.get(teamRetroGR.getValue('submitted_by'));
-        
-        data.teamRetros.push({
-            sys_id: teamRetroGR.getUniqueValue(),
-            number: teamRetroGR.getDisplayValue('number'),
-            sprint: sprintGR.getValue('sprint_name'),
-            submitted_by: teamRetroGR.getDisplayValue('submitted_by'),
-            submitted_date: teamRetroGR.getValue('submitted_date'),
-            status: teamRetroGR.getDisplayValue('status'),
-            isEditable: false,
-            isOwner: false
-        });
+      var sprintGR2 = new GlideRecord('x_1865669_retrospe_sprint');
+      sprintGR2.get(teamRetroGR.getValue('sprint'));
+      
+      var submittedById = teamRetroGR.getValue('submitted_by');
+      
+      data.teamRetros.push({
+        sys_id: teamRetroGR.getUniqueValue(),
+        number: teamRetroGR.getDisplayValue('number'),
+        sprint: sprintGR2.getDisplayValue('sprint_name'),
+        submitted_by: teamRetroGR.getDisplayValue('submitted_by'),
+        submitted_date: teamRetroGR.getValue('submitted_date'),
+        status: teamRetroGR.getDisplayValue('status'),
+        isEditable: false,
+        isOwner: submittedById === data.currentUser
+      });
     }
-    
-    gs.info('Found ' + data.teamRetros.length + ' team retros');
-    
-    // Load user's assigned tasks
-    gs.info('Loading user tasks...');
-    var myTaskGR = new GlideRecord('x_1865669_retrospe_retrospective_task');
-    myTaskGR.addQuery('assigned_to', data.currentUser);
-    myTaskGR.orderByDesc('created_on');
-    myTaskGR.query();
-    
-    while (myTaskGR.next()) {
-        data.myTasks.push({
-            sys_id: myTaskGR.getUniqueValue(),
-            number: myTaskGR.getDisplayValue('number'),
-            short_description: myTaskGR.getValue('short_description'),
-            state: myTaskGR.getDisplayValue('state'),
-            isEditable: true,
-            isOwner: true
-        });
-    }
-    
-    gs.info('Found ' + data.myTasks.length + ' user tasks');
-    
-    // Load team tasks
-    gs.info('Loading team tasks...');
+  }
+  
+  gs.info('Found ' + data.teamRetros.length + ' team retros');
+  
+  // Step 5: Load user's assigned tasks
+  gs.info('Loading user tasks...');
+  var myTaskGR = new GlideRecord('x_1865669_retrospe_retrospective_task');
+  myTaskGR.addQuery('assigned_to', data.currentUser);
+  myTaskGR.orderByDesc('sys_created_on');
+  myTaskGR.query();
+  
+  while (myTaskGR.next()) {
+    data.myTasks.push({
+      sys_id: myTaskGR.getUniqueValue(),
+      number: myTaskGR.getDisplayValue('number'),
+      short_description: myTaskGR.getValue('short_description'),
+      state: myTaskGR.getDisplayValue('state'),
+      isEditable: true,
+      isOwner: true
+    });
+  }
+  
+  gs.info('Found ' + data.myTasks.length + ' user tasks');
+  
+  // Step 6: Load team tasks (all users in same teams, including current user)
+  gs.info('Loading team tasks...');
+  if (teamUserIds.length > 0) {
     var teamTaskGR = new GlideRecord('x_1865669_retrospe_retrospective_task');
-    teamTaskGR.addQuery('assigned_to', '!=', data.currentUser);
-    teamTaskGR.orderByDesc('created_on');
+    teamTaskGR.addQuery('assigned_to', 'IN', teamUserIds.join(','));
+    teamTaskGR.orderByDesc('sys_created_on');
     teamTaskGR.query();
     
     while (teamTaskGR.next()) {
-        var assigneeGR = new GlideRecord('sys_user');
-        assigneeGR.get(teamTaskGR.getValue('assigned_to'));
-        
-        data.teamTasks.push({
-            sys_id: teamTaskGR.getUniqueValue(),
-            number: teamTaskGR.getDisplayValue('number'),
-            short_description: teamTaskGR.getValue('short_description'),
-            assigned_to: teamTaskGR.getDisplayValue('assigned_to'),
-            state: teamTaskGR.getDisplayValue('status'),
-            isEditable: false,
-            isOwner: false
-        });
+      var assignedToId = teamTaskGR.getValue('assigned_to');
+      
+      data.teamTasks.push({
+        sys_id: teamTaskGR.getUniqueValue(),
+        number: teamTaskGR.getDisplayValue('number'),
+        short_description: teamTaskGR.getValue('short_description'),
+        assigned_to: teamTaskGR.getDisplayValue('assigned_to'),
+        state: teamTaskGR.getDisplayValue('state'),
+        isEditable: false,
+        isOwner: assignedToId === data.currentUser
+      });
     }
-    
-    gs.info('Found ' + data.teamTasks.length + ' team tasks');
+  }
+  
+  gs.info('Found ' + data.teamTasks.length + ' team tasks');
+  
+  // Store team info for UI display
+  data.hasTeam = myTeamIds.length > 0;
+  data.teamMemberCount = teamUserIds.length;
 })();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-12-08 12:48:03</sys_created_on>
         <sys_id>b068073383edb21089529370ceaad3c4</sys_id>
-        <sys_mod_count>63</sys_mod_count>
+        <sys_mod_count>65</sys_mod_count>
         <sys_name>LISTS CONTAINER</sys_name>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
         <sys_policy/>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name>sp_widget_b068073383edb21089529370ceaad3c4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-10 15:39:41</sys_updated_on>
+        <sys_updated_on>2025-12-15 09:43:20</sys_updated_on>
         <template><![CDATA[<div class="container">
   <!-- Header -->
   <div class="page-header">

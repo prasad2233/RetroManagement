@@ -79,7 +79,7 @@
   var gr = new GlideRecord('x_1865669_retrospe_sprint');
   gr.addQuery('state', 'ready_for_submission');
   gr.addQuery('team', 'IN', teamIds.join(','));
-  gr.orderByDesc('start_date');
+  gr.orderByDesc('sys_created_on');
   gr.setLimit(1);
   gr.query();
   
@@ -114,14 +114,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-12-08 12:42:34</sys_created_on>
         <sys_id>68274bbf836db21089529370ceaad347</sys_id>
-        <sys_mod_count>17</sys_mod_count>
+        <sys_mod_count>20</sys_mod_count>
         <sys_name>SUBMIT SECTION</sys_name>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
         <sys_policy/>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name>sp_widget_68274bbf836db21089529370ceaad347</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-13 12:11:23</sys_updated_on>
+        <sys_updated_on>2025-12-16 12:57:43</sys_updated_on>
         <template><![CDATA[<div class="panel panel-default m-b-lg">
   <div class="panel-heading">
     <h3 class="panel-title">

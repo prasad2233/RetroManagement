@@ -94,7 +94,7 @@
             $event.stopPropagation();
         }
         console.log('Opening task details for:', taskId);
-        $window.location.href = '/sp?id=task_details&task_id=' + taskId;
+        $window.location.href = '/sp?id=retro_task_details&task_id=' + taskId;
     };
 }]]></client_script>
         <controller_as>c</controller_as>
@@ -137,12 +137,21 @@
         var sprintGR = new GlideRecord('x_1865669_retrospe_sprint');
         sprintGR.get(retroGR.getValue('sprint'));
         
-        var retroStatus = retroGR.getValue('status');
-        var isOwner = (retroGR.getValue('submitted_by') === data.currentUser);
-        var isEditable = (retroStatus === 'submitted' && isOwner);
+        var retroStatus  = retroGR.getValue('status');           // submitted / valid / reviewed / not_needed
+        var sprintState  = sprintGR.getValue('state');           // in_progress / ready_for_submission / ready_for_review / complete
+        var isOwner      = (retroGR.getValue('submitted_by') === data.currentUser);
+        
+        // Editable rule:
+        // 1) Sprint state must NOT be ready_for_review or complete
+        // 2) Retro status must be submitted
+        // 3) Current user must be the owner
+        var sprintAllowsEdit = (sprintState !== 'ready_for_review' && sprintState !== 'complete');
+        var isEditable       = sprintAllowsEdit && (retroStatus === 'submitted') && isOwner;
         
         gs.info('Retro Status: ' + retroStatus);
+        gs.info('Sprint State: ' + sprintState);
         gs.info('Is Owner: ' + isOwner);
+        gs.info('Sprint Allows Edit: ' + sprintAllowsEdit);
         gs.info('Is Editable: ' + isEditable);
         
         data.retro = {
@@ -155,13 +164,11 @@
             submittedBy: retroGR.getDisplayValue('submitted_by'),
             submittedDate: retroGR.getDisplayValue('submitted_date'),
             status: retroStatus,
+            sprintState: sprintState,
             isEditable: isEditable
         };
         
-        // Check if current user is the owner
-        if (isOwner) {
-            data.isOwner = true;
-        }
+        data.isOwner = isOwner;
         
         gs.info('Loaded retro: ' + data.retro.sprintName);
     } else {
@@ -206,11 +213,17 @@
                     return;
                 }
                 
-                // Check if status is 
-							
-                if (saveRetroGR.getValue('status') !== 'submitted') {
+                // Re-check sprint state and status on save
+                var saveSprintGR = new GlideRecord('x_1865669_retrospe_sprint');
+                saveSprintGR.get(saveRetroGR.getValue('sprint'));
+                
+                var saveSprintState = saveSprintGR.getValue('state');
+                var saveRetroStatus = saveRetroGR.getValue('status');
+                var saveSprintAllowsEdit = (saveSprintState !== 'ready_for_review' && saveSprintState !== 'complete');
+                
+                if (!saveSprintAllowsEdit || saveRetroStatus !== 'submitted') {
                     data.error = 'This retrospective is no longer editable.';
-                    gs.warn('Edit attempt on non-submit status: ' + saveRetroGR.getValue('status'));
+                    gs.warn('Edit attempt when sprint/state not editable. Sprint state=' + saveSprintState + ', status=' + saveRetroStatus);
                     return;
                 }
                 
@@ -247,14 +260,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-12-09 05:24:28</sys_created_on>
         <sys_id>787c26cc8331361089529370ceaad33e</sys_id>
-        <sys_mod_count>25</sys_mod_count>
+        <sys_mod_count>28</sys_mod_count>
         <sys_name>Retro Details</sys_name>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
         <sys_policy/>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name>sp_widget_787c26cc8331361089529370ceaad33e</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-10 14:52:06</sys_updated_on>
+        <sys_updated_on>2025-12-16 14:21:57</sys_updated_on>
         <template><![CDATA[<div class="panel panel-default retro-details">
 
   <!-- Error/Success Messages -->
@@ -300,16 +313,6 @@
                 ng-click="c.startEditing()">
           <i class="fa fa-pencil"></i> Edit
         </button>
-
-        <!-- Info when not editable -->
-        <small class="text-muted"
-               ng-if="!data.isOwner">
-          (You are not the owner)
-        </small>
-        <small class="text-muted"
-               ng-if="data.isOwner && !data.retro.isEditable">
-          (Status: {{data.retro.status}} – only "submit" status is editable)
-        </small>
 
         <!-- Save / Cancel in edit mode -->
         <button class="btn btn-success btn-sm"

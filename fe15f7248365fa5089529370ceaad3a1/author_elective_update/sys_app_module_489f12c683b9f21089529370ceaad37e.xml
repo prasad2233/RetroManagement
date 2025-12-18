@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="DELETE">
+        <active>true</active>
+        <application display_value="Retrospective Management">461a332c8365fa5089529370ceaad36c</application>
+        <assessment/>
+        <device_type/>
+        <filter/>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>DIRECT</link_type>
+        <map_page/>
+        <mobile_title>Retro submission form</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name/>
+        <order>700</order>
+        <override_menu_roles>false</override_menu_roles>
+        <query>https://dev289446.service-now.com/sp?id=my_retrospectives</query>
+        <report/>
+        <require_confirmation>true</require_confirmation>
+        <roles>x_1865669_retrospe.employee,x_1865669_retrospe.manager,x_1865669_retrospe.admin</roles>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-15 09:37:12</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>489f12c683b9f21089529370ceaad37e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Retro submission form</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_app_module_489f12c683b9f21089529370ceaad37e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-15 09:37:12</sys_updated_on>
+        <timeline_page/>
+        <title>Retro submission form</title>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sys_app_module_489f12c683b9f21089529370ceaad37e</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module"><sys_app_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="Retrospective Management">461a332c8365fa5089529370ceaad36c</application><assessment/><device_type/><filter/><hint/><homepage/><image/><link_type>DIRECT</link_type><map_page/><mobile_title>Retro submission form</mobile_title><mobile_view_name>Mobile</mobile_view_name><name/><order>700</order><override_menu_roles>false</override_menu_roles><query>https://dev289446.service-now.com/sp?id=my_retrospectives</query><report/><require_confirmation>true</require_confirmation><roles>x_1865669_retrospe.employee,x_1865669_retrospe.manager,x_1865669_retrospe.admin</roles><sys_class_name>sys_app_module</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-15 09:37:12</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>489f12c683b9f21089529370ceaad37e</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Retro submission form</sys_name><sys_overrides/><sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package><sys_policy/><sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope><sys_update_name>sys_app_module_489f12c683b9f21089529370ceaad37e</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-15 09:37:12</sys_updated_on><timeline_page/><title>Retro submission form</title><uncancelable>false</uncancelable><view_name/><window_name/></sys_app_module></record_update>]]></payload>
+        <payload_hash>-1049610825</payload_hash>
+        <record_name>Retro submission form</record_name>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-15 09:37:12</sys_created_on>
+        <sys_id>65dfd2c683b9f21089529370ceaad351</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19b215efed60000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-15 09:37:12</sys_updated_on>
+        <type>Module</type>
+        <update_guid>69dfd2c671b9f2109d1737239a682350</update_guid>
+        <update_guid_history>69dfd2c671b9f2109d1737239a682350:-1049610825</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Retro submission form">83e5788783f13a1089529370ceaad3d1</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-18 04:28:24</sys_created_on>
+        <sys_db_object display_value="" name="sys_app_module">sys_app_module</sys_db_object>
+        <sys_id>0531381b07624a72aaafe108ebd1b8a1</sys_id>
+        <sys_metadata>489f12c683b9f21089529370ceaad37e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Retro submission form</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sys_app_module_489f12c683b9f21089529370ceaad37e</sys_update_name>
+        <sys_update_version display_value="sys_app_module_489f12c683b9f21089529370ceaad37e">65dfd2c683b9f21089529370ceaad351</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-18 04:28:24</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -10,34 +10,34 @@
         <image/>
         <link_type>DIRECT</link_type>
         <map_page/>
-        <mobile_title>Retro submission form</mobile_title>
+        <mobile_title>Rertrospective Submission Portal ➚</mobile_title>
         <mobile_view_name>Mobile</mobile_view_name>
         <name/>
-        <order>700</order>
+        <order>10</order>
         <override_menu_roles>false</override_menu_roles>
-        <query>https://dev289446.service-now.com/sp?id=my_retrospectives</query>
+        <query>/esc?id=my_retrospectives</query>
         <report/>
         <require_confirmation>true</require_confirmation>
         <roles>x_1865669_retrospe.employee,x_1865669_retrospe.manager,x_1865669_retrospe.admin</roles>
         <sys_class_name>sys_app_module</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-12-15 09:37:12</sys_created_on>
+        <sys_created_on>2025-12-18 04:32:27</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>489f12c683b9f21089529370ceaad37e</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name>Retro submission form</sys_name>
+        <sys_id>10f53c8783f13a1089529370ceaad36d</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Portal ➚</sys_name>
         <sys_overrides/>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
         <sys_policy/>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
-        <sys_update_name>sys_app_module_489f12c683b9f21089529370ceaad37e</sys_update_name>
+        <sys_update_name>sys_app_module_10f53c8783f13a1089529370ceaad36d</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-15 09:37:12</sys_updated_on>
+        <sys_updated_on>2025-12-18 05:00:02</sys_updated_on>
         <timeline_page/>
-        <title>Retro submission form</title>
+        <title>Portal ➚</title>
         <uncancelable>false</uncancelable>
         <view_name/>
-        <window_name/>
+        <window_name>retro_mgmt_portal</window_name>
     </sys_app_module>
 </record_update>

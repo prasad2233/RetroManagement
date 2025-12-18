@@ -30,42 +30,79 @@
         <field_name/>
         <field_type>glide_date</field_type>
         <form_fields_required>false</form_fields_required>
-        <form_position>action_bar</form_position>
+        <form_position/>
         <group/>
         <group_by>false</group_by>
         <icon/>
-        <label>Mark as Valid</label>
-        <model display_value="Form">360935e9534723003eddddeeff7b127d</model>
+        <label>Mark as validdd</label>
+        <model display_value="List">c3547169534723003eddddeeff7b126c</model>
         <model_conditions/>
         <model_field_required/>
         <order>0</order>
         <payload_map/>
         <read_access>false</read_access>
         <record_conditions/>
-        <record_selection_required>false</record_selection_required>
+        <record_selection_required>true</record_selection_required>
         <required_roles/>
         <required_translations/>
         <required_user_role_names/>
         <requires_value>false</requires_value>
         <script_condition/>
         <scripted_client_condition/>
-        <server_script/>
+        <server_script><![CDATA[(function () {
+    // Only support list/related list context
+    var ids = (typeof g_list !== 'undefined' && g_list.getChecked)
+        ? g_list.getChecked()
+        : '';
+
+    if (!ids) {
+        gs.addErrorMessage('Please select at least one retrospective to mark as Valid.');
+        // Best we can do for redirect is parent/current
+        if (current && current.isValidRecord())
+            action.setRedirectURL(current);
+        return;
+    }
+
+    var updatedCount = 0;
+    var gr = new GlideRecord('x_1865669_retrospe_retrospective_submission');
+    gr.addQuery('sys_id', 'IN', ids);
+    gr.query();
+
+    while (gr.next()) {
+        // Only allow from submitted status; adjust if you want other states
+        if (gr.getValue('status') !== 'submitted')
+            continue;
+
+        gr.setValue('status', 'valid');
+        gr.update();
+        updatedCount++;
+    }
+
+    if (updatedCount > 0) {
+        gs.addInfoMessage(updatedCount + ' retrospective(s) marked as Valid.');
+    } else {
+        gs.addWarningMessage('No retrospectives were updated. Only records in "submitted" status can be marked as Valid.');
+    }
+
+    if (current && current.isValidRecord())
+        action.setRedirectURL(current);
+})();]]></server_script>
         <specificity>11</specificity>
         <sys_class_name>sys_declarative_action_assignment</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-12-12 05:35:57</sys_created_on>
+        <sys_created_on>2025-12-17 11:28:09</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>d89b0a4d8375361089529370ceaad39f</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_id>320c01f28371f61089529370ceaad39c</sys_id>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>mark_as_valid</sys_name>
         <sys_overrides/>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
         <sys_policy/>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
-        <sys_update_name>sys_declarative_action_assignment_d89b0a4d8375361089529370ceaad39f</sys_update_name>
+        <sys_update_name>sys_declarative_action_assignment_320c01f28371f61089529370ceaad39c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-12 05:35:57</sys_updated_on>
+        <sys_updated_on>2025-12-17 12:17:13</sys_updated_on>
         <table>x_1865669_retrospe_retrospective_submission</table>
         <tooltip/>
         <ui_component/>
@@ -73,15 +110,15 @@
         <workspace/>
         <write_access>false</write_access>
     </sys_declarative_action_assignment>
-    <sys_translated_text action="delete_multiple" query="documentkey=d89b0a4d8375361089529370ceaad39f"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=320c01f28371f61089529370ceaad39c"/>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
-        <id>d89b0a4d8375361089529370ceaad39f</id>
+        <id>320c01f28371f61089529370ceaad39c</id>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-12-12 05:35:56</sys_created_on>
-        <sys_id>0edb8a0d8375361089529370ceaad32c</sys_id>
+        <sys_created_on>2025-12-17 11:28:08</sys_created_on>
+        <sys_id>c66cc5b28371f61089529370ceaad35e</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-12 05:35:56</sys_updated_on>
+        <sys_updated_on>2025-12-17 11:28:08</sys_updated_on>
         <table>sys_declarative_action_assignment</table>
         <use_es_latest>true</use_es_latest>
     </sys_es_latest_script>

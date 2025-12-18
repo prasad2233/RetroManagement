@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_form_action_layout_item">
+    <sys_ux_form_action_layout_item action="DELETE">
+        <action display_value="Mark as Valid">71f84a098375361089529370ceaad374</action>
+        <active>true</active>
+        <animate_icon>false</animate_icon>
+        <color>secondary</color>
+        <description/>
+        <icon/>
+        <item_type>action</item_type>
+        <label>Mark as Valid</label>
+        <layout_group/>
+        <name>Mark as Valids</name>
+        <order>200</order>
+        <overflow>true</overflow>
+        <sys_class_name>sys_ux_form_action_layout_item</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-12 05:23:21</sys_created_on>
+        <sys_id>f5f886498375361089529370ceaad358</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Mark as Valid</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_ux_form_action_layout_item_f5f886498375361089529370ceaad358</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-17 12:18:09</sys_updated_on>
+        <table>x_1865669_retrospe_retrospective_submission</table>
+    </sys_ux_form_action_layout_item>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sys_ux_form_action_layout_item_f5f886498375361089529370ceaad358</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_form_action_layout_item"><sys_ux_form_action_layout_item action="INSERT_OR_UPDATE"><action display_value="Mark as Valid">71f84a098375361089529370ceaad374</action><active>true</active><animate_icon>false</animate_icon><color>secondary</color><description/><icon/><item_type>action</item_type><label>Mark as Valid</label><layout_group/><name>Mark as Valids</name><order>200</order><overflow>true</overflow><sys_class_name>sys_ux_form_action_layout_item</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-12 05:23:21</sys_created_on><sys_id>f5f886498375361089529370ceaad358</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Mark as Valid</sys_name><sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package><sys_policy/><sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope><sys_update_name>sys_ux_form_action_layout_item_f5f886498375361089529370ceaad358</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-17 12:18:09</sys_updated_on><table>x_1865669_retrospe_retrospective_submission</table></sys_ux_form_action_layout_item></record_update>]]></payload>
+        <payload_hash>-490049840</payload_hash>
+        <record_name>Mark as Valid</record_name>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 12:18:09</sys_created_on>
+        <sys_id>aed7d9b283b1f61089529370ceaad3fe</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19b2c3f128b0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-17 12:18:09</sys_updated_on>
+        <type>UX Form Actions Layout Item</type>
+        <update_guid>26d7d9b253b1f610b6ddae28acdc26fe</update_guid>
+        <update_guid_history>26d7d9b253b1f610b6ddae28acdc26fe:-490049840,7df88649dd7536102dcd473cc9b9ee5a:1116184477</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 12:18:30</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_form_action_layout_item">sys_ux_form_action_layout_item</sys_db_object>
+        <sys_id>2130b5ca0a2e4c1096ce2c34d6358cc9</sys_id>
+        <sys_metadata>f5f886498375361089529370ceaad358</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Mark as Valids</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sys_ux_form_action_layout_item_f5f886498375361089529370ceaad358</sys_update_name>
+        <sys_update_version display_value="sys_ux_form_action_layout_item_f5f886498375361089529370ceaad358">aed7d9b283b1f61089529370ceaad3fe</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-17 12:18:30</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

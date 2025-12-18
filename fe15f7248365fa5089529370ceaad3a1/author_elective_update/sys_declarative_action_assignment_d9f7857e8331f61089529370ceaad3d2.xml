@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_declarative_action_assignment">
+    <sys_declarative_action_assignment action="DELETE">
+        <action/>
+        <action_attributes/>
+        <action_name>mark_as_valid</action_name>
+        <action_payload/>
+        <action_type>type</action_type>
+        <active>true</active>
+        <animate_icon>false</animate_icon>
+        <button_type>primary</button_type>
+        <client_action/>
+        <client_conditions/>
+        <client_conditions_on_fields/>
+        <client_script><![CDATA[function onClick() {
+    var checked = g_list.getChecked();
+
+    if (!checked) {
+        alert('Please select at least one retrospective.');
+        return false;
+    }
+
+    var ids = checked.split(',');
+    var successCount = 0;
+    var errorCount = 0;
+    var remaining = ids.length;
+
+    for (var i = 0; i < ids.length; i++) {
+        callMarkAsValid(ids[i]);
+    }
+
+    function callMarkAsValid(sysId) {
+        var ga = new GlideAjax('x_1865669_retrospe.RetroManagementAjax');
+        ga.addParam('sysparm_name', 'markAsValid');
+        ga.addParam('sysparm_sys_id', sysId);
+
+        ga.getXMLAnswer(function(answer) {
+            remaining--;
+
+            if (answer && answer.indexOf('success') === 0) {
+                successCount++;
+            } else {
+                errorCount++;
+            }
+
+            if (remaining === 0) {
+                if (successCount > 0) {
+                    alert(successCount + ' retrospective(s) marked as Valid.');
+                }
+                if (errorCount > 0) {
+                    alert(errorCount + ' retrospective(s) could not be updated.');
+                }
+                g_list.refresh();
+            }
+        });
+    }
+
+    return false;
+}]]></client_script>
+        <confirmation_message/>
+        <confirmation_required>false</confirmation_required>
+        <create_access>false</create_access>
+        <declarative_action_render_mode/>
+        <declarative_action_type>client_script</declarative_action_type>
+        <delete_access>false</delete_access>
+        <dependency/>
+        <description/>
+        <design_icon/>
+        <dynamic_record_condition/>
+        <dynamic_script_condition/>
+        <enable_dynamic_evaluation>false</enable_dynamic_evaluation>
+        <enable_for_all_experiences>false</enable_for_all_experiences>
+        <enabled>true</enabled>
+        <experience_restricted>false</experience_restricted>
+        <field_name/>
+        <field_type>glide_date</field_type>
+        <form_fields_required>false</form_fields_required>
+        <form_position/>
+        <group/>
+        <group_by>false</group_by>
+        <icon/>
+        <label>Mark as valid</label>
+        <model display_value="Related List">d91731a9534723003eddddeeff7b121c</model>
+        <model_conditions/>
+        <model_field_required/>
+        <order>0</order>
+        <payload_map/>
+        <read_access>false</read_access>
+        <record_conditions/>
+        <record_selection_required>false</record_selection_required>
+        <required_roles/>
+        <required_translations/>
+        <required_user_role_names/>
+        <requires_value>false</requires_value>
+        <script_condition/>
+        <scripted_client_condition/>
+        <server_script><![CDATA[(function execute(inputs, outputs) {
+    gs.info('[Retro Mark Valid] Action started');
+
+    var sysId = inputs.sys_id;
+    gs.info('[Retro Mark Valid] Input sys_id: ' + sysId);
+
+    if (!sysId) {
+        outputs.success = false;
+        outputs.message = 'No record ID provided.';
+        gs.warn('[Retro Mark Valid] No sys_id in inputs');
+        return;
+    }
+
+    var gr = new GlideRecord('x_1865669_retrospe_retrospective_submission');
+    if (!gr.get(sysId)) {
+        outputs.success = false;
+        outputs.message = 'Record not found.';
+        gs.warn('[Retro Mark Valid] Retro not found for sys_id: ' + sysId);
+        return;
+    }
+
+    var status = gr.getValue('status');
+    gs.info('[Retro Mark Valid] Current status for ' + sysId + ' = ' + status);
+
+    // Check status
+    if (status != 'submitted') {
+        outputs.success = false;
+        outputs.message = 'Only submitted retros can be marked as valid.';
+        gs.warn('[Retro Mark Valid] Record ' + sysId + ' not in submitted status (status=' + status + ')');
+        return;
+    }
+
+    var reviewer = gs.getUserID();
+    var now = new GlideDateTime();
+    gs.info('[Retro Mark Valid] Marking ' + sysId + ' as valid by user ' + reviewer + ' at ' + now.getDisplayValue());
+
+    // Update record
+    gr.setValue('status', 'valid');
+    gr.setValue('reviewed_by', reviewer);
+    gr.setValue('reviewed_date', now);
+    gr.update();
+
+    outputs.success = true;
+    outputs.message = 'Retrospective marked as Valid.';
+    gs.info('[Retro Mark Valid] Successfully updated retro ' + sysId);
+
+})(inputs, outputs);]]></server_script>
+        <specificity>11</specificity>
+        <sys_class_name>sys_declarative_action_assignment</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 11:09:41</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>d9f7857e8331f61089529370ceaad3d2</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>mark_as_valid</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_declarative_action_assignment_d9f7857e8331f61089529370ceaad3d2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-17 13:08:11</sys_updated_on>
+        <table>x_1865669_retrospe_retrospective_submission</table>
+        <tooltip/>
+        <ui_component/>
+        <view/>
+        <workspace/>
+        <write_access>false</write_access>
+    </sys_declarative_action_assignment>
+    <sys_translated_text action="DELETE" query="documentkey=d9f7857e8331f61089529370ceaad3d2"/>
+    <sys_es_latest_script action="DELETE">
+        <id>d9f7857e8331f61089529370ceaad3d2</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 11:09:40</sys_created_on>
+        <sys_id>6728c93e8331f61089529370ceaad353</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-17 11:09:40</sys_updated_on>
+        <table>sys_declarative_action_assignment</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</application>
+        <file_path/>
+        <instance_id>84b9f423ff8d9a50c812f8e4fc4fd981</instance_id>
+        <instance_name>dev289446</instance_name>
+        <name>sys_declarative_action_assignment_d9f7857e8331f61089529370ceaad3d2</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_declarative_action_assignment"&gt;&lt;sys_declarative_action_assignment action="INSERT_OR_UPDATE"&gt;&lt;action/&gt;&lt;action_attributes/&gt;&lt;action_name&gt;mark_as_valid&lt;/action_name&gt;&lt;action_payload/&gt;&lt;action_type&gt;type&lt;/action_type&gt;&lt;active&gt;true&lt;/active&gt;&lt;animate_icon&gt;false&lt;/animate_icon&gt;&lt;button_type&gt;primary&lt;/button_type&gt;&lt;client_action/&gt;&lt;client_conditions/&gt;&lt;client_conditions_on_fields/&gt;&lt;client_script&gt;&lt;![CDATA[function onClick() {
+    var checked = g_list.getChecked();
+
+    if (!checked) {
+        alert('Please select at least one retrospective.');
+        return false;
+    }
+
+    var ids = checked.split(',');
+    var successCount = 0;
+    var errorCount = 0;
+    var remaining = ids.length;
+
+    for (var i = 0; i &lt; ids.length; i++) {
+        callMarkAsValid(ids[i]);
+    }
+
+    function callMarkAsValid(sysId) {
+        var ga = new GlideAjax('x_1865669_retrospe.RetroManagementAjax');
+        ga.addParam('sysparm_name', 'markAsValid');
+        ga.addParam('sysparm_sys_id', sysId);
+
+        ga.getXMLAnswer(function(answer) {
+            remaining--;
+
+            if (answer &amp;&amp; answer.indexOf('success') === 0) {
+                successCount++;
+            } else {
+                errorCount++;
+            }
+
+            if (remaining === 0) {
+                if (successCount &gt; 0) {
+                    alert(successCount + ' retrospective(s) marked as Valid.');
+                }
+                if (errorCount &gt; 0) {
+                    alert(errorCount + ' retrospective(s) could not be updated.');
+                }
+                g_list.refresh();
+            }
+        });
+    }
+
+    return false;
+}]]&gt;&lt;/client_script&gt;&lt;confirmation_message/&gt;&lt;confirmation_required&gt;false&lt;/confirmation_required&gt;&lt;create_access&gt;false&lt;/create_access&gt;&lt;declarative_action_render_mode/&gt;&lt;declarative_action_type&gt;client_script&lt;/declarative_action_type&gt;&lt;delete_access&gt;false&lt;/delete_access&gt;&lt;dependency/&gt;&lt;description/&gt;&lt;design_icon/&gt;&lt;dynamic_record_condition/&gt;&lt;dynamic_script_condition/&gt;&lt;enable_dynamic_evaluation&gt;false&lt;/enable_dynamic_evaluation&gt;&lt;enable_for_all_experiences&gt;false&lt;/enable_for_all_experiences&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;experience_restricted&gt;false&lt;/experience_restricted&gt;&lt;field_name/&gt;&lt;field_type&gt;glide_date&lt;/field_type&gt;&lt;form_fields_required&gt;false&lt;/form_fields_required&gt;&lt;form_position/&gt;&lt;group/&gt;&lt;group_by&gt;false&lt;/group_by&gt;&lt;icon/&gt;&lt;label&gt;Mark as valid&lt;/label&gt;&lt;model display_value="Related List"&gt;d91731a9534723003eddddeeff7b121c&lt;/model&gt;&lt;model_conditions/&gt;&lt;model_field_required/&gt;&lt;order&gt;0&lt;/order&gt;&lt;payload_map/&gt;&lt;read_access&gt;false&lt;/read_access&gt;&lt;record_conditions/&gt;&lt;record_selection_required&gt;false&lt;/record_selection_required&gt;&lt;required_roles/&gt;&lt;required_translations/&gt;&lt;required_user_role_names/&gt;&lt;requires_value&gt;false&lt;/requires_value&gt;&lt;script_condition/&gt;&lt;scripted_client_condition/&gt;&lt;server_script&gt;&lt;![CDATA[(function execute(inputs, outputs) {
+    gs.info('[Retro Mark Valid] Action started');
+
+    var sysId = inputs.sys_id;
+    gs.info('[Retro Mark Valid] Input sys_id: ' + sysId);
+
+    if (!sysId) {
+        outputs.success = false;
+        outputs.message = 'No record ID provided.';
+        gs.warn('[Retro Mark Valid] No sys_id in inputs');
+        return;
+    }
+
+    var gr = new GlideRecord('x_1865669_retrospe_retrospective_submission');
+    if (!gr.get(sysId)) {
+        outputs.success = false;
+        outputs.message = 'Record not found.';
+        gs.warn('[Retro Mark Valid] Retro not found for sys_id: ' + sysId);
+        return;
+    }
+
+    var status = gr.getValue('status');
+    gs.info('[Retro Mark Valid] Current status for ' + sysId + ' = ' + status);
+
+    // Check status
+    if (status != 'submitted') {
+        outputs.success = false;
+        outputs.message = 'Only submitted retros can be marked as valid.';
+        gs.warn('[Retro Mark Valid] Record ' + sysId + ' not in submitted status (status=' + status + ')');
+        return;
+    }
+
+    var reviewer = gs.getUserID();
+    var now = new GlideDateTime();
+    gs.info('[Retro Mark Valid] Marking ' + sysId + ' as valid by user ' + reviewer + ' at ' + now.getDisplayValue());
+
+    // Update record
+    gr.setValue('status', 'valid');
+    gr.setValue('reviewed_by', reviewer);
+    gr.setValue('reviewed_date', now);
+    gr.update();
+
+    outputs.success = true;
+    outputs.message = 'Retrospective marked as Valid.';
+    gs.info('[Retro Mark Valid] Successfully updated retro ' + sysId);
+
+})(inputs, outputs);]]&gt;&lt;/server_script&gt;&lt;specificity&gt;11&lt;/specificity&gt;&lt;sys_class_name&gt;sys_declarative_action_assignment&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-12-17 11:09:41&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;d9f7857e8331f61089529370ceaad3d2&lt;/sys_id&gt;&lt;sys_mod_count&gt;16&lt;/sys_mod_count&gt;&lt;sys_name&gt;mark_as_valid&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Retrospective Management" source="x_1865669_retrospe"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Retrospective Management"&gt;fe15f7248365fa5089529370ceaad3a1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_declarative_action_assignment_d9f7857e8331f61089529370ceaad3d2&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-12-17 13:08:11&lt;/sys_updated_on&gt;&lt;table&gt;x_1865669_retrospe_retrospective_submission&lt;/table&gt;&lt;tooltip/&gt;&lt;ui_component/&gt;&lt;view/&gt;&lt;workspace/&gt;&lt;write_access&gt;false&lt;/write_access&gt;&lt;/sys_declarative_action_assignment&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=d9f7857e8331f61089529370ceaad3d2"/&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;d9f7857e8331f61089529370ceaad3d2&lt;/id&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-12-17 11:09:40&lt;/sys_created_on&gt;&lt;sys_id&gt;6728c93e8331f61089529370ceaad353&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-12-17 11:09:40&lt;/sys_updated_on&gt;&lt;table&gt;sys_declarative_action_assignment&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>586498133</payload_hash>
+        <record_name>mark_as_valid</record_name>
+        <reverted_from/>
+        <source>10cd1ba583e1329089529370ceaad331</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 13:08:11</sys_created_on>
+        <sys_id>eb43257283f1f61089529370ceaad3c6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19b2c6cded90000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-17 13:08:11</sys_updated_on>
+        <type>Action Assignment</type>
+        <update_guid>634325729df1f610a71c888ef02372c6</update_guid>
+        <update_guid_history>634325729df1f610a71c888ef02372c6:586498133,c1f2ed722ff1f610ff2682e22837fdc9:-398720294,f5e22572abf1f610210eeb9291bc6c89:887181533,232e9dba2db1f610d8fd70729e006dc0:1881754397,ba0eddba52b1f610f4908da56dfd4fd1:1466384473,699dddba72b1f610ecc38daced79eacc:752859597,017dd5bae6b1f610ecc6c3e0384c3d60:1024441253,fecc157a5cb1f610db18e1a1616ba44d:-809585122,8b2c997669b1f610e633e13ddd0b7903:852947998,c45a197690b1f610b4327492328d62a9:1876316326,86b3557e2871f610cd3be615173f0bd9:-502843421,e823153e7f71f610dbbdac8f10f97737:-1838953407,69b11d3aaf71f610828d613392fcc4da:1660902329,64aa89329e71f6102ff3766cc485bc9b:-279648554,de3a01fedb31f61011f95afe2641cd5a:711474301,d0c805be9931f6100c9710ea90b3f58b:1573512200,3f28c97eb631f610d064d5b64716795b:1935996198</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-18 02:53:42</sys_created_on>
+        <sys_db_object display_value="" name="sys_declarative_action_assignment">sys_declarative_action_assignment</sys_db_object>
+        <sys_id>56f99bb3df4b4834a16c0ee11a2976c4</sys_id>
+        <sys_metadata>d9f7857e8331f61089529370ceaad3d2</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>mark_as_valid</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_scope_delete display_value="">3843b30de3054cf5aba83a8ab481f841</sys_scope_delete>
+        <sys_update_name>sys_declarative_action_assignment_d9f7857e8331f61089529370ceaad3d2</sys_update_name>
+        <sys_update_version display_value="sys_declarative_action_assignment_d9f7857e8331f61089529370ceaad3d2">eb43257283f1f61089529370ceaad3c6</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-18 02:53:42</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

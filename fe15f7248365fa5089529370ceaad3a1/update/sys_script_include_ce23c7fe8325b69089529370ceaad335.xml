@@ -8,39 +8,57 @@
         <description/>
         <mobile_callable>false</mobile_callable>
         <name>RetroManagementAjax</name>
-        <sandbox_callable>false</sandbox_callable>
+        <sandbox_callable>true</sandbox_callable>
         <script><![CDATA[var RetroManagementAjax = Class.create();
 RetroManagementAjax.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
 
-            checkDuplicateSubmission: function() {
-                var sprintId = this.getParameter('sysparm_sprint_id');
-                var userId = gs.getUserID();
+    checkDuplicateSubmission: function() {
+        var sprintId = this.getParameter('sysparm_sprint_id');
+        var userId = gs.getUserID();
 
-                // Check if duplicate exists
-                var retroGR = new GlideRecord('x_1865669_retrospe_retrospective_submission');
-                retroGR.addQuery('sprint', sprintId);
-                retroGR.addQuery('submitted_by', userId);
-                retroGR.query();
+        var retroGR = new GlideRecord('x_1865669_retrospe_retrospective_submission');
+        retroGR.addQuery('sprint', sprintId);
+        retroGR.addQuery('submitted_by', userId);
+        retroGR.query();
 
-                // Return 'true' if duplicate found, 'false' otherwise
-                return retroGR.hasNext().toString();
-            },
+        return retroGR.hasNext().toString();
+    },
 
+    markAsValid: function() {
+        var sysId = this.getParameter('sysparm_sys_id');
 
-            type: 'RetroManagementAjax'
-        });]]></script>
+        var gr = new GlideRecord('x_1865669_retrospe_retrospective_submission');
+
+        if (!gr.get(sysId)) {
+            return 'error:Record not found';
+        }
+
+        if (gr.getValue('status') != 'submitted') {
+            return 'error:Only submitted retros can be marked as valid';
+        }
+
+        gr.setValue('status', 'valid');
+        gr.setValue('reviewed_by', gs.getUserID());
+        gr.setValue('reviewed_date', new GlideDateTime());
+        gr.update();
+
+        return 'success:Retrospective marked as Valid';
+    },
+
+    type: 'RetroManagementAjax'
+});]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-12-05 09:52:19</sys_created_on>
         <sys_id>ce23c7fe8325b69089529370ceaad335</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>RetroManagementAjax</sys_name>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name>sys_script_include_ce23c7fe8325b69089529370ceaad335</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-05 10:10:24</sys_updated_on>
+        <sys_updated_on>2025-12-17 13:04:13</sys_updated_on>
     </sys_script_include>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>ce23c7fe8325b69089529370ceaad335</id>

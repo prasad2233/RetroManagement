@@ -18,9 +18,9 @@
         <format_for_configurable_workspace>true</format_for_configurable_workspace>
         <hint/>
         <isolate_script>false</isolate_script>
-        <list_action>false</list_action>
+        <list_action>true</list_action>
         <list_banner_button>false</list_banner_button>
-        <list_button>false</list_button>
+        <list_button>true</list_button>
         <list_choice>false</list_choice>
         <list_context_menu>false</list_context_menu>
         <list_link>false</list_link>
@@ -31,24 +31,36 @@
         <onclick/>
         <order>200</order>
         <script><![CDATA[(function () {
-
-    // Safety check – only allow from submitted
-    if (current.status != 'submitted') {
-        gs.addErrorMessage('Only submitted retros can be marked as valid.');
-        action.setRedirectURL(current);
+    
+    // Check if current record exists
+    if (!current || !current.sys_id) {
+        gs.addErrorMessage('No record selected.');
         return;
     }
-
-    current.status = 'valid';
-    // Optionally record who reviewed and when
-    current.reviewed_by = gs.getUserID();
-    current.reviewed_date = new GlideDateTime();
-
-    current.update();
-
+    
+    // Refresh current record to ensure we have latest data
+    var gr = new GlideRecord('x_1865669_retrospe_retrospective_submission');
+    if (!gr.get(current.sys_id)) {
+        gs.addErrorMessage('Record not found.');
+        return;
+    }
+    
+    // Safety check – only allow from submitted
+    if (gr.getValue('status') != 'submitted') {
+        gs.addErrorMessage('Only submitted retros can be marked as valid.');
+        action.setRedirectURL(gr);
+        return;
+    }
+    
+    // Update status
+    gr.setValue('status', 'valid');
+    gr.setValue('reviewed_by', gs.getUserID());
+    gr.setValue('reviewed_date', new GlideDateTime());
+    gr.update();
+    
     gs.addInfoMessage('Retrospective marked as Valid.');
-    action.setRedirectURL(current);
-
+    action.setRedirectURL(gr);
+    
 })();]]></script>
         <show_insert>false</show_insert>
         <show_multiple_update>false</show_multiple_update>
@@ -60,7 +72,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>beeb226b8329721089529370ceaad326</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>Mark as Valid</sys_name>
         <sys_overrides/>
         <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
@@ -68,7 +80,7 @@
         <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
         <sys_update_name>sys_ui_action_beeb226b8329721089529370ceaad326</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-12 05:37:19</sys_updated_on>
+        <sys_updated_on>2025-12-17 12:22:34</sys_updated_on>
         <table>x_1865669_retrospe_retrospective_submission</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>false</ui16_compatible>

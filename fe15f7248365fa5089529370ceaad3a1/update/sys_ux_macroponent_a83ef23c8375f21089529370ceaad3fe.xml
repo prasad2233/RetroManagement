@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_macroponent">
+    <sys_ux_macroponent action="INSERT_OR_UPDATE">
+        <associated_types/>
+        <bundles/>
+        <category>page</category>
+        <component_dependencies/>
+        <composition>[
+    {
+        "definition": {
+            "id": "4335ba6dca80378f7ba7a67cd6667bec",
+            "type": "MACROPONENT"
+        },
+        "elementId": "stylized_text_1",
+        "elementLabel": "Stylized text 1",
+        "eventMappings": [],
+        "isHidden": {
+            "type": "JSON_LITERAL",
+            "value": ""
+        },
+        "isNonDestructive": false,
+        "overrides": null,
+        "propertyValues": {
+            "css": {
+                "type": "JSON_LITERAL",
+                "value": "* {\n    color: rgb(51, 51, 51);\n    font-size: var(--now-global-font-size--xl, 24px);\n    font-weight: 600;\n    margin: 0px;\n}"
+            },
+            "tag": {
+                "type": "JSON_LITERAL",
+                "value": "p"
+            },
+            "text": {
+                "type": "TRANSLATION_LITERAL",
+                "value": {
+                    "comment": "",
+                    "message": "Comments"
+                }
+            }
+        },
+        "slot": "Row 1",
+        "styles": {}
+    },
+    {
+        "definition": {
+            "id": "d667a5e769598b2e5c6e92ebe73394f6",
+            "type": "MACROPONENT"
+        },
+        "elementId": "comments",
+        "elementLabel": "Comments",
+        "eventMappings": [
+            {
+                "eventMappingId": "ckuggvdjjahaaaabbccddeiieebbvtjmrqo",
+                "isConfiguration": false,
+                "offRowStorageId": null,
+                "sourceEventApiName": "sn_textarea.NOW_TEXTAREA#VALUE_SET",
+                "sourceEventCorrelationId": null,
+                "sourceEventDefinition": {
+                    "apiName": "sn_textarea.NOW_TEXTAREA#VALUE_SET",
+                    "id": null,
+                    "type": "UXEVENT"
+                },
+                "sourceEventSysId": null,
+                "targets": [
+                    {
+                        "broker": null,
+                        "clientScript": {
+                            "sysId": "203e363c8375f21089529370ceaad306"
+                        },
+                        "declarativeAction": null,
+                        "event": null,
+                        "operation": null,
+                        "targetId": "ckuggvdjjahaaaabbddddeiieeiiajjqoxkz",
+                        "type": "CLIENT_SCRIPT"
+                    }
+                ]
+            }
+        ],
+        "isHidden": {
+            "type": "JSON_LITERAL",
+            "value": ""
+        },
+        "isNonDestructive": false,
+        "overrides": null,
+        "propertyValues": {
+            "autofocus": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "autoresize": {
+                "type": "JSON_LITERAL",
+                "value": true
+            },
+            "disabled": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "helperContent": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "hideRequiredIndicator": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "invalid": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "label": {
+                "type": "TRANSLATION_LITERAL",
+                "value": {
+                    "comment": "",
+                    "message": "Reason for rejecting the business process"
+                }
+            },
+            "maxlength": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "messages": {
+                "container": [],
+                "type": "LIST_CONTAINER"
+            },
+            "minlength": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "name": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "optional": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "placeholder": {
+                "type": "TRANSLATION_LITERAL",
+                "value": {
+                    "comment": "",
+                    "message": "Enter your comments here"
+                }
+            },
+            "readonly": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "required": {
+                "type": "JSON_LITERAL",
+                "value": true
+            },
+            "resize": {
+                "type": "JSON_LITERAL",
+                "value": "vertical"
+            },
+            "rows": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "showBorders": {
+                "type": "JSON_LITERAL",
+                "value": true
+            },
+            "showCounter": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "value": {
+                "type": "JSON_LITERAL",
+                "value": null
+            }
+        },
+        "slot": "Row 2",
+        "styles": {
+            "margin-top": "var(--now-global-space-xl, 24px)"
+        }
+    },
+    {
+        "definition": {
+            "id": "d356d14b6e293a3020a244b63d278d8f",
+            "type": "MACROPONENT"
+        },
+        "elementId": "container_1",
+        "elementLabel": "Container 1",
+        "eventMappings": [],
+        "isHidden": {
+            "type": "JSON_LITERAL",
+            "value": ""
+        },
+        "isNonDestructive": false,
+        "overrides": {
+            "composition": [
+                {
+                    "definition": {
+                        "id": "d37ce8abca89d02905fed903c8e34d8e",
+                        "type": "MACROPONENT"
+                    },
+                    "elementId": "ok",
+                    "elementLabel": "OK",
+                    "eventMappings": [
+                        {
+                            "eventMappingId": "ckuggsjjbbzuaaaabbccddeiiccfebbhholoee",
+                            "isConfiguration": false,
+                            "offRowStorageId": null,
+                            "sourceEventApiName": "sn_button.NOW_BUTTON#CLICKED",
+                            "sourceEventCorrelationId": null,
+                            "sourceEventDefinition": {
+                                "apiName": "sn_button.NOW_BUTTON#CLICKED",
+                                "id": null,
+                                "type": "UXEVENT"
+                            },
+                            "sourceEventSysId": null,
+                            "targets": [
+                                {
+                                    "broker": null,
+                                    "clientScript": null,
+                                    "declarativeAction": null,
+                                    "event": null,
+                                    "operation": {
+                                        "dataBrokerId": "f6af07937776301058119a372e5a99aa",
+                                        "operationName": "REFRESH",
+                                        "parentResourceId": "reject_business_process",
+                                        "payload": {
+                                            "container": {},
+                                            "type": "MAP_CONTAINER"
+                                        }
+                                    },
+                                    "targetId": "ckuggsjjbbzuaaaabbddddeiiccffcjwpbbba",
+                                    "type": "DATABROKER_OP"
+                                },
+                                {
+                                    "broker": null,
+                                    "clientScript": {
+                                        "sysId": "e83e363c8375f21089529370ceaad301"
+                                    },
+                                    "declarativeAction": null,
+                                    "event": null,
+                                    "operation": null,
+                                    "targetId": "ckuggvgppraaaabbeddeiieewkwvpoeh",
+                                    "type": "CLIENT_SCRIPT"
+                                }
+                            ]
+                        }
+                    ],
+                    "isHidden": {
+                        "type": "JSON_LITERAL",
+                        "value": ""
+                    },
+                    "isNonDestructive": false,
+                    "overrides": null,
+                    "propertyValues": {
+                        "configAria": {
+                            "container": {},
+                            "type": "MAP_CONTAINER"
+                        },
+                        "disabled": {
+                            "type": "JSON_LITERAL",
+                            "value": false
+                        },
+                        "icon": {
+                            "type": "JSON_LITERAL",
+                            "value": null
+                        },
+                        "label": {
+                            "type": "TRANSLATION_LITERAL",
+                            "value": {
+                                "comment": "",
+                                "message": "OK"
+                            }
+                        },
+                        "size": {
+                            "type": "JSON_LITERAL",
+                            "value": "md"
+                        },
+                        "tooltipContent": {
+                            "type": "JSON_LITERAL",
+                            "value": ""
+                        },
+                        "variant": {
+                            "type": "JSON_LITERAL",
+                            "value": "primary"
+                        }
+                    },
+                    "slot": "Main",
+                    "styles": {
+                        "padding-left": "1rem"
+                    }
+                },
+                {
+                    "definition": {
+                        "id": "d37ce8abca89d02905fed903c8e34d8e",
+                        "type": "MACROPONENT"
+                    },
+                    "elementId": "cancel",
+                    "elementLabel": "Cancel",
+                    "eventMappings": [
+                        {
+                            "eventMappingId": "ckuggrhhhhwkaaaabbjjddehhtcaaffjjngq",
+                            "isConfiguration": false,
+                            "offRowStorageId": null,
+                            "sourceEventApiName": "sn_button.NOW_BUTTON#CLICKED",
+                            "sourceEventCorrelationId": null,
+                            "sourceEventDefinition": {
+                                "apiName": "sn_button.NOW_BUTTON#CLICKED",
+                                "id": null,
+                                "type": "UXEVENT"
+                            },
+                            "sourceEventSysId": null,
+                            "targets": [
+                                {
+                                    "broker": null,
+                                    "clientScript": {
+                                        "sysId": "e83e363c8375f21089529370ceaad301"
+                                    },
+                                    "declarativeAction": null,
+                                    "event": null,
+                                    "operation": null,
+                                    "targetId": "ckuggrhhhhwkaaaabbaddehhtohhoexebp",
+                                    "type": "CLIENT_SCRIPT"
+                                }
+                            ]
+                        }
+                    ],
+                    "isHidden": {
+                        "type": "JSON_LITERAL",
+                        "value": ""
+                    },
+                    "isNonDestructive": false,
+                    "overrides": null,
+                    "propertyValues": {
+                        "configAria": {
+                            "container": {},
+                            "type": "MAP_CONTAINER"
+                        },
+                        "disabled": {
+                            "type": "JSON_LITERAL",
+                            "value": false
+                        },
+                        "icon": {
+                            "type": "JSON_LITERAL",
+                            "value": null
+                        },
+                        "label": {
+                            "type": "TRANSLATION_LITERAL",
+                            "value": {
+                                "comment": "",
+                                "message": "Cancel"
+                            }
+                        },
+                        "size": {
+                            "type": "JSON_LITERAL",
+                            "value": "md"
+                        },
+                        "tooltipContent": {
+                            "type": "JSON_LITERAL",
+                            "value": ""
+                        },
+                        "variant": {
+                            "type": "JSON_LITERAL",
+                            "value": "secondary"
+                        }
+                    },
+                    "slot": "Main",
+                    "styles": {}
+                }
+            ],
+            "layout": {
+                "default": {
+                    "children": null,
+                    "items": [
+                        {
+                            "rules": {
+                                "flex": "1"
+                            },
+                            "slotName": "Main",
+                            "styles": {
+                                "display": "flex",
+                                "flex-direction": "row-reverse"
+                            }
+                        }
+                    ],
+                    "root": null,
+                    "rules": {
+                        "align-items": "stretch",
+                        "flex-flow": "row nowrap",
+                        "height": "100%"
+                    },
+                    "styles": null,
+                    "templateId": "5832fd4d53c31010e6bcddeeff7b12db",
+                    "type": "flex"
+                }
+            }
+        },
+        "propertyValues": {},
+        "slot": "Row 3",
+        "styles": {
+            "margin-top": "var(--now-global-space--3xl, 40px)",
+            "width": "100%"
+        }
+    }
+]</composition>
+        <da_relay_models/>
+        <data>[
+    {
+        "definition": {
+            "id": "f6af07937776301058119a372e5a99aa",
+            "type": "TRANSFORM"
+        },
+        "elementId": "reject_business_process",
+        "elementLabel": "Reject business process",
+        "eventMappings": [],
+        "inputValues": {
+            "comments": {
+                "binding": {
+                    "address": [
+                        "comments"
+                    ]
+                },
+                "type": "STATE_BINDING"
+            },
+            "sysId": {
+                "binding": {
+                    "address": [
+                        "sysId"
+                    ],
+                    "category": "props"
+                },
+                "type": "CONTEXT_BINDING"
+            },
+            "table": {
+                "binding": {
+                    "address": [
+                        "table"
+                    ],
+                    "category": "props"
+                },
+                "type": "CONTEXT_BINDING"
+            }
+        },
+        "readEvaluationMode": "EXPLICIT"
+    }
+]</data>
+        <description/>
+        <disable_auto_reflow>false</disable_auto_reflow>
+        <dispatched_events/>
+        <ext_controller_dep/>
+        <extends display_value="Page Template">19be392623033300f4b4c50947bf65ba</extends>
+        <extension_point/>
+        <form_factors>{}</form_factors>
+        <handled_events/>
+        <interactions/>
+        <interfaces/>
+        <internal_event_mappings>{}</internal_event_mappings>
+        <layout>{
+    "default": {
+        "children": null,
+        "items": [
+            {
+                "rules": {
+                    "grid-area": "row1"
+                },
+                "slotName": "Row 1",
+                "styles": {
+                    "display": "flex",
+                    "flex-direction": "column"
+                }
+            },
+            {
+                "rules": {
+                    "grid-area": "row2"
+                },
+                "slotName": "Row 2",
+                "styles": {
+                    "display": "flex",
+                    "flex-direction": "column"
+                }
+            },
+            {
+                "rules": {
+                    "grid-area": "row3"
+                },
+                "slotName": "Row 3",
+                "styles": {
+                    "display": "flex",
+                    "flex-direction": "column"
+                }
+            }
+        ],
+        "root": null,
+        "rules": {
+            "grid-template-areas": "\"row1\" \"row2\" \"row3\"",
+            "grid-template-columns": "100%",
+            "height": "auto",
+            "padding": "var(--now-global-space--xl, 24px)"
+        },
+        "styles": null,
+        "templateId": "1afa9dc153c31010e6bcddeeff7b1280",
+        "type": "grid"
+    }
+}</layout>
+        <macroponent_dependencies/>
+        <name>Business process reject modal screen</name>
+        <output_prop_mapping/>
+        <props>[
+    {
+        "defaultValue": "",
+        "description": null,
+        "fieldType": "string",
+        "label": "Table",
+        "mandatory": false,
+        "name": "table",
+        "readOnly": true,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": "string"
+    },
+    {
+        "defaultValue": "",
+        "description": null,
+        "fieldType": "string",
+        "label": "sysId",
+        "mandatory": false,
+        "name": "sysId",
+        "readOnly": true,
+        "selectable": false,
+        "typeMetadata": null,
+        "valueType": "string"
+    }
+]</props>
+        <required_translations>[ {
+  "message" : "Cancel",
+  "comment" : ""
+}, {
+  "message" : "Comments",
+  "comment" : ""
+}, {
+  "message" : "Enter your comments here",
+  "comment" : ""
+}, {
+  "message" : "OK",
+  "comment" : ""
+}, {
+  "message" : "Reason for rejecting the business process",
+  "comment" : ""
+} ]</required_translations>
+        <root_component/>
+        <root_component_config>{}</root_component_config>
+        <root_component_definition/>
+        <schema_version>1.0.0</schema_version>
+        <state_persistence_config/>
+        <state_properties>[
+    {
+        "description": "",
+        "fieldType": "",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": null
+        },
+        "label": "comments",
+        "name": "comments",
+        "shape": "",
+        "valueType": ""
+    }
+]</state_properties>
+        <sys_class_name>sys_ux_macroponent</sys_class_name>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2025-12-11 14:37:26</sys_created_on>
+        <sys_id>a83ef23c8375f21089529370ceaad3fe</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Business process reject modal screen</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_ux_macroponent_a83ef23c8375f21089529370ceaad3fe</sys_update_name>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2025-12-11 14:37:27</sys_updated_on>
+    </sys_ux_macroponent>
+    <sys_translated_text action="delete_multiple" query="documentkey=a83ef23c8375f21089529370ceaad3fe"/>
+</record_update>

@@ -1,0 +1,1870 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_macroponent">
+    <sys_ux_macroponent action="INSERT_OR_UPDATE">
+        <associated_types/>
+        <bundles/>
+        <category>page</category>
+        <component_dependencies/>
+        <composition>[
+    {
+        "definition": {
+            "id": "d356d14b6e293a3020a244b63d278d8f",
+            "type": "MACROPONENT"
+        },
+        "elementId": "Heading_Column",
+        "elementLabel": "Heading Column",
+        "eventMappings": [],
+        "isHidden": {
+            "type": "JSON_LITERAL",
+            "value": null
+        },
+        "overrides": {
+            "composition": [
+                {
+                    "definition": {
+                        "id": "d356d14b6e293a3020a244b63d278d8f",
+                        "type": "MACROPONENT"
+                    },
+                    "elementId": "__cmirfhhzddqaabbzlddbiijjukggacbojj__column_1",
+                    "elementLabel": "Column 1",
+                    "eventMappings": [],
+                    "isHidden": {
+                        "type": "JSON_LITERAL",
+                        "value": null
+                    },
+                    "overrides": {
+                        "composition": [
+                            {
+                                "definition": {
+                                    "id": "4335ba6dca80378f7ba7a67cd6667bec",
+                                    "type": "MACROPONENT"
+                                },
+                                "elementId": "Retrospective_management_title",
+                                "elementLabel": "Retrospective Management Title",
+                                "eventMappings": [],
+                                "isHidden": {
+                                    "type": "JSON_LITERAL",
+                                    "value": null
+                                },
+                                "preset": null,
+                                "propertyValues": {
+                                    "configAria": {
+                                        "type": "JSON_LITERAL",
+                                        "value": {}
+                                    },
+                                    "css": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "* { \n    color: whitesmoke; /* Sets the text color to blue */\nfont-size: 28px; /* Sets the font size to 18 pixels */\nfont-weight: bold; \n}"
+                                    },
+                                    "tag": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "h1"
+                                    },
+                                    "text": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "comment": "",
+                                            "message": "📅 Retrospective Management"
+                                        }
+                                    }
+                                },
+                                "slot": null,
+                                "styles": null
+                            },
+                            {
+                                "definition": {
+                                    "id": "4335ba6dca80378f7ba7a67cd6667bec",
+                                    "type": "MACROPONENT"
+                                },
+                                "elementId": "Manage_sprints_subheading",
+                                "elementLabel": "Manage_sprints_subheading",
+                                "eventMappings": [],
+                                "isHidden": {
+                                    "type": "JSON_LITERAL",
+                                    "value": null
+                                },
+                                "preset": null,
+                                "propertyValues": {
+                                    "configAria": {
+                                        "type": "JSON_LITERAL",
+                                        "value": {}
+                                    },
+                                    "css": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "* { color: whitesmoke;\n    font-size: 14px;\n    font-weight: bold;\n\n}"
+                                    },
+                                    "tag": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "h3"
+                                    },
+                                    "text": {
+                                        "type": "TRANSLATION_LITERAL",
+                                        "value": {
+                                            "code": null,
+                                            "comment": "",
+                                            "message": "Manage sprints, retros, and action items"
+                                        }
+                                    }
+                                },
+                                "slot": null,
+                                "styles": null
+                            }
+                        ],
+                        "layout": {
+                            "default": {
+                                "children": null,
+                                "items": [
+                                    {
+                                        "element_id": "Retrospective_management_title",
+                                        "styles": {
+                                            "align-self": "flex-start",
+                                            "padding-left": "var(--now-scalable-space--xxl)"
+                                        }
+                                    },
+                                    {
+                                        "element_id": "Manage_sprints_subheading",
+                                        "styles": {
+                                            "align-self": "flex-start",
+                                            "box-shadow": "var(--now-static-drop-shadow--md)",
+                                            "flex": "0 1 auto",
+                                            "padding-left": "var(--now-scalable-space--xxl)"
+                                        }
+                                    }
+                                ],
+                                "root": null,
+                                "rules": {
+                                    "flex-direction": "row"
+                                },
+                                "styles": {
+                                    "align-items": "stretch",
+                                    "box-sizing": "border-box",
+                                    "flex-direction": "column",
+                                    "gap": "0",
+                                    "height": "100%",
+                                    "justify-content": "space-evenly",
+                                    "overflow": "auto"
+                                },
+                                "type": "flex"
+                            },
+                            "version": "3.0.0"
+                        }
+                    },
+                    "preset": null,
+                    "propertyValues": {
+                        "hideEmptyStateUi": {
+                            "type": "JSON_LITERAL",
+                            "value": true
+                        },
+                        "slotWrapperBehavior": {
+                            "type": "JSON_LITERAL",
+                            "value": "contents"
+                        }
+                    },
+                    "scratchPad": {
+                        "uib": {
+                            "layout": {
+                                "column": {
+                                    "columnNumber": 0,
+                                    "id": "default",
+                                    "styleConfig": {
+                                        "external": {
+                                            "display": "contents",
+                                            "width": "100%"
+                                        },
+                                        "internal": {
+                                            "align-items": "stretch",
+                                            "box-sizing": "border-box",
+                                            "flex-direction": "column",
+                                            "gap": "0",
+                                            "height": "100%",
+                                            "justify-content": "space-evenly",
+                                            "overflow": "auto"
+                                        }
+                                    }
+                                },
+                                "type": "column"
+                            },
+                            "version": "1.0.0"
+                        }
+                    },
+                    "slot": null,
+                    "styles": null
+                }
+            ],
+            "layout": {
+                "default": {
+                    "children": null,
+                    "isInline": null,
+                    "items": [
+                        {
+                            "element_id": "__cmirfhhzddqaabbzlddbiijjukggacbojj__column_1",
+                            "styles": {
+                                "display": "contents",
+                                "width": "100%"
+                            }
+                        }
+                    ],
+                    "root": null,
+                    "rules": null,
+                    "styles": {
+                        "background": "#0066CC",
+                        "box-sizing": "border-box",
+                        "grid-template-columns": "100fr",
+                        "grid-template-rows": "1fr",
+                        "margin-bottom": "var(--now-scalable-space--xs)",
+                        "padding-left": "var(--now-scalable-space--xs)",
+                        "padding-right": "var(--now-scalable-space--xs)",
+                        "padding-top": "0",
+                        "width": "auto"
+                    },
+                    "type": "grid"
+                },
+                "queries": [
+                    {
+                        "layout": {
+                            "children": null,
+                            "isInline": null,
+                            "items": [],
+                            "root": null,
+                            "rules": null,
+                            "styles": {
+                                "background": "#0066CC",
+                                "box-sizing": "border-box",
+                                "grid-template-columns": "1fr",
+                                "grid-template-rows": "1fr",
+                                "height": "fit-content",
+                                "margin-bottom": "var(--now-scalable-space--xs)",
+                                "max-height": "max-content",
+                                "min-height": "min-content",
+                                "padding-left": "var(--now-scalable-space--xs)",
+                                "padding-right": "var(--now-scalable-space--xs)",
+                                "padding-top": "0",
+                                "width": "auto"
+                            },
+                            "type": "grid"
+                        },
+                        "query": {
+                            "max-width": 640
+                        }
+                    }
+                ],
+                "version": "3.0.0"
+            }
+        },
+        "preset": null,
+        "propertyValues": {
+            "hideEmptyStateUi": {
+                "type": "JSON_LITERAL",
+                "value": true
+            },
+            "slotWrapperBehavior": {
+                "type": "JSON_LITERAL",
+                "value": "contents"
+            }
+        },
+        "scratchPad": {
+            "uib": {
+                "layout": {
+                    "columnSection": {
+                        "breakpoints": [
+                            {
+                                "behavior": "stack",
+                                "max-width": 640,
+                                "styles": {
+                                    "box-sizing": "border-box",
+                                    "grid-template-columns": "1fr",
+                                    "grid-template-rows": "1fr",
+                                    "height": "fit-content",
+                                    "max-height": "max-content",
+                                    "min-height": "min-content",
+                                    "width": "auto"
+                                }
+                            }
+                        ],
+                        "children": [
+                            {
+                                "columnNumber": 1,
+                                "unit": "%",
+                                "width": 100
+                            }
+                        ],
+                        "id": "UIB_COLUMN_SECTION_SINGLE_COLUMN_SECTION",
+                        "styleConfig": {
+                            "external": {
+                                "display": "contents",
+                                "width": "100%"
+                            },
+                            "internal": {
+                                "background": "#0066CC",
+                                "box-sizing": "border-box",
+                                "grid-template-rows": "1fr",
+                                "margin-bottom": "var(--now-scalable-space--xs)",
+                                "padding-left": "var(--now-scalable-space--xs)",
+                                "padding-right": "var(--now-scalable-space--xs)",
+                                "padding-top": "0",
+                                "width": "auto"
+                            }
+                        }
+                    },
+                    "type": "columnSection"
+                },
+                "version": "1.0.0"
+            }
+        },
+        "slot": null,
+        "styles": null
+    },
+    {
+        "definition": {
+            "id": "d356d14b6e293a3020a244b63d278d8f",
+            "type": "MACROPONENT"
+        },
+        "elementId": "cards",
+        "elementLabel": "Cards",
+        "eventMappings": [],
+        "isHidden": {
+            "type": "JSON_LITERAL",
+            "value": null
+        },
+        "overrides": {
+            "composition": [
+                {
+                    "definition": {
+                        "id": "d356d14b6e293a3020a244b63d278d8f",
+                        "type": "MACROPONENT"
+                    },
+                    "elementId": "__cmirgddyeyaaccccggddbiijjiincghewa__column_1",
+                    "elementLabel": "Column 1",
+                    "eventMappings": [],
+                    "isHidden": {
+                        "type": "JSON_LITERAL",
+                        "value": null
+                    },
+                    "overrides": {
+                        "composition": [
+                            {
+                                "definition": {
+                                    "id": "d356d14b6e293a3020a244b63d278d8f",
+                                    "type": "MACROPONENT"
+                                },
+                                "elementId": "active",
+                                "elementLabel": "active",
+                                "eventMappings": [],
+                                "isHidden": {
+                                    "type": "JSON_LITERAL",
+                                    "value": null
+                                },
+                                "overrides": {
+                                    "composition": [
+                                        {
+                                            "definition": {
+                                                "id": "d356d14b6e293a3020a244b63d278d8f",
+                                                "type": "MACROPONENT"
+                                            },
+                                            "elementId": "__cmirhkaablaaggaaoddbiijjfyfxobdc__column_1",
+                                            "elementLabel": "Column 1",
+                                            "eventMappings": [],
+                                            "isHidden": {
+                                                "type": "JSON_LITERAL",
+                                                "value": null
+                                            },
+                                            "overrides": {
+                                                "composition": [
+                                                    {
+                                                        "definition": {
+                                                            "id": "d356d14b6e293a3020a244b63d278d8f",
+                                                            "type": "MACROPONENT"
+                                                        },
+                                                        "elementId": "Active_rec_header",
+                                                        "elementLabel": "Active rec header",
+                                                        "eventMappings": [],
+                                                        "isHidden": {
+                                                            "type": "JSON_LITERAL",
+                                                            "value": null
+                                                        },
+                                                        "overrides": {
+                                                            "composition": [
+                                                                {
+                                                                    "definition": {
+                                                                        "id": "d356d14b6e293a3020a244b63d278d8f",
+                                                                        "type": "MACROPONENT"
+                                                                    },
+                                                                    "elementId": "__cmirhkjjlhhaaggaapddbiijjsvlgghddyd__column_1",
+                                                                    "elementLabel": "Column 1",
+                                                                    "eventMappings": [],
+                                                                    "isHidden": {
+                                                                        "type": "JSON_LITERAL",
+                                                                        "value": null
+                                                                    },
+                                                                    "overrides": {
+                                                                        "composition": [
+                                                                            {
+                                                                                "definition": {
+                                                                                    "id": "4335ba6dca80378f7ba7a67cd6667bec",
+                                                                                    "type": "MACROPONENT"
+                                                                                },
+                                                                                "elementId": "stylized_text_1",
+                                                                                "elementLabel": "Stylized text 1",
+                                                                                "eventMappings": [],
+                                                                                "isHidden": {
+                                                                                    "type": "JSON_LITERAL",
+                                                                                    "value": null
+                                                                                },
+                                                                                "preset": null,
+                                                                                "propertyValues": {
+                                                                                    "configAria": {
+                                                                                        "type": "JSON_LITERAL",
+                                                                                        "value": {}
+                                                                                    },
+                                                                                    "css": {
+                                                                                        "type": "JSON_LITERAL",
+                                                                                        "value": "* { font-size: 18px;\nfont-weight: 600;\ncolor: #1E293B;}"
+                                                                                    },
+                                                                                    "tag": {
+                                                                                        "type": "JSON_LITERAL",
+                                                                                        "value": "h1"
+                                                                                    },
+                                                                                    "text": {
+                                                                                        "type": "TRANSLATION_LITERAL",
+                                                                                        "value": {
+                                                                                            "code": null,
+                                                                                            "comment": "",
+                                                                                            "message": "Active Sprints"
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "slot": null,
+                                                                                "styles": null
+                                                                            },
+                                                                            {
+                                                                                "definition": {
+                                                                                    "id": "9763e50210a643fd4a73407b5ee174f2",
+                                                                                    "type": "MACROPONENT"
+                                                                                },
+                                                                                "elementId": "badge_1",
+                                                                                "elementLabel": "Badge 1",
+                                                                                "eventMappings": [],
+                                                                                "isHidden": {
+                                                                                    "type": "JSON_LITERAL",
+                                                                                    "value": null
+                                                                                },
+                                                                                "preset": null,
+                                                                                "propertyValues": {
+                                                                                    "character": {
+                                                                                        "type": "JSON_LITERAL",
+                                                                                        "value": ""
+                                                                                    },
+                                                                                    "round": {
+                                                                                        "type": "JSON_LITERAL",
+                                                                                        "value": true
+                                                                                    },
+                                                                                    "size": {
+                                                                                        "type": "JSON_LITERAL",
+                                                                                        "value": "md"
+                                                                                    },
+                                                                                    "status": {
+                                                                                        "type": "JSON_LITERAL",
+                                                                                        "value": "purple"
+                                                                                    },
+                                                                                    "value": {
+                                                                                        "binding": {
+                                                                                            "address": [
+                                                                                                "active_sprints",
+                                                                                                "results",
+                                                                                                "length"
+                                                                                            ]
+                                                                                        },
+                                                                                        "type": "DATA_OUTPUT_BINDING"
+                                                                                    },
+                                                                                    "variant": {
+                                                                                        "type": "JSON_LITERAL",
+                                                                                        "value": "primary"
+                                                                                    }
+                                                                                },
+                                                                                "slot": null,
+                                                                                "styles": null
+                                                                            }
+                                                                        ],
+                                                                        "layout": {
+                                                                            "default": {
+                                                                                "children": null,
+                                                                                "items": [
+                                                                                    {
+                                                                                        "element_id": "stylized_text_1",
+                                                                                        "styles": {}
+                                                                                    },
+                                                                                    {
+                                                                                        "element_id": "badge_1",
+                                                                                        "styles": {}
+                                                                                    }
+                                                                                ],
+                                                                                "root": null,
+                                                                                "rules": {
+                                                                                    "flex-direction": "row"
+                                                                                },
+                                                                                "styles": {
+                                                                                    "align-items": "baseline",
+                                                                                    "box-sizing": "border-box",
+                                                                                    "flex-direction": "row",
+                                                                                    "gap": "0",
+                                                                                    "height": "100%",
+                                                                                    "justify-content": "space-around",
+                                                                                    "overflow": "auto"
+                                                                                },
+                                                                                "type": "flex"
+                                                                            },
+                                                                            "version": "3.0.0"
+                                                                        }
+                                                                    },
+                                                                    "preset": null,
+                                                                    "propertyValues": {
+                                                                        "hideEmptyStateUi": {
+                                                                            "type": "JSON_LITERAL",
+                                                                            "value": true
+                                                                        },
+                                                                        "slotWrapperBehavior": {
+                                                                            "type": "JSON_LITERAL",
+                                                                            "value": "contents"
+                                                                        }
+                                                                    },
+                                                                    "scratchPad": {
+                                                                        "uib": {
+                                                                            "layout": {
+                                                                                "column": {
+                                                                                    "columnNumber": 0,
+                                                                                    "id": "default",
+                                                                                    "styleConfig": {
+                                                                                        "external": {
+                                                                                            "display": "contents",
+                                                                                            "width": "100%"
+                                                                                        },
+                                                                                        "internal": {
+                                                                                            "align-items": "baseline",
+                                                                                            "box-sizing": "border-box",
+                                                                                            "flex-direction": "row",
+                                                                                            "gap": "0",
+                                                                                            "height": "100%",
+                                                                                            "justify-content": "space-around",
+                                                                                            "overflow": "auto"
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "type": "column"
+                                                                            },
+                                                                            "version": "1.0.0"
+                                                                        }
+                                                                    },
+                                                                    "slot": null,
+                                                                    "styles": null
+                                                                }
+                                                            ],
+                                                            "layout": {
+                                                                "default": {
+                                                                    "children": null,
+                                                                    "isInline": null,
+                                                                    "items": [
+                                                                        {
+                                                                            "element_id": "__cmirhkjjlhhaaggaapddbiijjsvlgghddyd__column_1",
+                                                                            "styles": {
+                                                                                "display": "contents",
+                                                                                "width": "100%"
+                                                                            }
+                                                                        }
+                                                                    ],
+                                                                    "root": null,
+                                                                    "rules": null,
+                                                                    "styles": {
+                                                                        "box-sizing": "border-box",
+                                                                        "grid-template-columns": "100fr",
+                                                                        "grid-template-rows": "1fr",
+                                                                        "height": "70px",
+                                                                        "width": "auto"
+                                                                    },
+                                                                    "type": "grid"
+                                                                },
+                                                                "queries": [
+                                                                    {
+                                                                        "layout": {
+                                                                            "children": null,
+                                                                            "isInline": null,
+                                                                            "items": [],
+                                                                            "root": null,
+                                                                            "rules": null,
+                                                                            "styles": {
+                                                                                "box-sizing": "border-box",
+                                                                                "grid-template-columns": "1fr",
+                                                                                "grid-template-rows": "1fr",
+                                                                                "height": "fit-content",
+                                                                                "max-height": "max-content",
+                                                                                "min-height": "min-content",
+                                                                                "width": "auto"
+                                                                            },
+                                                                            "type": "grid"
+                                                                        },
+                                                                        "query": {
+                                                                            "max-width": 640
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "version": "3.0.0"
+                                                            }
+                                                        },
+                                                        "preset": null,
+                                                        "propertyValues": {
+                                                            "hideEmptyStateUi": {
+                                                                "type": "JSON_LITERAL",
+                                                                "value": true
+                                                            },
+                                                            "slotWrapperBehavior": {
+                                                                "type": "JSON_LITERAL",
+                                                                "value": "contents"
+                                                            }
+                                                        },
+                                                        "scratchPad": {
+                                                            "uib": {
+                                                                "layout": {
+                                                                    "columnSection": {
+                                                                        "breakpoints": [
+                                                                            {
+                                                                                "behavior": "stack",
+                                                                                "max-width": 0,
+                                                                                "styles": {
+                                                                                    "box-sizing": "border-box",
+                                                                                    "grid-template-columns": "1fr",
+                                                                                    "grid-template-rows": "1fr",
+                                                                                    "height": "fit-content",
+                                                                                    "max-height": "max-content",
+                                                                                    "min-height": "min-content",
+                                                                                    "width": "auto"
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        "children": [
+                                                                            {
+                                                                                "columnNumber": 1,
+                                                                                "unit": "%",
+                                                                                "width": 100
+                                                                            }
+                                                                        ],
+                                                                        "id": "UIB_COLUMN_SECTION_SINGLE_COLUMN_SECTION",
+                                                                        "styleConfig": {
+                                                                            "external": {
+                                                                                "display": "contents",
+                                                                                "width": "100%"
+                                                                            },
+                                                                            "internal": {
+                                                                                "box-sizing": "border-box",
+                                                                                "grid-template-rows": "1fr",
+                                                                                "height": "70px",
+                                                                                "width": "auto"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "type": "columnSection"
+                                                                },
+                                                                "version": "1.0.0"
+                                                            }
+                                                        },
+                                                        "slot": null,
+                                                        "styles": null
+                                                    },
+                                                    {
+                                                        "definition": {
+                                                            "id": "d356d14b6e293a3020a244b63d278d8f",
+                                                            "type": "MACROPONENT"
+                                                        },
+                                                        "elementId": "column_layout_1",
+                                                        "elementLabel": "Column layout 1",
+                                                        "eventMappings": [],
+                                                        "isHidden": {
+                                                            "type": "JSON_LITERAL",
+                                                            "value": null
+                                                        },
+                                                        "overrides": {
+                                                            "composition": [
+                                                                {
+                                                                    "definition": {
+                                                                        "id": "d356d14b6e293a3020a244b63d278d8f",
+                                                                        "type": "MACROPONENT"
+                                                                    },
+                                                                    "elementId": "__cmirqaafrqaabbwoddbiijjqffczffgaahh__column_1",
+                                                                    "elementLabel": "Column 1",
+                                                                    "eventMappings": [],
+                                                                    "isHidden": {
+                                                                        "type": "JSON_LITERAL",
+                                                                        "value": null
+                                                                    },
+                                                                    "overrides": {
+                                                                        "composition": [
+                                                                            {
+                                                                                "definition": {
+                                                                                    "id": "d356d14b6e293a3020a244b63d278d8f",
+                                                                                    "type": "MACROPONENT"
+                                                                                },
+                                                                                "elementId": "column_layout_2",
+                                                                                "elementLabel": "Column layout 2",
+                                                                                "eventMappings": [],
+                                                                                "isHidden": {
+                                                                                    "type": "JSON_LITERAL",
+                                                                                    "value": null
+                                                                                },
+                                                                                "overrides": {
+                                                                                    "composition": [
+                                                                                        {
+                                                                                            "definition": {
+                                                                                                "id": "d356d14b6e293a3020a244b63d278d8f",
+                                                                                                "type": "MACROPONENT"
+                                                                                            },
+                                                                                            "elementId": "__cmirqaaxeeaaaabbwpddbiijjsjfvnvxx__column_1",
+                                                                                            "elementLabel": "Column 1",
+                                                                                            "eventMappings": [],
+                                                                                            "isHidden": {
+                                                                                                "type": "JSON_LITERAL",
+                                                                                                "value": null
+                                                                                            },
+                                                                                            "overrides": {
+                                                                                                "composition": [
+                                                                                                    {
+                                                                                                        "definition": {
+                                                                                                            "id": "2b1c080881e05dc63b917044290b233f",
+                                                                                                            "type": "MACROPONENT"
+                                                                                                        },
+                                                                                                        "elementId": "list___simple_1",
+                                                                                                        "elementLabel": "List - Simple 1",
+                                                                                                        "eventMappings": [],
+                                                                                                        "isHidden": {
+                                                                                                            "type": "JSON_LITERAL",
+                                                                                                            "value": null
+                                                                                                        },
+                                                                                                        "preset": null,
+                                                                                                        "propertyValues": {
+                                                                                                            "bare": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": true
+                                                                                                            },
+                                                                                                            "columnPreferenceKey": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": ""
+                                                                                                            },
+                                                                                                            "columns": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": ""
+                                                                                                            },
+                                                                                                            "fixedQuery": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": "state!=complete"
+                                                                                                            },
+                                                                                                            "followFilters": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": true
+                                                                                                            },
+                                                                                                            "groupByField": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": ""
+                                                                                                            },
+                                                                                                            "hideColumnFiltering": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "hideColumnGrouping": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "hideColumnReorder": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "hideColumnResizing": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "hideColumnSorting": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "hideDotwalk": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "hideEmptyStateImage": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "hideHeader": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "hideHighlightContent": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "hideHighlightedValues": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "hideInlineEditing": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "hideLastRefreshedText": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "hideLinks": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "hidePersonalization": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "hideRefreshButton": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "hideRowSelector": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "hideTitle": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "hideTitleRowCount": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "hideViewAll": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "highlightContent": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": {
+                                                                                                                    "color": "",
+                                                                                                                    "patterns": []
+                                                                                                                }
+                                                                                                            },
+                                                                                                            "highlightedValueConfigId": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": ""
+                                                                                                            },
+                                                                                                            "isDashboard": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "limit": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": null
+                                                                                                            },
+                                                                                                            "listTitle": {
+                                                                                                                "type": "TRANSLATION_LITERAL",
+                                                                                                                "value": {
+                                                                                                                    "code": null,
+                                                                                                                    "comment": "",
+                                                                                                                    "message": "All Active Tasks"
+                                                                                                                }
+                                                                                                            },
+                                                                                                            "maxCharLimit": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": 4000
+                                                                                                            },
+                                                                                                            "maxColumns": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": null
+                                                                                                            },
+                                                                                                            "nrlLandmark": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": true
+                                                                                                            },
+                                                                                                            "overrideWordWrapUserPref": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "query": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": "active=true"
+                                                                                                            },
+                                                                                                            "refreshRequested": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": null
+                                                                                                            },
+                                                                                                            "showBorder": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            },
+                                                                                                            "table": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": "x_1865669_retrospe_sprint"
+                                                                                                            },
+                                                                                                            "wordWrap": {
+                                                                                                                "type": "JSON_LITERAL",
+                                                                                                                "value": false
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "slot": null,
+                                                                                                        "styles": null
+                                                                                                    }
+                                                                                                ],
+                                                                                                "layout": {
+                                                                                                    "default": {
+                                                                                                        "children": null,
+                                                                                                        "items": [
+                                                                                                            {
+                                                                                                                "element_id": "list___simple_1",
+                                                                                                                "styles": {}
+                                                                                                            }
+                                                                                                        ],
+                                                                                                        "root": null,
+                                                                                                        "rules": {
+                                                                                                            "flex-direction": "row"
+                                                                                                        },
+                                                                                                        "styles": {
+                                                                                                            "align-items": "stretch",
+                                                                                                            "box-sizing": "border-box",
+                                                                                                            "flex-direction": "column",
+                                                                                                            "height": "100%",
+                                                                                                            "justify-content": "flex-start",
+                                                                                                            "overflow": "auto"
+                                                                                                        },
+                                                                                                        "type": "flex"
+                                                                                                    },
+                                                                                                    "version": "3.0.0"
+                                                                                                }
+                                                                                            },
+                                                                                            "preset": null,
+                                                                                            "propertyValues": {
+                                                                                                "hideEmptyStateUi": {
+                                                                                                    "type": "JSON_LITERAL",
+                                                                                                    "value": true
+                                                                                                },
+                                                                                                "slotWrapperBehavior": {
+                                                                                                    "type": "JSON_LITERAL",
+                                                                                                    "value": "contents"
+                                                                                                }
+                                                                                            },
+                                                                                            "scratchPad": {
+                                                                                                "uib": {
+                                                                                                    "layout": {
+                                                                                                        "column": {
+                                                                                                            "columnNumber": 0,
+                                                                                                            "id": "default",
+                                                                                                            "styleConfig": {
+                                                                                                                "external": {
+                                                                                                                    "display": "contents",
+                                                                                                                    "width": "100%"
+                                                                                                                },
+                                                                                                                "internal": {
+                                                                                                                    "align-items": "stretch",
+                                                                                                                    "box-sizing": "border-box",
+                                                                                                                    "flex-direction": "column",
+                                                                                                                    "height": "100%",
+                                                                                                                    "justify-content": "flex-start",
+                                                                                                                    "overflow": "auto"
+                                                                                                                }
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "type": "column"
+                                                                                                    },
+                                                                                                    "version": "1.0.0"
+                                                                                                }
+                                                                                            },
+                                                                                            "slot": null,
+                                                                                            "styles": null
+                                                                                        }
+                                                                                    ],
+                                                                                    "layout": {
+                                                                                        "default": {
+                                                                                            "children": null,
+                                                                                            "isInline": null,
+                                                                                            "items": [
+                                                                                                {
+                                                                                                    "element_id": "__cmirqaaxeeaaaabbwpddbiijjsjfvnvxx__column_1",
+                                                                                                    "styles": {
+                                                                                                        "display": "contents",
+                                                                                                        "width": "100%"
+                                                                                                    }
+                                                                                                }
+                                                                                            ],
+                                                                                            "root": null,
+                                                                                            "rules": null,
+                                                                                            "styles": {
+                                                                                                "box-sizing": "border-box",
+                                                                                                "grid-template-columns": "100fr",
+                                                                                                "grid-template-rows": "1fr",
+                                                                                                "width": "auto"
+                                                                                            },
+                                                                                            "type": "grid"
+                                                                                        },
+                                                                                        "queries": [
+                                                                                            {
+                                                                                                "layout": {
+                                                                                                    "children": null,
+                                                                                                    "isInline": null,
+                                                                                                    "items": [],
+                                                                                                    "root": null,
+                                                                                                    "rules": null,
+                                                                                                    "styles": {
+                                                                                                        "box-sizing": "border-box",
+                                                                                                        "grid-template-columns": "1fr",
+                                                                                                        "grid-template-rows": "1fr",
+                                                                                                        "height": "fit-content",
+                                                                                                        "max-height": "max-content",
+                                                                                                        "min-height": "min-content",
+                                                                                                        "width": "auto"
+                                                                                                    },
+                                                                                                    "type": "grid"
+                                                                                                },
+                                                                                                "query": {
+                                                                                                    "max-width": 640
+                                                                                                }
+                                                                                            }
+                                                                                        ],
+                                                                                        "version": "3.0.0"
+                                                                                    }
+                                                                                },
+                                                                                "preset": null,
+                                                                                "propertyValues": {
+                                                                                    "hideEmptyStateUi": {
+                                                                                        "type": "JSON_LITERAL",
+                                                                                        "value": true
+                                                                                    },
+                                                                                    "slotWrapperBehavior": {
+                                                                                        "type": "JSON_LITERAL",
+                                                                                        "value": "contents"
+                                                                                    }
+                                                                                },
+                                                                                "scratchPad": {
+                                                                                    "uib": {
+                                                                                        "layout": {
+                                                                                            "columnSection": {
+                                                                                                "breakpoints": [
+                                                                                                    {
+                                                                                                        "behavior": "stack",
+                                                                                                        "max-width": 640,
+                                                                                                        "styles": {
+                                                                                                            "box-sizing": "border-box",
+                                                                                                            "grid-template-columns": "1fr",
+                                                                                                            "grid-template-rows": "1fr",
+                                                                                                            "height": "fit-content",
+                                                                                                            "max-height": "max-content",
+                                                                                                            "min-height": "min-content",
+                                                                                                            "width": "auto"
+                                                                                                        }
+                                                                                                    }
+                                                                                                ],
+                                                                                                "children": [
+                                                                                                    {
+                                                                                                        "columnNumber": 1,
+                                                                                                        "unit": "%",
+                                                                                                        "width": 100
+                                                                                                    }
+                                                                                                ],
+                                                                                                "id": "UIB_COLUMN_SECTION_SINGLE_COLUMN_SECTION",
+                                                                                                "styleConfig": {
+                                                                                                    "external": {
+                                                                                                        "display": "contents",
+                                                                                                        "width": "100%"
+                                                                                                    },
+                                                                                                    "internal": {
+                                                                                                        "box-sizing": "border-box",
+                                                                                                        "grid-template-rows": "1fr",
+                                                                                                        "width": "auto"
+                                                                                                    }
+                                                                                                }
+                                                                                            },
+                                                                                            "type": "columnSection"
+                                                                                        },
+                                                                                        "version": "1.0.0"
+                                                                                    }
+                                                                                },
+                                                                                "slot": null,
+                                                                                "styles": null
+                                                                            }
+                                                                        ],
+                                                                        "layout": {
+                                                                            "default": {
+                                                                                "children": null,
+                                                                                "items": [
+                                                                                    {
+                                                                                        "element_id": "column_layout_2",
+                                                                                        "styles": {
+                                                                                            "display": "contents",
+                                                                                            "width": "100%"
+                                                                                        }
+                                                                                    }
+                                                                                ],
+                                                                                "root": null,
+                                                                                "rules": {
+                                                                                    "flex-direction": "row"
+                                                                                },
+                                                                                "styles": {
+                                                                                    "align-items": "stretch",
+                                                                                    "box-sizing": "border-box",
+                                                                                    "flex-direction": "column",
+                                                                                    "height": "100%",
+                                                                                    "justify-content": "flex-start",
+                                                                                    "overflow": "auto"
+                                                                                },
+                                                                                "type": "flex"
+                                                                            },
+                                                                            "version": "3.0.0"
+                                                                        }
+                                                                    },
+                                                                    "preset": null,
+                                                                    "propertyValues": {
+                                                                        "hideEmptyStateUi": {
+                                                                            "type": "JSON_LITERAL",
+                                                                            "value": true
+                                                                        },
+                                                                        "slotWrapperBehavior": {
+                                                                            "type": "JSON_LITERAL",
+                                                                            "value": "contents"
+                                                                        }
+                                                                    },
+                                                                    "scratchPad": {
+                                                                        "uib": {
+                                                                            "layout": {
+                                                                                "column": {
+                                                                                    "columnNumber": 0,
+                                                                                    "id": "default",
+                                                                                    "styleConfig": {
+                                                                                        "external": {
+                                                                                            "display": "contents",
+                                                                                            "width": "100%"
+                                                                                        },
+                                                                                        "internal": {
+                                                                                            "align-items": "stretch",
+                                                                                            "box-sizing": "border-box",
+                                                                                            "flex-direction": "column",
+                                                                                            "height": "100%",
+                                                                                            "justify-content": "flex-start",
+                                                                                            "overflow": "auto"
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "type": "column"
+                                                                            },
+                                                                            "version": "1.0.0"
+                                                                        }
+                                                                    },
+                                                                    "slot": null,
+                                                                    "styles": null
+                                                                }
+                                                            ],
+                                                            "layout": {
+                                                                "default": {
+                                                                    "children": null,
+                                                                    "isInline": null,
+                                                                    "items": [
+                                                                        {
+                                                                            "element_id": "__cmirqaafrqaabbwoddbiijjqffczffgaahh__column_1",
+                                                                            "styles": {
+                                                                                "display": "contents",
+                                                                                "width": "100%"
+                                                                            }
+                                                                        }
+                                                                    ],
+                                                                    "root": null,
+                                                                    "rules": null,
+                                                                    "styles": {
+                                                                        "box-sizing": "border-box",
+                                                                        "grid-template-columns": "100fr",
+                                                                        "grid-template-rows": "1fr",
+                                                                        "width": "auto"
+                                                                    },
+                                                                    "type": "grid"
+                                                                },
+                                                                "queries": [
+                                                                    {
+                                                                        "layout": {
+                                                                            "children": null,
+                                                                            "isInline": null,
+                                                                            "items": [],
+                                                                            "root": null,
+                                                                            "rules": null,
+                                                                            "styles": {
+                                                                                "box-sizing": "border-box",
+                                                                                "grid-template-columns": "1fr",
+                                                                                "grid-template-rows": "1fr",
+                                                                                "height": "fit-content",
+                                                                                "max-height": "max-content",
+                                                                                "min-height": "min-content",
+                                                                                "width": "auto"
+                                                                            },
+                                                                            "type": "grid"
+                                                                        },
+                                                                        "query": {
+                                                                            "max-width": 640
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "version": "3.0.0"
+                                                            }
+                                                        },
+                                                        "preset": null,
+                                                        "propertyValues": {
+                                                            "hideEmptyStateUi": {
+                                                                "type": "JSON_LITERAL",
+                                                                "value": true
+                                                            },
+                                                            "slotWrapperBehavior": {
+                                                                "type": "JSON_LITERAL",
+                                                                "value": "contents"
+                                                            }
+                                                        },
+                                                        "scratchPad": {
+                                                            "uib": {
+                                                                "layout": {
+                                                                    "columnSection": {
+                                                                        "breakpoints": [
+                                                                            {
+                                                                                "behavior": "stack",
+                                                                                "max-width": 640,
+                                                                                "styles": {
+                                                                                    "box-sizing": "border-box",
+                                                                                    "grid-template-columns": "1fr",
+                                                                                    "grid-template-rows": "1fr",
+                                                                                    "height": "fit-content",
+                                                                                    "max-height": "max-content",
+                                                                                    "min-height": "min-content",
+                                                                                    "width": "auto"
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        "children": [
+                                                                            {
+                                                                                "columnNumber": 1,
+                                                                                "unit": "%",
+                                                                                "width": 100
+                                                                            }
+                                                                        ],
+                                                                        "id": "UIB_COLUMN_SECTION_SINGLE_COLUMN_SECTION",
+                                                                        "styleConfig": {
+                                                                            "external": {
+                                                                                "display": "contents",
+                                                                                "width": "100%"
+                                                                            },
+                                                                            "internal": {
+                                                                                "box-sizing": "border-box",
+                                                                                "grid-template-rows": "1fr",
+                                                                                "width": "auto"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "type": "columnSection"
+                                                                },
+                                                                "version": "1.0.0"
+                                                            }
+                                                        },
+                                                        "slot": null,
+                                                        "styles": null
+                                                    }
+                                                ],
+                                                "layout": {
+                                                    "default": {
+                                                        "children": null,
+                                                        "items": [
+                                                            {
+                                                                "element_id": "Active_rec_header",
+                                                                "styles": {
+                                                                    "display": "contents",
+                                                                    "width": "100%"
+                                                                }
+                                                            },
+                                                            {
+                                                                "element_id": "column_layout_1",
+                                                                "styles": {
+                                                                    "display": "contents",
+                                                                    "width": "100%"
+                                                                }
+                                                            }
+                                                        ],
+                                                        "root": null,
+                                                        "rules": {
+                                                            "flex-direction": "row"
+                                                        },
+                                                        "styles": {
+                                                            "align-items": "stretch",
+                                                            "box-sizing": "border-box",
+                                                            "flex-direction": "column",
+                                                            "gap": "0",
+                                                            "height": "100%",
+                                                            "justify-content": "flex-start",
+                                                            "overflow": "auto"
+                                                        },
+                                                        "type": "flex"
+                                                    },
+                                                    "version": "3.0.0"
+                                                }
+                                            },
+                                            "preset": null,
+                                            "propertyValues": {
+                                                "hideEmptyStateUi": {
+                                                    "type": "JSON_LITERAL",
+                                                    "value": true
+                                                },
+                                                "slotWrapperBehavior": {
+                                                    "type": "JSON_LITERAL",
+                                                    "value": "contents"
+                                                }
+                                            },
+                                            "scratchPad": {
+                                                "uib": {
+                                                    "layout": {
+                                                        "column": {
+                                                            "columnNumber": 0,
+                                                            "id": "default",
+                                                            "styleConfig": {
+                                                                "external": {
+                                                                    "display": "contents",
+                                                                    "width": "100%"
+                                                                },
+                                                                "internal": {
+                                                                    "align-items": "stretch",
+                                                                    "box-sizing": "border-box",
+                                                                    "flex-direction": "column",
+                                                                    "gap": "0",
+                                                                    "height": "100%",
+                                                                    "justify-content": "flex-start",
+                                                                    "overflow": "auto"
+                                                                }
+                                                            }
+                                                        },
+                                                        "type": "column"
+                                                    },
+                                                    "version": "1.0.0"
+                                                }
+                                            },
+                                            "slot": null,
+                                            "styles": null
+                                        },
+                                        {
+                                            "definition": {
+                                                "id": "d356d14b6e293a3020a244b63d278d8f",
+                                                "type": "MACROPONENT"
+                                            },
+                                            "elementId": "__cmirjphjjyaacccggddbiijjnzoikggcee__column_2",
+                                            "elementLabel": "Column 2",
+                                            "eventMappings": [],
+                                            "isHidden": {
+                                                "type": "JSON_LITERAL",
+                                                "value": null
+                                            },
+                                            "overrides": {
+                                                "composition": [],
+                                                "layout": {
+                                                    "default": {
+                                                        "children": null,
+                                                        "items": [],
+                                                        "root": null,
+                                                        "rules": {
+                                                            "flex-direction": "row"
+                                                        },
+                                                        "styles": {
+                                                            "align-items": "stretch",
+                                                            "box-sizing": "border-box",
+                                                            "flex-direction": "column",
+                                                            "height": "100%",
+                                                            "justify-content": "flex-start",
+                                                            "overflow": "auto"
+                                                        },
+                                                        "type": "flex"
+                                                    },
+                                                    "version": "3.0.0"
+                                                }
+                                            },
+                                            "preset": null,
+                                            "propertyValues": {
+                                                "hideEmptyStateUi": {
+                                                    "type": "JSON_LITERAL",
+                                                    "value": true
+                                                },
+                                                "slotWrapperBehavior": {
+                                                    "type": "JSON_LITERAL",
+                                                    "value": "contents"
+                                                }
+                                            },
+                                            "scratchPad": {
+                                                "uib": {
+                                                    "layout": {
+                                                        "column": {
+                                                            "columnNumber": 2,
+                                                            "id": "default",
+                                                            "styleConfig": {
+                                                                "external": {
+                                                                    "display": "contents",
+                                                                    "width": "100%"
+                                                                },
+                                                                "internal": {
+                                                                    "align-items": "stretch",
+                                                                    "box-sizing": "border-box",
+                                                                    "flex-direction": "column",
+                                                                    "height": "100%",
+                                                                    "justify-content": "flex-start",
+                                                                    "overflow": "auto"
+                                                                }
+                                                            }
+                                                        },
+                                                        "type": "column"
+                                                    },
+                                                    "version": "1.0.0"
+                                                }
+                                            },
+                                            "slot": null,
+                                            "styles": null
+                                        }
+                                    ],
+                                    "layout": {
+                                        "default": {
+                                            "children": null,
+                                            "isInline": null,
+                                            "items": [
+                                                {
+                                                    "element_id": "__cmirhkaablaaggaaoddbiijjfyfxobdc__column_1",
+                                                    "styles": {
+                                                        "display": "contents",
+                                                        "width": "100%"
+                                                    }
+                                                },
+                                                {
+                                                    "element_id": "__cmirjphjjyaacccggddbiijjnzoikggcee__column_2",
+                                                    "styles": {
+                                                        "display": "contents",
+                                                        "width": "100%"
+                                                    }
+                                                }
+                                            ],
+                                            "root": null,
+                                            "rules": null,
+                                            "styles": {
+                                                "box-sizing": "border-box",
+                                                "column-gap": "0",
+                                                "grid-template-columns": "50fr 50fr",
+                                                "grid-template-rows": "1fr",
+                                                "height": "640px",
+                                                "width": "auto"
+                                            },
+                                            "type": "grid"
+                                        },
+                                        "queries": [
+                                            {
+                                                "layout": {
+                                                    "children": null,
+                                                    "isInline": null,
+                                                    "items": [],
+                                                    "root": null,
+                                                    "rules": null,
+                                                    "styles": {
+                                                        "box-sizing": "border-box",
+                                                        "column-gap": "0",
+                                                        "grid-template-columns": "1fr",
+                                                        "grid-template-rows": "1fr",
+                                                        "height": "fit-content",
+                                                        "max-height": "max-content",
+                                                        "min-height": "min-content",
+                                                        "width": "auto"
+                                                    },
+                                                    "type": "grid"
+                                                },
+                                                "query": {
+                                                    "max-width": 300
+                                                }
+                                            }
+                                        ],
+                                        "version": "3.0.0"
+                                    }
+                                },
+                                "preset": null,
+                                "propertyValues": {
+                                    "hideEmptyStateUi": {
+                                        "type": "JSON_LITERAL",
+                                        "value": true
+                                    },
+                                    "slotWrapperBehavior": {
+                                        "type": "JSON_LITERAL",
+                                        "value": "contents"
+                                    }
+                                },
+                                "scratchPad": {
+                                    "uib": {
+                                        "layout": {
+                                            "columnSection": {
+                                                "breakpoints": [
+                                                    {
+                                                        "behavior": "stack",
+                                                        "max-width": 300,
+                                                        "styles": {
+                                                            "box-sizing": "border-box",
+                                                            "grid-template-columns": "1fr",
+                                                            "grid-template-rows": "1fr",
+                                                            "height": "fit-content",
+                                                            "max-height": "max-content",
+                                                            "min-height": "min-content",
+                                                            "width": "auto"
+                                                        }
+                                                    }
+                                                ],
+                                                "children": [
+                                                    {
+                                                        "columnNumber": 1,
+                                                        "unit": "%",
+                                                        "width": 50
+                                                    },
+                                                    {
+                                                        "columnNumber": 2,
+                                                        "unit": "%",
+                                                        "width": 50
+                                                    }
+                                                ],
+                                                "id": "UIB_COLUMN_SECTION_SINGLE_COLUMN_SECTION",
+                                                "styleConfig": {
+                                                    "external": {
+                                                        "display": "contents",
+                                                        "width": "100%"
+                                                    },
+                                                    "internal": {
+                                                        "box-sizing": "border-box",
+                                                        "column-gap": "0",
+                                                        "grid-template-rows": "1fr",
+                                                        "height": "640px",
+                                                        "width": "auto"
+                                                    }
+                                                }
+                                            },
+                                            "type": "columnSection"
+                                        },
+                                        "version": "1.0.0"
+                                    }
+                                },
+                                "slot": null,
+                                "styles": null
+                            }
+                        ],
+                        "layout": {
+                            "default": {
+                                "children": null,
+                                "items": [
+                                    {
+                                        "element_id": "active",
+                                        "styles": {
+                                            "display": "contents",
+                                            "width": "100%"
+                                        }
+                                    }
+                                ],
+                                "root": null,
+                                "rules": {
+                                    "flex-direction": "row"
+                                },
+                                "styles": {
+                                    "align-items": "stretch",
+                                    "background": "#F8F9FA",
+                                    "box-sizing": "border-box",
+                                    "flex-direction": "column",
+                                    "gap": "24px",
+                                    "height": "100%",
+                                    "justify-content": "flex-start",
+                                    "overflow": "auto"
+                                },
+                                "type": "flex"
+                            },
+                            "version": "3.0.0"
+                        }
+                    },
+                    "preset": null,
+                    "propertyValues": {
+                        "hideEmptyStateUi": {
+                            "type": "JSON_LITERAL",
+                            "value": true
+                        },
+                        "slotWrapperBehavior": {
+                            "type": "JSON_LITERAL",
+                            "value": "contents"
+                        }
+                    },
+                    "scratchPad": {
+                        "uib": {
+                            "layout": {
+                                "column": {
+                                    "columnNumber": 0,
+                                    "id": "default",
+                                    "styleConfig": {
+                                        "external": {
+                                            "display": "contents",
+                                            "width": "100%"
+                                        },
+                                        "internal": {
+                                            "align-items": "stretch",
+                                            "background": "#F8F9FA",
+                                            "box-sizing": "border-box",
+                                            "flex-direction": "column",
+                                            "gap": "24px",
+                                            "height": "100%",
+                                            "justify-content": "flex-start",
+                                            "overflow": "auto"
+                                        }
+                                    }
+                                },
+                                "type": "column"
+                            },
+                            "version": "1.0.0"
+                        }
+                    },
+                    "slot": null,
+                    "styles": null
+                }
+            ],
+            "layout": {
+                "default": {
+                    "children": null,
+                    "isInline": null,
+                    "items": [
+                        {
+                            "element_id": "__cmirgddyeyaaccccggddbiijjiincghewa__column_1",
+                            "styles": {
+                                "display": "contents",
+                                "width": "100%"
+                            }
+                        }
+                    ],
+                    "root": null,
+                    "rules": null,
+                    "styles": {
+                        "box-sizing": "border-box",
+                        "column-gap": "24px",
+                        "grid-template-columns": "100fr",
+                        "grid-template-rows": "1fr",
+                        "margin-bottom": "32px",
+                        "padding-left": "32px",
+                        "padding-right": "32px",
+                        "padding-top": "32px",
+                        "width": "auto"
+                    },
+                    "type": "grid"
+                },
+                "queries": [
+                    {
+                        "layout": {
+                            "children": null,
+                            "isInline": null,
+                            "items": [],
+                            "root": null,
+                            "rules": null,
+                            "styles": {
+                                "box-sizing": "border-box",
+                                "column-gap": "24px",
+                                "grid-template-columns": "1fr",
+                                "grid-template-rows": "1fr",
+                                "height": "fit-content",
+                                "margin-bottom": "32px",
+                                "max-height": "max-content",
+                                "min-height": "min-content",
+                                "padding-left": "32px",
+                                "padding-right": "32px",
+                                "padding-top": "32px",
+                                "width": "auto"
+                            },
+                            "type": "grid"
+                        },
+                        "query": {
+                            "max-width": 640
+                        }
+                    }
+                ],
+                "version": "3.0.0"
+            }
+        },
+        "preset": null,
+        "propertyValues": {
+            "hideEmptyStateUi": {
+                "type": "JSON_LITERAL",
+                "value": true
+            },
+            "slotWrapperBehavior": {
+                "type": "JSON_LITERAL",
+                "value": "contents"
+            }
+        },
+        "scratchPad": {
+            "uib": {
+                "layout": {
+                    "columnSection": {
+                        "breakpoints": [
+                            {
+                                "behavior": "stack",
+                                "max-width": 640,
+                                "styles": {
+                                    "box-sizing": "border-box",
+                                    "grid-template-columns": "1fr",
+                                    "grid-template-rows": "1fr",
+                                    "height": "fit-content",
+                                    "max-height": "max-content",
+                                    "min-height": "min-content",
+                                    "width": "auto"
+                                }
+                            }
+                        ],
+                        "children": [
+                            {
+                                "columnNumber": 1,
+                                "unit": "%",
+                                "width": 100
+                            }
+                        ],
+                        "id": "UIB_COLUMN_SECTION_SINGLE_COLUMN_SECTION",
+                        "styleConfig": {
+                            "external": {
+                                "display": "contents",
+                                "width": "100%"
+                            },
+                            "internal": {
+                                "box-sizing": "border-box",
+                                "column-gap": "24px",
+                                "grid-template-rows": "1fr",
+                                "margin-bottom": "32px",
+                                "padding-left": "32px",
+                                "padding-right": "32px",
+                                "padding-top": "32px",
+                                "width": "auto"
+                            }
+                        }
+                    },
+                    "type": "columnSection"
+                },
+                "version": "1.0.0"
+            }
+        },
+        "slot": null,
+        "styles": null
+    }
+]</composition>
+        <da_relay_models/>
+        <data>[
+    {
+        "definition": {
+            "id": "b997a84053021010cbc2ddeeff7b1228",
+            "type": "COMPOSITE"
+        },
+        "elementId": "active_sprints",
+        "elementLabel": "active_sprints",
+        "eventMappings": [],
+        "inputValues": {
+            "encodedQuery": {
+                "type": "JSON_LITERAL",
+                "value": "state!=complete"
+            },
+            "limit": {
+                "type": "JSON_LITERAL",
+                "value": "10"
+            },
+            "offset": {
+                "type": "JSON_LITERAL",
+                "value": null
+            },
+            "orderBy": {
+                "type": "JSON_LITERAL",
+                "value": "end_date"
+            },
+            "queryCategory": {
+                "type": "JSON_LITERAL",
+                "value": ""
+            },
+            "returnFieldMetadata": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "returnFields": {
+                "type": "JSON_LITERAL",
+                "value": "sys_id,number,sprint_name,team,state,start_date,end_date"
+            },
+            "sortType": {
+                "type": "JSON_LITERAL",
+                "value": "asc"
+            },
+            "table": {
+                "type": "JSON_LITERAL",
+                "value": "x_1865669_retrospe_sprint"
+            }
+        },
+        "readEvaluationMode": "EAGER"
+    }
+]</data>
+        <description/>
+        <disable_auto_reflow>false</disable_auto_reflow>
+        <dispatched_events/>
+        <ext_controller_dep/>
+        <extends display_value="Page Template">19be392623033300f4b4c50947bf65ba</extends>
+        <extension_point/>
+        <form_factors>{}</form_factors>
+        <handled_events/>
+        <interactions/>
+        <interfaces/>
+        <internal_event_mappings>{}</internal_event_mappings>
+        <layout>{
+    "default": {
+        "children": null,
+        "items": [
+            {
+                "element_id": "Heading_Column",
+                "styles": {
+                    "display": "contents",
+                    "width": "100%"
+                }
+            },
+            {
+                "element_id": "cards",
+                "styles": {
+                    "display": "contents",
+                    "width": "100%"
+                }
+            }
+        ],
+        "root": null,
+        "rules": null,
+        "styles": {
+            "flex-direction": "column"
+        },
+        "templateId": "5832fd4d53c31010e6bcddeeff7b12db",
+        "type": "flex"
+    },
+    "version": "3.0.0"
+}</layout>
+        <macroponent_dependencies/>
+        <name>Default</name>
+        <output_prop_mapping/>
+        <props>[]</props>
+        <required_translations>[ {
+  "message" : "Active Sprints",
+  "comment" : ""
+}, {
+  "message" : "All Active Tasks",
+  "comment" : ""
+}, {
+  "message" : "Manage sprints, retros, and action items",
+  "comment" : ""
+}, {
+  "message" : "📅 Retrospective Management",
+  "comment" : ""
+} ]</required_translations>
+        <root_component/>
+        <root_component_config/>
+        <root_component_definition/>
+        <schema_version>1.0.0</schema_version>
+        <state_persistence_config/>
+        <state_properties/>
+        <sys_class_name>sys_ux_macroponent</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-04 12:28:41</sys_created_on>
+        <sys_id>a29d526a836d369089529370ceaad30e</sys_id>
+        <sys_mod_count>140</sys_mod_count>
+        <sys_name>Default</sys_name>
+        <sys_package display_value="Retrospective Management" source="x_1865669_retrospe">fe15f7248365fa5089529370ceaad3a1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Retrospective Management">fe15f7248365fa5089529370ceaad3a1</sys_scope>
+        <sys_update_name>sys_ux_macroponent_a29d526a836d369089529370ceaad30e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-04 17:41:28</sys_updated_on>
+    </sys_ux_macroponent>
+    <sys_translated_text action="delete_multiple" query="documentkey=a29d526a836d369089529370ceaad30e"/>
+</record_update>
